@@ -1,0 +1,805 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int dividend, divisor, quotient, remainder;
+    dividend = 146;
+    divisor = 25;
+    quotient = dividend / divisor;
+    remainder = dividend % divisor;
+    cout << " Dividend = " << dividend << endl;
+    cout << "  Divisor = " << divisor << endl;
+    cout << " Quotient = " << quotient << endl;
+    cout << "Remainder = " << remainder;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "Size of char: " << sizeof(char) << " byte" << endl;
+    cout << "Size of int: " << sizeof(int) << " bytes" << endl;
+    cout << "Size of float: " << sizeof(float) << " bytes" << endl;
+    cout << "Size of double: " << sizeof(double) << " bytes";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n = 25;
+    if ( n % 2 == 0)
+        cout << n << " is even.";
+    else
+        cout << n << " is odd.";
+    cout << endl;
+    n % 2 == 0 ? cout << n << " is even." :  cout << n << " is odd.";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    float a, b, c, x1, x2, discriminant, realPart, imaginaryPart;
+    cout << "Enter coefficients a, b and c: ";
+    cin >> a >> b >> c;
+    discriminant = b*b - 4*a*c;
+    if (discriminant > 0) {
+        x1 = (-b + sqrt(discriminant)) / (2*a);
+        x2 = (-b - sqrt(discriminant)) / (2*a);
+        cout << "Roots are real and different." << endl;
+        cout << "x1 = " << x1 << endl;
+        cout << "x2 = " << x2 << endl;
+    }
+    else if (discriminant == 0) {
+        cout << "Roots are real and same." << endl;
+        x1 = -b/(2*a);
+        cout << "x1 = x2 =" << x1 << endl;
+    }
+    else {
+        realPart = -b/(2*a);
+        imaginaryPart = sqrt(-discriminant)/(2*a);
+        cout << "Roots are complex and different."  << endl;
+        cout << "x1 = " << realPart << "+" << imaginaryPart << "i" << endl;
+        cout << "x2 = " << realPart << "-" << imaginaryPart << "i" << endl;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int year = 1920;
+    if (year % 4 == 0) {
+        if (year % 100 == 0) {
+            if (year % 400 == 0)
+                cout << year << " is a leap year.";
+            else
+                cout << year << " is not a leap year.";
+        }
+        else
+            cout << year << " is a leap year.";
+    }
+    else
+        cout << year << " is not a leap year.";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int t1 = 0, t2 = 1, nextTerm, n = 100;
+    cout << "Fibonacci Series: " << t1 << ", " << t2;
+    nextTerm = t1 + t2;
+    while(nextTerm <= n) {
+        cout << ", " << nextTerm;
+        t1 = t2;
+        t2 = nextTerm;
+        nextTerm = t1 + t2;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n1 = 12, n2 = 30, hcf, lcm, temp;
+    hcf = n1;
+    temp = n2;
+    while(hcf != temp) {
+        if(hcf > temp)
+            hcf -= temp;
+        else
+            temp -= hcf;
+    }
+    lcm = (n1 * n2) / hcf;
+    cout << "HCF = " << hcf << "\nLCM = " << lcm;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n = 1753, m = 0;
+    while(n != 0) {
+        m = 10 * m + n % 10;
+        n /= 10;
+    }
+    cout << "Reversed Number = " << m;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n, num = 12345, digit, rev = 0;
+    n = num;
+    do {
+        digit = num % 10;
+        rev = (rev * 10) + digit;
+        num = num / 10;
+    } while (num != 0);
+    cout << " The reverse of the number is: " << rev << endl;
+    if (n == rev)
+        cout << " The number is a palindrome.";
+    else
+        cout << " The number is not a palindrome.";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    float base = 10, exponent = 7, result;
+    result = pow(base, exponent);
+    cout << base << "^" << exponent << " = " << result;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    char c = 'A';
+    cout << "ASCII Value of " << c << " is " << int(c);
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int i, n = 100;
+    bool isPrime = true;
+    if (n == 0 || n == 1) {
+        isPrime = false;
+    } else {
+        for (i = 2; i <= n / 2; ++i) {
+            if (n % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    if (isPrime)
+        cout << n << " is a prime number";
+    else
+        cout << n << " is not a prime number";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int low = 10, high = 50, i;
+    bool isPrime = true;
+    cout << "\nPrime numbers between " << low << " and " << high << " are: " << endl;
+    while (low < high) {
+        isPrime = true;
+        if (low == 0 || low == 1) {
+            isPrime = false;
+        } else {
+            for (i = 2; i <= low / 2; ++i) {
+                if (low % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+        if (isPrime)
+            cout << low << " ";
+        ++low;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n = 50, i;
+    cout << "Factors of " << n << " are: ";
+    for(i = 1; i <= n; ++i) {
+        if(n % i == 0)
+            cout << i << " ";
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int rows = 5;
+    for(int i = 1; i <= rows; ++i) {
+        for(int j = 1; j <= i; ++j) {
+            cout << j << " ";
+        }
+        cout << "\n";
+    }
+    for(int i = rows; i >= 1; --i) {
+        for(int j = 1; j <= i; ++j) {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int space, rows = 5;
+    for(int i = 1, k = 0; i <= rows; ++i, k = 0) {
+        for(space = 1; space <= rows-i; ++space) {
+            cout <<"  ";
+        }
+        while(k != 2*i-1) {
+            cout << "* ";
+            ++k;
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int rows = 5;
+    for(int i = rows; i >= 1; --i) {
+        for(int space = 0; space < rows-i; ++space)
+            cout << "  ";
+        for(int j = i; j <= 2*i-1; ++j)
+            cout << "* ";
+        for(int j = 0; j < i-1; ++j)
+            cout << "* ";
+        cout << endl;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    char op;
+    float num1 = 7, num2 = 9;
+    cin >> op;
+    switch(op) {
+        case '+':
+            cout << num1 << " + " << num2 << " = " << num1 + num2;
+            break;
+        case '-':
+            cout << num1 << " - " << num2 << " = " << num1 - num2;
+            break;
+        case '*':
+            cout << num1 << " * " << num2 << " = " << num1 * num2;
+            break;
+        case '/':
+            cout << num1 << " / " << num2 << " = " << num1 / num2;
+            break;
+        default:
+            cout << "Error! operator is not correct";
+            break;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+bool checkPrimeNumber(int n) {
+    bool isPrime = true;
+    if (n == 0 || n == 1) isPrime = false;
+    else
+        for (int i = 2; i <= n / 2; ++i)
+            if (n % i == 0) {
+                isPrime = false;
+                break;
+            }
+    return isPrime;
+}
+int main() {
+    int a = 13, b = 29;
+    bool flag;
+    cout << "a : " << a << "\nb : " << b << endl;
+    cout << "Prime Numbers : ";
+    for(int i = a; i <= b; ++i) {
+        flag = checkPrimeNumber(i);
+        if(flag) cout << i << " ";
+    }
+    return 0;
+}
+
+#include<iostream>
+using namespace std;
+int factorial(int n) {
+    if(n > 1)
+        return n * factorial(n - 1);
+    else
+        return 1;
+}
+int main() {
+    int n = 10;
+    cout << "Factorial of " << n << " = " << factorial(n);
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int hcf(int n1, int n2) {
+    if (n2 != 0)
+        return hcf(n2, n1 % n2);
+    else
+        return n1;
+}
+int main() {
+    int n1 = 12, n2 = 15;
+    cout << "H.C.F of " << n1 << " & " <<  n2 << " is: " << hcf(n1, n2);
+    return 0;
+}
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+float calculateSD(float data[]) {
+    float sum = 0.0, mean, standardDeviation = 0.0;
+    int i;
+    for(i = 0; i < 10; ++i) {
+        sum += data[i];
+    }
+    mean = sum / 10;
+    for(i = 0; i < 10; ++i) {
+        standardDeviation += pow(data[i] - mean, 2);
+    }
+    return sqrt(standardDeviation / 10);
+}
+int main() {
+    int i;
+    float data[10];
+    cout << "Enter 10 elements: ";
+    for(i = 0; i < 10; ++i) {
+        cin >> data[i];
+    }
+    cout << endl << "Standard Deviation = " << calculateSD(data);
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int a[10][10], b[10][10], mult[10][10], r1, c1, r2, c2, i, j, k;
+    cout << "Enter rows and columns for first matrix: ";
+    cin >> r1 >> c1;
+    cout << "Enter rows and columns for second matrix: ";
+    cin >> r2 >> c2;
+    while (c1!=r2) {
+        cout << "Error! column of first matrix not equal to row of second.";
+        cout << "Enter rows and columns for first matrix: ";
+        cin >> r1 >> c1;
+        cout << "Enter rows and columns for second matrix: ";
+        cin >> r2 >> c2;
+    }
+    cout << endl << "Enter elements of matrix 1:" << endl;
+    for(i = 0; i < r1; ++i)
+        for(j = 0; j < c1; ++j)
+        {
+            cout << "Enter element a" << i + 1 << j + 1 << " : ";
+            cin >> a[i][j];
+        }
+    cout << endl << "Enter elements of matrix 2:" << endl;
+    for(i = 0; i < r2; ++i)
+        for(j = 0; j < c2; ++j)
+        {
+            cout << "Enter element b" << i + 1 << j + 1 << " : ";
+            cin >> b[i][j];
+        }
+    // Initializing elements of matrix mult to 0.
+    for(i = 0; i < r1; ++i)
+        for(j = 0; j < c2; ++j)
+        {
+            mult[i][j]=0;
+        }
+    // Multiplying matrix a and b and storing in array mult.
+    for(i = 0; i < r1; ++i)
+        for(j = 0; j < c2; ++j)
+            for(k = 0; k < c1; ++k)
+            {
+                mult[i][j] += a[i][k] * b[k][j];
+            }
+    // Displaying the multiplication of two matrix.
+    cout << endl << "Output Matrix: " << endl;
+    for(i = 0; i < r1; ++i)
+    for(j = 0; j < c2; ++j) {
+        cout << " " << mult[i][j];
+        if(j == c2-1)
+            cout << endl;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+   int data[5];
+   cout << "Enter elements: ";
+   for(int i = 0; i < 5; ++i)
+      cin >> data[i];
+   cout << "You entered: ";
+   for(int i = 0; i < 5; ++i)
+      cout << endl << *(data + i);
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main()
+{
+   char c[] = "C++ programming is not easy.", check = 'm';
+   int count = 0;
+
+   for(int i = 0; c[i] != '\0'; ++i)
+   {
+       if(check == c[i])
+           ++count;
+   }
+   cout << "Frequency of " << check <<  " = " << count;
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    char line[150];
+    int vowels, consonants, digits, spaces;
+    vowels =  consonants = digits = spaces = 0;
+    cout << "Enter a line of string: ";
+    cin.getline(line, 150);
+    for(int i = 0; line[i]!='\0'; ++i)
+    {
+        if(line[i]=='a' || line[i]=='e' || line[i]=='i' ||
+           line[i]=='o' || line[i]=='u' || line[i]=='A' ||
+           line[i]=='E' || line[i]=='I' || line[i]=='O' ||
+           line[i]=='U')
+        {
+            ++vowels;
+        }
+        else if((line[i]>='a'&& line[i]<='z') || (line[i]>='A'&& line[i]<='Z'))
+        {
+            ++consonants;
+        }
+        else if(line[i]>='0' && line[i]<='9')
+        {
+            ++digits;
+        }
+        else if (line[i]==' ')
+        {
+            ++spaces;
+        }
+    }
+    cout << "Vowels: " << vowels << endl;
+    cout << "Consonants: " << consonants << endl;
+    cout << "Digits: " << digits << endl;
+    cout << "White spaces: " << spaces << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    string line;
+    int vowels, consonants, digits, spaces;
+    vowels =  consonants = digits = spaces = 0;
+    cout << "Enter a line of string: ";
+    getline(cin, line);
+    for(int i = 0; i < line.length(); ++i)
+    {
+        if(line[i]=='a' || line[i]=='e' || line[i]=='i' ||
+           line[i]=='o' || line[i]=='u' || line[i]=='A' ||
+           line[i]=='E' || line[i]=='I' || line[i]=='O' ||
+           line[i]=='U')
+        {
+            ++vowels;
+        }
+        else if((line[i]>='a'&& line[i]<='z') || (line[i]>='A'&& line[i]<='Z'))
+        {
+            ++consonants;
+        }
+        else if(line[i]>='0' && line[i]<='9')
+        {
+            ++digits;
+        }
+        else if (line[i]==' ')
+        {
+            ++spaces;
+        }
+    }
+
+    cout << "Vowels: " << vowels << endl;
+    cout << "Consonants: " << consonants << endl;
+    cout << "Digits: " << digits << endl;
+    cout << "White spaces: " << spaces << endl;
+
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    string s1, s2, result;
+
+    cout << "Enter string s1: ";
+    getline (cin, s1);
+
+    cout << "Enter string s2: ";
+    getline (cin, s2);
+
+    result = s1 + s2;
+
+    cout << "Resultant String = "<< result;
+
+    return 0;
+}
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+    char s1[50], s2[50];
+    cout << "Enter string s1: ";
+    cin.getline(s1, 50);
+    cout << "Enter string s2: ";
+    cin.getline(s2, 50);
+    strcat(s1, s2);
+    cout << "s1 = " << s1 << endl;
+    cout << "s2 = " << s2;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    string line;
+    string temp = "";
+    cout << "Enter a string: ";
+    getline(cin, line);
+    for (int i = 0; i < line.size(); ++i) {
+        if ((line[i] >= 'a' && line[i] <= 'z') || (line[i] >= 'A' && line[i] <= 'Z')) {
+            temp = temp + line[i];
+        }
+    }
+    line = temp;
+    cout << "Output String: " << line;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    char line[100], alphabetString[100];
+    int j = 0;
+    cout << "Enter a string: ";
+    cin.getline(line, 100);
+    for(int i = 0; line[i] != '\0'; ++i)
+    {
+        if ((line[i] >= 'a' && line[i]<='z') || (line[i] >= 'A' && line[i]<='Z'))
+        {
+            alphabetString[j++] = line[i];
+
+        }
+    }
+    alphabetString[j] = '\0';
+    cout << "Output String: " << alphabetString;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    string s1, s2;
+    cout << "Enter string s1: ";
+    getline (cin, s1);
+    s2 = s1;
+    cout << "s1 = "<< s1 << endl;
+    cout << "s2 = "<< s2;
+    return 0;
+}
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+    char s1[100], s2[100];
+    cout << "Enter string s1: ";
+    cin.getline(s1, 100);
+    strcpy(s2, s1);
+    cout << "s1 = "<< s1 << endl;
+    cout << "s2 = "<< s2;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    string str[10], temp;
+
+    cout << "Enter 10 words: " << endl;
+    for(int i = 0; i < 10; ++i)
+    {
+      getline(cin, str[i]);
+    }
+
+    // Use Bubble Sort to arrange words
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9 - i; ++j) {
+            if (str[j] > str[j + 1]) {
+                temp = str[j];
+                str[j] = str[j + 1];
+                str[j + 1] = temp;
+            }
+        }
+    }
+
+    cout << "In lexicographical order: " << endl;
+
+    for(int i = 0; i < 10; ++i)
+    {
+       cout << str[i] << endl;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+struct student {
+    char name[50];
+    int roll;
+    float marks;
+};
+int main() {
+    student s;
+    cout << "Enter information," << endl;
+    cout << "Enter name: ";
+    cin >> s.name;
+    cout << "Enter roll number: ";
+    cin >> s.roll;
+    cout << "Enter marks: ";
+    cin >> s.marks;
+    cout << "\nDisplaying Information," << endl;
+    cout << "Name: " << s.name << endl;
+    cout << "Roll: " << s.roll << endl;
+    cout << "Marks: " << s.marks << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+struct Distance {
+    int feet;
+    float inch;
+}d 1 , d2, sum;
+int main() {
+    cout << "Enter 1st distance," << endl;
+    cout << "Enter feet: ";
+    cin >> d1.feet;
+    cout << "Enter inch: ";
+    cin >> d1.inch;
+
+    cout << "\nEnter information for 2nd distance" << endl;
+    cout << "Enter feet: ";
+    cin >> d2.feet;
+    cout << "Enter inch: ";
+    cin >> d2.inch;
+
+    sum.feet = d1.feet+d2.feet;
+    sum.inch = d1.inch+d2.inch;
+
+    // changing to feet if inch is greater than 12
+    if(sum.inch > 12) {
+        // extra feet
+        int extra = sum.inch / 12;
+
+        sum.feet += extra;
+        sum.inch -= (extra * 12);
+    }
+
+    cout << endl << "Sum of distances = " << sum.feet << " feet  " << sum.inch << " inches";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+typedef struct complex {
+    float real;
+    float imag;
+} complexNumber;
+complexNumber addComplexNumbers(complex num1, complex num2) {
+    complex temp;
+    temp.real = num1.real + num2.real;
+    temp.imag = num1.imag + num2.imag;
+    return (temp);
+}
+int main() {
+    complexNumber num1, num2, complexSum;
+    char signOfImag;
+
+    cout << "For 1st complex number," << endl;
+    cout << "Enter real and imaginary parts respectively:" << endl;
+    cin >> num1.real >> num1.imag;
+
+    cout << endl
+         << "For 2nd complex number," << endl;
+    cout << "Enter real and imaginary parts respectively:" << endl;
+    cin >> num2.real >> num2.imag;
+
+    // Call add function and store result in complexSum
+    complexSum = addComplexNumbers(num1, num2);
+
+    // Use Ternary Operator to check the sign of the imaginary number
+    signOfImag = (complexSum.imag > 0) ? '+' : '-';
+
+    // Use Ternary Operator to adjust the sign of the imaginary number
+    complexSum.imag = (complexSum.imag > 0) ? complexSum.imag : -complexSum.imag;
+
+    cout << "Sum = " << complexSum.real << signOfImag << complexSum.imag << "i";
+
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+struct student {
+    char name[50];
+    int roll;
+    float marks;
+} s[10];
+int main() {
+    cout << "Enter information of students: " << endl;
+
+    // storing information
+    for(int i = 0; i < 10; ++i)
+    {
+        s[i].roll = i+1;
+        cout << "For roll number" << s[i].roll << "," << endl;
+
+        cout << "Enter name: ";
+        cin >> s[i].name;
+
+        cout << "Enter marks: ";
+        cin >> s[i].marks;
+
+        cout << endl;
+    }
+
+    cout << "Displaying Information: " << endl;
+
+    // Displaying information
+    for(int i = 0; i < 10; ++i)
+    {
+        cout << "\nRoll number: " << i+1 << endl;
+        cout << "Name: " << s[i].name << endl;
+        cout << "Marks: " << s[i].marks << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+

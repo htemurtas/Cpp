@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+int main() {
+    const int n = 6;
+    char s[n];
+    cout << "Girdi :";
+    while ( true ) {
+        //cin.get(s,n);
+        cin.getline(s,n);
+        cout << s << ", " << strlen(s) << endl;
+        if(cin.fail()) {
+            cin.clear();
+            cout << "-----Temizlendi\n";
+        } else break;
+    }
+    cout << "-----Bitti\n";
+    return 0;
+}
+
+#include<iostream>
+using namespace std;
+int main() {
+    char chr, next;
+    int sayi;
+    do {
+        cout << "Bir sayi gir : ";
+        cin >> sayi;
+        cout << "Girilen sayi = " << sayi << endl;
+        cout << "Devam mi ? (e/h) : ";
+        cin >> chr;
+        do cin.get(next); while (next != '\n');
+    } while (chr == 'E' || chr == 'e');
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    cout << "Birseyler Yaz\n";
+    int ch;
+    while (true) {
+        ch = getchar();
+        ch = toupper(ch);
+        if (ch == '\n') break;
+        putchar(ch);
+    }
+    cout << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    const int N = 11;
+    int ch;
+    char s[N];
+    cout << "  Name : ";
+    int n = 0;
+    while (true) {
+        ch = getchar();
+        cout << (char)ch << " ---> " << ch << endl;
+        if (ch == '\n') break;
+        if (n<N-1) s[n++] = (char)ch;
+    }
+    s[n] = '\0';
+    cout << "  Name : " << s << endl;
+    cout << "Length : " << strlen(s) << endl;
+    return 0;
+}

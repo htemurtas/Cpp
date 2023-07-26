@@ -1,0 +1,757 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+#include <time.h>
+#include <malloc.h>
+
+void main() {
+	system("color 1A");
+	setlocale(LC_ALL, "Turkish");
+	printf("Tьrkзe Karekterler\n\n");
+	for (int i = 0; i < 15; i++)
+		printf("Зз Рр Ээ Цц Юю Ьь\n");
+	printf("\n");
+	system("pause");
+	printf("Зэkmak iзin bir tuюa basэn . . . ");
+	_getch();
+}
+
+void main() {
+	int num;
+	//num = 1000000;
+	//num = 0x3f7ae;
+	num = 0435204;
+	printf("num : %7d, Decimal\n", num);
+	printf("num : %7x, Hexadecimal\n", num);
+	printf("num : %7o, Octal\n\n", num);
+	printf("sizeof(num) : %d Bytes\n\n", sizeof(num));
+	system("pause");
+}
+
+void main() {
+	int a = 5;
+	int b(3);
+	int c{ 2 };
+	printf("a = %d, b = %d, c = %d\n", a, b, c);
+	auto d = a;
+	printf("d = %d\n", d);
+	b = 7;
+	decltype(b) e = 10;
+	printf("b = %d, e = %d\n\n", b, e);
+	system("PAUSE");
+}
+
+void main() {
+	char str1[80];
+	char str2[80];
+	while (true)  {
+		printf("String1 : ");
+		scanf("%s", str1);
+		printf("String2 : ");
+		scanf("%s", str2);
+		printf("\n");
+		if (strcmp(str1, str2) == 0) break;
+		printf("Tekrar Dene\n\n");
+	}
+}
+
+#define PI 3.141593
+void main() {
+	setlocale(LC_ALL, "Turkish");
+	printf("Yarэзapэ Klavyeden Girilen Kьrenin Yьzey Alanэ ve Hacmi\n\n");
+	printf("\tPi Sayэsэ %f Alэnacak\n\n", PI);
+	float r = 0, yalan, hacim;
+	printf("%25s = ", "Kьrenin Yarэзapэ");
+	scanf("%f", &r);
+	printf("\tYarэзap %f Olarak Alэndэ\n", r);
+	yalan = 4 * PI * r * r;
+	hacim = yalan * r / 3;
+	printf("\n%25s : %.9f", "Kьrenin Yьzey Alanэ", yalan);
+	printf("\n%25s : %.9f\n\n", "Kьrenin Hacmi", hacim);
+	system("pause");
+}
+
+void main() {
+	int x;
+	setlocale(LC_ALL, "Turkish");
+	while (true) {
+		x = -1;
+		printf("Tamsayэ Gir ---> ");	
+		scanf("%d", &x);
+		fflush(stdin);
+		if (x < 0) {
+			printf("Tamsayэ Deрil veya Negatif Bir Tamsayэ Girildi\n\n");
+			break;
+		} else {
+			printf("%d Tamsayэsэ Girildi\n\n", x);
+		}
+	}
+	system("PAUSE");
+}
+
+void main() {
+	int i;
+	char buffer[41];
+	printf("Enter a number: ");
+	fgets(buffer,41,stdin);
+	i = atoi(buffer);
+	printf("---> %", i);
+	system("PAUSE");
+}
+
+void main() {
+	const int n = 15;
+	int i = 0;
+	while (i < n) {
+		i++;
+		if (i == 11) {
+			printf("\tbreak\n");
+			break;
+		}
+		if (i == 5 || i == 7) {
+			printf("\tcontinue\n");
+			continue;
+		}
+		printf("\tSay ---> %d\n", i);
+	}
+	printf("Зэkmak iзin herhangi bir tuюa basэnэz");
+	_getch();
+}
+
+void main() {
+	const int N = 15;
+	int n = 0;
+	printf("Say :");
+loop: printf(" %d", ++n);
+	if (n < N) goto loop;
+	printf("\nSay :");
+	for (n = 1; n <= N; n++) printf(" %d", n);
+	n = 1;
+	printf("\nSay :");
+	while (n <= N) printf(" %d", n++);
+	n = 1;
+	printf("\nSay :");
+	do printf(" %d", n++); while (n <= N);
+	printf("\n\nЗэkmak iзin herhangi bir tuюa basэnэz");
+	_getch();
+}
+
+void bekle(clock_t sure) {
+	clock_t t;
+	t = sure + clock();
+	while (t > clock());
+}
+void main() {
+	int n, N = 15;
+	printf("Ileri Say\n");
+	for (n = 1; n <= N; n++) {
+		printf("%d, ", n);
+		bekle(250);
+	}
+	printf("OK\n\nIleri Say\n");
+	n = 0;
+	while (n < N) {
+		printf("%d, ", ++n);
+		bekle(250);
+	}
+	printf("OK\n\nGeri Say\n");
+	for (n = N; n > 0; n--) {
+		printf("%d, ", n);
+		bekle(250);
+	}
+	printf("OK\n\nGeri Say\n");
+	n = N;
+	while (n > 0) {
+		printf("%d, ", n--);
+		bekle(250);
+	}
+	printf("OK\n\nЗэkmak iзin herhangi bir tuюa basэnэz");
+	_getch();
+}
+
+void main() {
+	int ch = 0;
+	printf("ESC tusu ile cikilir\n");
+	printf("Herhangi bir tusa bas\n");
+	while (ch != 27) {
+		if (_kbhit()) {
+			ch = _getch();
+			printf("Key = %c, Ascii Code = %3d\n", ch, ch);
+		}
+	}
+}
+
+void main() {	
+	printf("Press ESC key to exit . . .\n");
+	int n = 0;
+	while (_getch() != 27)
+		printf("Cpp Programming %3d\n", ++n);
+}
+
+const int n = 3;
+float a[n][n], b[n][n], c[n][n];
+void matris_olustur(float a[n][n]) {
+	int i, j;
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++)
+			a[i][j] = 5 - 10 * ((float)rand() / RAND_MAX);
+	}
+}
+void matris_goster(float a[n][n]) {
+	int i, j;
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++)
+			printf(" %10f", a[i][j]);
+		printf("\n");
+	}
+}
+void matris_carp(float a[n][n], float b[n][n], float c[n][n]) {
+	int i, j, k;
+	for (i = 0; i < n; i++)
+	for (j = 0; j < n; j++)
+	{
+		c[i][j] = 0;
+		for (k = 0; k < n; k++)
+			c[i][j] += a[i][k] * b[k][j];
+	}
+}
+void matris_trans1(float a[n][n], float b[n][n]) {
+	int i, j;
+	for (i = 0; i < n; i++)
+	for (j = 0; j < n; j++)
+		b[j][i] = a[i][j];
+}
+void matris_trans2(float a[n][n]) {
+	int i, j;
+	for (i = 0; i < n; i++)
+	for (j = i + 1; j < n; j++) {
+		float gec = a[j][i];
+		a[j][i] = a[i][j];
+		a[i][j] = gec;
+	}
+}
+void main() {
+	srand(time(NULL));
+	matris_olustur(a);
+	printf("a matrisi\n");
+	matris_goster(a);
+	matris_olustur(b);
+	printf("\nb matrisi\n");
+	matris_goster(b);
+	matris_carp(a, b, c);
+	printf("\nc = a*b matrisi\n");
+	matris_goster(c);
+	matris_olustur(a);
+	printf("\na matrisi\n");
+	matris_goster(a);
+	matris_trans1(a, b);
+	printf("\nb matrisi = a matrisinin transposesi\n");
+	matris_goster(b);
+	matris_trans2(a);
+	printf("\na matrisi = a matrisinin transposesi\n");
+	matris_goster(a);
+	printf("\nЗэkmak iзin herhangi bir tuюa basэnэz");
+	_getch();
+}
+
+void main() {
+	printf("Fibonachi Serisi\n");
+	const int n = 48;
+	int i;
+	unsigned int fib[n];
+	fib[0] = 0;
+	fib[1] = 1;
+	for (i = 2; i < n; i++) fib[i] = fib[i - 1] + fib[i - 2];
+	for (i = 0; i < n; i++) {
+		printf("%12u", fib[i]);
+		if (i % 6 == 5) printf("\n");
+	}
+	printf("\n\nЗэkmak iзin herhangi bir tuюa basэnэz ...");
+	_getch();
+}
+
+void main() {
+	printf("1-5 arasi bir rakam gir\n");
+	char ch = getchar();
+	printf("Basilan : %c\n",ch);
+	switch (ch) {
+		case '1': printf("cok zayif \n"); break;
+		case '2': printf("zayif \n"); break;
+		case '3': printf("orta \n"); break;
+		case '4': printf("iyi \n"); break;
+		case '5': printf("pekiyi \n"); break;
+		default : printf("yanlis secim \n");
+	}
+	system("PAUSE");
+}
+
+struct product {
+  int weight;
+  double price;
+} apple, banana, melon;
+
+int main() {
+	int m = 10, n = 2, t, a, a2, b;
+	t = m + n;
+	a = m++;	    /*once a=m sonra m=m+1*/
+	a2 = --m;	/*once m=m-1 sonra a2=m*/
+	b = m / 2;
+	++m;		/*m=m+1*/
+	printf("m=%d, t=%d, a=%d, a2=%d, b=%d\n\n", m, t, a, a2, b);
+	system("PAUSE"); // ekranэ bekletmek iзin
+	return 0;
+}
+
+int veri() {
+	int n;
+	printf("1' den N' ye kadar olan tam sayilarin toplamini bulma programi");
+	printf("\n");
+	printf("\n");
+	printf("N degerini giriniz: ");
+	scanf("%u", &n);
+	return n;
+}
+int hesapla(int n) {
+	int i, t = 0;
+	for (i = 1; i <= n; i++) t += i;
+	return t;
+}
+void yaz(int toplam) {
+	printf("\nsonuc=%d \n", toplam);
+}
+void main() {
+	int n;
+	int toplam;
+	n = veri();
+	toplam = hesapla(n);
+	yaz(toplam);
+	system("PAUSE");
+}
+
+int main() {
+	int sayac = 1, n;
+	printf("kaca kadar sayalim: ");
+	scanf("%d", &n);
+	while (sayac <= n)
+	{
+		system("CLS"); // clrscr() yerine
+		printf("  %d", sayac);
+		Sleep(100); // delay(100) yerine
+		sayac++;
+	}
+	system("PAUSE"); // ekranэ bekletmek iзin
+	return 0;
+}
+
+int main() {
+	int sayi, kare;
+	system("CLS"); // clrscr() yerine
+	do {
+		printf("bir sayi giriniz: ");
+		scanf("%d", &sayi);
+		kare = sayi*sayi;
+		printf("sayinin karesi= %d\n", kare);
+	} while (sayi>0);
+	printf("cevrim sonlandirildi");
+	system("PAUSE"); // ekranэ bekletmek iзin
+	return 0;
+}
+
+int i, eb, n;
+int A[100];
+int main() {
+	system("COLOR 71");
+	system("CLS"); // clrscr() yerine
+	printf("dizi eleman sayisini giriniz: ");
+	scanf_s("%d", &n);
+	for (i = 0; i<n; i++)
+	{
+		printf("dizi elemani giriniz: ");
+		scanf_s("%d", &A[i]);
+		printf(" \n");
+	}
+	eb = A[0];
+	for (i = 1; i<n; i++)
+	{
+		if (eb<A[i]) eb = A[i];
+	}
+	printf("en buyuk sayi= %d\n", eb);
+	system("PAUSE"); // ekranэ bekletmek iзin
+	return 0;
+}
+
+char h[100];
+char b;
+int i, j, k, n;
+int main() {
+	system("COLOR 71");
+	system("CLS"); // clrscr() yerine
+	printf("karakter dizisi eleman sayisini giriniz: ");
+	scanf_s("%d", &n);
+	printf("karakter dizisini bosluksuz giriniz: ");
+	scanf_s("%s", h); printf(" \n");
+	k = n;
+	for (i = 0; i<n; i++)    /* dizinin ilk elemani 0 indisinde dizinin son elemani NULL*/
+	{
+		k--;
+		for (j = 0; j<k; j++)
+		{
+			if (h[j + 1]<h[j])
+			{
+				b = h[j];
+				h[j] = h[j + 1];
+				h[j + 1] = b;
+			}
+		}
+	}
+	printf("siralanmis dizi: = %s\n", h);
+	system("PAUSE"); // ekranэ bekletmek iзin
+	return 0;
+}
+
+    int i,eb,ek,yerb,yerk,n;
+	int A[100];
+    int main() {system("COLOR 71");
+     system("CLS"); // clrscr() yerine
+	 printf("dizi eleman sayisini giriniz: ");
+	 scanf("%d",&n);
+	 for(i=0;i<n;i++)
+	 { printf("dizi elemani giriniz: ");
+	   scanf("%d",&A[i]);
+	   printf(" \n"); 
+     }
+     eb=A[0]; ek=A[0];
+	 yerb=0; yerk=0;
+	 for(i=1;i<n;i++)
+	 { if(eb<A[i]) 
+	     {eb=A[i]; yerb=i+1;}
+	    else if (ek>A[i])
+	     {ek=A[i]; yerk=i+1;}  
+     }
+ 	 printf("en buyuk sayi= %d\n",eb);
+	 printf("yer sirasi= %d\n",yerb);
+	 printf("en kucuk sayi= %d\n",ek);
+	 printf("yer sirasi= %d\n",yerk);
+     system("PAUSE"); // ekranэ bekletmek iзin
+     return 0;
+    }
+	
+char ch = 'Z';
+	cout << "The code for " << ch << " is ";    // print as char
+	cout << int(ch) << endl;                    // print as int
+	
+cout.put('!');	
+	
+int stone = lbs / Lbs_per_stn;      // whole stone
+    int pounds = lbs % Lbs_per_stn;     // remainder in pounds
+
+ofstream akэm ("dosya adэ", ios::out | ios::binary);
+ifstream akэm ("dosya adэ", ios::in | ios::binary);
+ 
+int n_int = INT_MAX;
+short n_short = SHRT_MAX;
+long n_long = LONG_MAX;
+long long n_llong = LLONG_MAX;
+
+string text;
+fstream inputStream;
+inputStream.open("player.txt");
+while (inputStream >> text) cout << text << endl;
+inputStream.close();
+
+struct Hasan {
+	int x;
+	double a;
+};
+void main() {
+	Hasan hasan;
+	hasan.x = 100;
+	hasan.a = 7.5;
+	printf("x = %d, a = %g\n\n", hasan.x, hasan.a);
+	system("PAUSE");
+}
+
+void IncreaseWrong(int num) {
+	num += 5;
+}
+void IncreaseCorrect(int *num) {
+	*num += 5;
+}
+void main() {
+	int Number = 10;
+	printf("Number : %d\n", Number);
+	IncreaseWrong(Number);
+	printf("Number : %d\n", Number);
+	IncreaseCorrect(&Number);
+	printf("Number : %d\n", Number);
+	system("PAUSE");
+}
+
+int main() {
+	int i, j, m = 10, n = 10;
+	int **matrix = NULL;
+	matrix = (int**)malloc(sizeof(int*) * m);
+	for (i = 0; i < m; i++)
+		matrix[i] = (int*)malloc(sizeof(int) * n);
+	for (i = 0; i < m; i++)
+		for (j = 0; j < n; j++)
+			matrix[i][j] = j;
+	for (i = 0; i < m; i++) {
+		for (j = 0; j < n; j++)
+			printf("%d", matrix[i][j]);
+		printf("\n");
+	}
+	for (i = 0; i < m; i++) free(matrix[i]);
+	free(matrix);
+	system("PAUSE");
+}
+
+void main() {
+	int number = 0, ch = 0;
+	printf("Input a number between 1 and 3: ");
+	scanf("%d", &number);
+	switch (number)	{
+	case 1 : printf("You typed in the number 1!\n"); break;
+	case 2 : printf("You typed in the number 2!\n"); break;
+	case 3 : printf("You typed in the number 3!\n"); break;
+	default: printf("You didn't follow directions!\n");break;
+	}
+	rewind(stdin);
+	printf("\n\nInput a character: ");
+	scanf("%c", &ch);
+	switch (ch) {
+	case 'a': printf("You typed in an A!\n"); break;
+	case 'b': printf("You typed in an B!\n"); break;
+	case 'c': printf("You typed in an C!\n"); break;
+	default: printf("You did not type an a, b or c!\n"); break;
+	}
+	rewind(stdin);
+	printf("\n\nInput a lowercase or uppercase character: ");
+	scanf("%c", &ch);
+	switch (ch) {
+	case 'a': case 'A': printf("You typed in an A!\n"); break;
+	case 'b': case 'B':	printf("You typed in an B!\n"); break;
+	case 'c': case 'C':	printf("You typed in an C!\n");	break;
+	default: printf("You did not type an a, b or c!\n"); break;
+	}
+}
+
+#define STR_MAX 256
+void main() {
+	char str1[STR_MAX] = { 0 };
+	char str2[STR_MAX] = { 0 };
+	char *buffy = NULL;
+	int len1 = 0;
+	int len2 = 0;
+	printf("String1 : ");
+	scanf("%s", str1);
+	rewind(stdin);
+	printf("String2 : ");
+	scanf("%s", str2);
+	len1 = strlen(str1);
+	len2 = strlen(str2);
+	buffy = (char*)malloc(sizeof(char)* (len1 + len2 + 1));
+	if (!buffy)	return;
+	sprintf(buffy, "%s", str1);
+	strcat(buffy, str2);
+	printf("%s\n", buffy);
+	if (strcmp(str1, str2) == 0)
+		printf("%s is equal to %s\n", str1, str2);
+	else printf("%s is not equal to %s\n", str1, str2);
+	if (strstr(str2, str1))
+		printf("%s is contained within %s is TRUE!\n", str1, str2);
+	else printf("%s is contained within %s is FALSE!\n", str1, str2);
+	free(buffy);
+	system("PAUSE");
+}
+
+#include <windows.h>
+#include <stdio.h>
+#pragma comment(lib,"winmm.lib")
+void main() {
+	printf("Playing Synchronous Sound\n");
+	PlaySound("Sound.wav", NULL, SND_FILENAME | SND_SYNC);
+	for (int i = 0; i < 25; i++) {
+		printf(".");
+		Sleep(50);
+	}
+	printf("\nPlaying Asynchronous Sound\n");
+	PlaySound("Sound.wav", NULL, SND_FILENAME | SND_ASYNC);
+	for (int i = 0; i < 25; i++) {
+		printf(".");
+		Sleep(50);
+	}
+	printf("\n");
+	system("PAUSE");
+}
+
+void main() {
+	FILE *fp;
+	fp = fopen("File.txt", "w");
+	if (fp == 0) {
+		printf("File could not create\n");
+		return;
+	}	
+	char Line[50] = { 0 };
+	char Name[] = "Hasan";
+	int i, n, Age = 25;
+	double Score = 73.4952;
+	fprintf(fp, "Player : %s\n", Name);
+	fprintf(fp, "   Age : %d\n", Age);
+	fprintf(fp, " Score : %g\n\n", Score);
+	sprintf(Line, "Player : %s", Name);
+	fputs(Line, fp);
+	fputc('\n', fp);
+	sprintf(Line, "   Age : %d", Age);
+	fputs(Line, fp);
+	fputc('\n', fp);
+	sprintf(Line, " Score : %g", Score);
+	fputs(Line, fp);
+	fprintf(fp, "\n\n");
+	sprintf(Line, "Player : %s", Name);
+	n = strlen(Line);
+	for (i = 0; i < n; i++) fputc(Line[i], fp);
+	fputc('\n', fp);
+	sprintf(Line, "   Age : %d", Age);
+	n = strlen(Line);
+	for (i = 0; i < n; i++) fputc(Line[i], fp);
+	fputc('\n', fp);
+	sprintf(Line, " Score : %g", Score);
+	n = strlen(Line);
+	for (i = 0; i < n; i++) fputc(Line[i], fp);
+	fputc('\n', fp);
+	fputc('\n', fp);	
+	fclose(fp);
+}
+
+void main() {
+	FILE *fp;
+	fp = fopen("File.txt", "r");
+	if (fp == 0) {
+		printf("File could not find\n");
+		return;
+	}
+	char ch;
+	char Line[50] = { 0 };
+	int Age;
+	double Score;	
+	fscanf(fp, "Player : %s", Line);
+	fscanf(fp, "   Age : %d", &Age);
+	fscanf(fp, " Score : %f\n", &Score);
+	printf("Player : %s\n", Line);
+	printf("   Age : %d\n", Age);
+	printf(" Score : %f\n\n", Score);
+	rewind(fp);
+	while ((ch = fgetc(fp)) != EOF) printf("%c", ch);
+	printf("\n");
+	rewind(fp);
+	while (fgets(Line, 50, fp)) printf("%s", Line);
+	rewind(fp);
+	fclose(fp);
+	system("PAUSE");
+}
+
+#include <windows.h>
+#include <stdio.h>
+#include <time.h>
+#define MaxNumber 15
+#define PrintNum(num) printf("%d\n", num)
+void main() {
+	int list[MaxNumber] = { 0 }, i = 0;
+	printf("\nThe not so random list:\n\n");
+	for (i = 0; i < MaxNumber; i++) {
+		list[i] = rand();
+		PrintNum(list[i]);
+	}
+	printf("\nThe TRULY random list:\n\n");
+	srand((unsigned int)time(NULL));
+	Sleep(2500);
+	for (i = 0; i < MaxNumber; i++) {
+		list[i] = rand();
+		PrintNum(list[i]);
+	}
+	printf("\nThe *restricted* TRULY random list:\n\n");
+	Sleep(2500);
+	for (i = 0; i < MaxNumber; i++) {
+		list[i] = rand() % 100;
+		PrintNum(list[i]);
+	}
+	system("PAUSE");
+}
+
+int SumNumbers(int num1, int ) {
+	num += 5;
+	return num;
+}
+
+for (int i = 32; i < 256; i++)
+	printf("%5d ---> %c\n", i, i);
+
+char name[] = "Hasan TEMURTAЮ";
+int n = strlen(name);
+printf("name = %s\n\n", name);
+printf("strlen(name) = %d\n\n", n);
+name[n-1] = char(158);
+printf("name = %s\n\n", name);
+for (int i = 0; i < n; i++)	printf("%c ", name[i]);
+printf("\n\n");
+name[9] = '\0';
+n = strlen(name);
+printf("name = %s\n\n", name);
+printf("strlen(name) = %d\n\n", n);
+
+int num1 = 923;
+int num2 = 745;
+int num3 = num1 & num2;
+printf("AND ---> %d & %d = %d\n",num1,num2,num3);
+num3 = num1 | num2;
+printf(" OR ---> %d | %d = %d\n",num1,num2,num3);
+num3 = num1 ^ num2;
+printf("XOR ---> %d ^ %d = %d\n",num1,num2,num3);
+num3 = (num1 & num2) ^ (num1 | num2);
+printf("(%d & %d) ^ (%d | %d) = %d\n\n",num1,num2,num1,num2,num3);
+
+int main() {
+	int *numList = NULL;
+	int maxNum = 0;
+	int count = 0;
+	printf("Enter the number of allocations: ");	
+	scanf_s("%d", &maxNum);	
+	numList = (int*)malloc(maxNum * sizeof(int));
+	if (numList == NULL)
+	{
+		printf("\nmalloc() failed\n");
+		return EXIT_FAILURE;
+	}
+	for (count = 0; count < maxNum; count++)
+		numList[count] = count + 1;
+	printf("\n\n");
+	for (count = 0; count < maxNum; count++)
+		printf("%d ", numList[count]);
+	free(numList);
+	numList = NULL;
+	printf("\n\n");
+	system("PAUSE");
+	return EXIT_SUCCESS;
+}
+
+void HorzPrint(char *name) {
+	printf("%s\n", name);
+}
+void VertPrint(char *name) {
+	int n = strlen(name);
+	for (int i = 0; i < n;i++)
+		printf("%c\n", name[i]);
+}
+void PrintName(void(*print)(char*), char *name) {
+	print(name);
+}
+void main() {
+	char name[] = "htemurtas";
+	PrintName(HorzPrint, name);
+	PrintName(VertPrint, name);
+	system("PAUSE");
+}

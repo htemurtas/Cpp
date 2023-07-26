@@ -1,0 +1,1053 @@
+int main() {
+    string mystr;
+    cout << "What's your name? ";
+    getline(cin, mystr);
+    cout << "Hello " << mystr << ".\n";
+    cout << "What is your favorite team? ";
+    getline(cin, mystr);
+    cout << "I like " << mystr << " too!\n";
+    return 0;
+}
+
+int main() {
+  string str;
+  do {
+    cout << "Enter text: ";
+    getline (cin,str);
+    cout << "You entered: " << str << '\n';
+  } while (str != "goodbye");
+    return 0;
+}
+
+int addition (int a, int b)
+{
+  int r;
+  r=a+b;
+  return r;
+}
+int main ()
+{
+  int z;
+  z = addition (5,3);
+  cout << "The result is " << z;
+    return 0;
+}
+
+void odd (int x);
+void even (int x);
+int main() {
+  int i;
+  do {
+    cout << "Please, enter number (0 to exit): ";
+    cin >> i;
+    odd (i);
+  } while (i!=0);
+  return 0;
+}
+void odd (int x)
+{
+  if ((x%2)!=0) cout << "It is odd.\n";
+  else even (x);
+}
+void even (int x)
+{
+  if ((x%2)==0) cout << "It is even.\n";
+  else odd (x);
+}
+
+long factorial (long a)
+{
+  if (a > 1)
+   return (a * factorial (a-1));
+  else
+   return 1;
+}
+int main() {
+  long number = 9;
+  cout << number << "! = " << factorial (number);
+  return 0;
+}
+
+// overloading functions
+int operate (int a, int b)
+{
+  return (a*b);
+}
+double operate (double a, double b)
+{
+  return (a/b);
+}
+int main() {
+  int x=5,y=2;
+  double n=5.0,m=2.0;
+  cout << operate (x,y) << '\n';
+  cout << operate (n,m) << '\n';
+  return 0;
+}
+
+// overloaded functions
+int sum (int a, int b)
+{
+  return a+b;
+}
+double sum (double a, double b)
+{
+  return a+b;
+}
+int main() {
+  cout << sum (10,20) << '\n';
+  cout << sum (1.0,1.5) << '\n';
+  return 0;
+}
+
+int bar [5] = { 10, 20, 30 };
+int baz [5] = { }; 
+int foo[] = { 10, 20, 30 };
+int foo[] { 10, 20, 30 }; 
+
+multidimensional array
+#define WIDTH 5
+#define HEIGHT 3
+int jimmy [HEIGHT][WIDTH];
+int n,m;
+int main() {
+  for (n=0; n<HEIGHT; n++)
+    for (m=0; m<WIDTH; m++)
+    {
+      jimmy[n][m]=(n+1)*(m+1);
+    }
+    return 0;
+}
+
+pseudo-multidimensional array
+#define WIDTH 5
+#define HEIGHT 3
+int jimmy [HEIGHT * WIDTH];
+int n,m;
+int main() {
+  for (n=0; n<HEIGHT; n++)
+    for (m=0; m<WIDTH; m++)
+    {
+      jimmy[n*WIDTH+m]=(n+1)*(m+1);
+    }
+    return 0;
+}
+
+char myntcs[] = "some text";
+string mystring = myntcs;  // convert c-string to string
+cout << mystring;          // printed as a library string
+cout << mystring.c_str();  // printed as a c-string
+
+int i;
+srand(99);
+for (i = 0; i < 10; i++)
+cout << (rand( ) % 11) << endl ;
+srand(99);
+for (i = 0; i < 10; i++)
+cout << (rand( ) % 11) << endl ;
+
+char boss[8] = "Bozo";
+
+cin.get(name, ArSize); // read first line
+cin.get(); // read newline
+cin.get(dessert, Arsize); // read second line
+cin.get(name, ArSize).get();
+cin.getline(name1, ArSize).getline(name2, ArSize);
+cin.clear();
+
+cin >> year;
+cin.get(); // or cin.get(ch);
+
+(cin >> year).get(); // or (cin >> year).get(ch);
+
+cin.getline(charr, 20);
+getline(cin,str);
+
+while (cin.get(ch)) // while input is successful
+{
+... // do stuff
+}
+ch = cin.get();
+cout.put(ch);
+
+int ch; /// for compatibility with EOF value
+ch = cin.get();
+while (ch != EOF)
+{
+cout.put(ch); // cout.put(char(ch)) for some implementations
+++count;
+ch = cin.get();
+}
+
+char ch;
+cin.get(ch);
+while (cin.fail() == false) // test for EOF
+{
+cout << ch;
+++count;
+cin.get(ch);
+}
+
+while (cin.get(ch))
+{
+statement1
+if (ch == '\n')
+break;
+statement2
+}
+statement3
+
+PI = 3.14159
+z = x < y ? x : y;
+int m[2][3] = { { 1, 2, 1 }, { 3, 5, 1 } };
+char names[][10] = { "Hasan", ""Ahmet", "Mehmet" };
+
+WinExec('C:\Windows\Calc.exe', sw_ShowNormal);
+
+int sumArray (int list[], int arraySize)
+{
+int sumvalue = 0;
+for (int i=0; i<arraySize; i++)
+sumvalue += list[i];
+return sumvalue;
+}
+#define MAX(x,y) ((x) > (y)) ? (x) : (y)
+#define MIN(x,y) ((x) < (y)) ? (x) : (y)
+
+#include <iostream>
+using namespace std;
+int main() {
+	int donuts = 6;
+	double cups = 4.5;
+	cout << "donuts value = " << donuts;
+	cout << " and donuts address = " << &donuts << endl;
+	cout << "cups value = " << cups;
+	cout << " and cups address = " << &cups << endl;
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+struct inflatable {
+	char name[20];
+	float volume;
+	double price;
+};
+int main() {
+	inflatable guests[2] = {
+		{ "Bambi", 0.5, 21.99 },      // first structure in array
+		{ "Godzilla", 2000, 565.99 }  // next structure in array
+	};
+	cout << "The guests " << guests[0].name << " and " << guests[1].name
+		<< "\nhave a combined volume of "
+		<< guests[0].volume + guests[1].volume << " cubic feet.\n";
+	return 0;
+}
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main() {
+	cout << "Enter the delay time, in seconds: ";
+	float secs;
+	cin >> secs;
+	clock_t delay = secs * CLOCKS_PER_SEC;
+	cout << "starting\a\n";
+	clock_t start = clock();
+	while (clock() - start < delay);
+	cout << "done \a\n";
+    return 0;
+}
+
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main() {
+	srand(time(0));
+	const int N = 10;
+	int n, min;
+	int dizi[N];
+	for (n = 0; n < N; n++)
+		dizi[n] = 1 + rand() % 100;
+	cout << "Dizi elemanlari\n";
+	for (n = 0; n < N; n++)
+		cout << "Dizi(" << n + 1 << ")= " << dizi[n] << endl;
+
+	min = dizi[0];
+	for (n = 1; n < N; n++)
+	{
+		if (min < dizi[n])
+			continue;
+		min = dizi[n];
+	}
+	cout << "\nMinimum = " << min << endl << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int x, y;
+void kare() {
+	y = x*x;
+}
+int main() {
+	x = 7;
+	kare();
+	cout << x << " * " << x << " = " << y << "\n\n";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int kare(int n) {
+	int g;
+	g = n*n;
+	return g;
+}
+int main() {
+	int m, n = 7;
+	m = kare(n);
+	cout << n << " * " << n << " = " << m << "\n\n";
+    return 0;
+}
+
+#include <windows.h>
+#define Width  40
+#define Height 15
+#define xPos   20
+#define yPos   5
+int main() {
+	HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	CHAR_INFO Buffer[Width * Height];
+	SMALL_RECT Rect = { xPos, yPos, xPos + Width - 1, yPos + Height - 1 };
+	COORD Size = { Width, Height };
+	COORD Zero = { 0, 0 };
+	int x, y, z;
+	for (y = 0; y < Size.Y; y++) {
+		for (x = 0; x < Size.X; x++) {
+			z = x + y * Width;
+			Buffer[z].Char.AsciiChar = 'X';
+			Buffer[z].Attributes = 0xa1;
+		}
+	}
+	WriteConsoleOutput(Handle, Buffer, Size, Zero, &Rect);
+    return 0;
+}
+
+#include <windows.h>
+#include <stdio.h>
+int main() {
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	DWORD dw;
+	CHAR ch = 'o';
+	COORD coord = { 15, 7 };
+	WORD color = BACKGROUND_RED | FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE;
+	FillConsoleOutputCharacter(handle, ch, 81, coord, &dw);
+	printf("\n%d\n", dw);
+	FillConsoleOutputAttribute(handle, color, 100, coord, &dw);
+	printf("\n%d\n", dw);
+    return 0;
+}
+
+#include <windows.h>
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+	HANDLE inputHandle;
+	HANDLE outputHandle;
+	INPUT_RECORD input;
+	COORD pos;
+	DWORD info;
+	int i;
+	CONSOLE_SCREEN_BUFFER_INFO screenInfo;
+	inputHandle = GetStdHandle(STD_INPUT_HANDLE);
+	outputHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+	GetConsoleScreenBufferInfo(outputHandle, &screenInfo);
+	SetConsoleMode(inputHandle, ENABLE_PROCESSED_INPUT);
+	while (true) {
+		pos.X = screenInfo.srWindow.Right / 2 - 5;
+		pos.Y = screenInfo.srWindow.Bottom / 2;
+		SetConsoleCursorPosition(outputHandle, pos);
+		ReadConsoleInput(inputHandle, &input, 1, &info);
+		if (input.Event.KeyEvent.bKeyDown)
+		{
+			for (i = 0; i < 10; ++i)
+				printf("%c", input.Event.KeyEvent.uChar.AsciiChar);
+		}
+	}
+    return 0;
+}
+
+#include <windows.h>
+#include <iostream>
+#include <string>
+using namespace std;
+void DrawColorString(string Text, int X, int Y, WORD Color) {
+	HANDLE OutputH = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD position = { X, Y };
+	SetConsoleTextAttribute(OutputH, Color);
+	SetConsoleCursorPosition(OutputH, position);
+	cout << Text;
+}
+int main() {
+	DrawColorString("Red", 0, 0, FOREGROUND_RED);
+	DrawColorString("White", 10, 1, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+	DrawColorString("Blue", 20, 2, FOREGROUND_BLUE);
+	DrawColorString("Red", 0, 4, BACKGROUND_RED);
+	DrawColorString("White", 10, 5, BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE);
+	DrawColorString("Blue", 20, 6, BACKGROUND_BLUE);
+	DrawColorString("Color Text", 0, 8, FOREGROUND_RED | BACKGROUND_GREEN);
+	DrawColorString("", 0, 10, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+    return 0;
+}
+
+#include <windows.h>
+#include <stdio.h>
+void setPos(int x, int y) {
+	COORD Coord = { x, y };
+	HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleCursorPosition(Handle, Coord);
+}
+void getPos(int &x, int &y) {	
+	HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_SCREEN_BUFFER_INFO CSBI;
+	GetConsoleScreenBufferInfo(Handle, &CSBI);
+	x = CSBI.dwCursorPosition.X;
+	y = CSBI.dwCursorPosition.Y;
+}
+void clrScreen() {	
+	HANDLE  Handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD   Home = { 0, 0 };
+	DWORD   dummy;
+	char ch = ' ';
+	CONSOLE_SCREEN_BUFFER_INFO CSBI;
+	GetConsoleScreenBufferInfo(Handle, &CSBI);
+	FillConsoleOutputCharacter(Handle, ch, CSBI.dwSize.X * CSBI.dwSize.Y, Home, &dummy);
+	CSBI.dwCursorPosition = { 0, 0 };
+	SetConsoleCursorPosition(Handle, CSBI.dwCursorPosition);
+}
+void setColor(WORD color) {	
+	HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_SCREEN_BUFFER_INFO CSBI;
+	GetConsoleScreenBufferInfo(Handle, &CSBI);
+	WORD Attributes = CSBI.wAttributes;
+	color &= 0x000f;
+	Attributes &= 0xfff0;
+	Attributes |= color;
+	SetConsoleTextAttribute(Handle, Attributes);
+}
+void setBGColor(WORD color) {
+	HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_SCREEN_BUFFER_INFO CSBI;
+	GetConsoleScreenBufferInfo(Handle, &CSBI);
+	WORD Attributes = CSBI.wAttributes;
+	color &= 0x000f;
+	color <<= 4;
+	Attributes &= 0xff0f;
+	Attributes |= color;
+	SetConsoleTextAttribute(Handle, Attributes);
+}
+int main() {
+	clrScreen();
+	setColor(0);
+	setBGColor(255);
+	printf("Programlama\n\n");
+	int x, y;
+	getPos(x, y);
+	printf("x = %d, y = %d\n", x, y);
+	x = 10;
+	y = 5;
+	setPos(x, y);
+	printf("x = %d, y = %d\n", x, y);
+    return 0;
+}
+
+#include <windows.h>
+#define SCREEN_WIDTH  20
+#define SCREEN_HEIGHT 15
+#define START_X  0
+#define START_Y  7
+#define PLAYER   1
+#define WALL    '#'
+void DrawMaze(CHAR_INFO screenBuffer[], int playerX, int playerY) {
+	SMALL_RECT drawRect = { 0, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1 };
+	COORD bufferSize = { SCREEN_WIDTH, SCREEN_HEIGHT };
+	COORD zeroZero = { 0, 0 };
+	HANDLE hOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	screenBuffer[playerX + playerY * SCREEN_WIDTH].Char.AsciiChar = PLAYER;
+	screenBuffer[playerX + playerY * SCREEN_WIDTH].Attributes = FOREGROUND_RED;
+	WriteConsoleOutput(hOutput, screenBuffer, bufferSize, zeroZero, &drawRect);
+}
+BOOL MovePlayer(CHAR_INFO screenBuffer[], COORD *playerPos) {
+	INPUT_RECORD InputRecord;
+	COORD oldPosition = *playerPos;
+	DWORD Events = 0;
+	BOOL bPlayerMoved = FALSE;
+	int bKeyDown = 0;
+	HANDLE hInput = GetStdHandle(STD_INPUT_HANDLE);
+	ReadConsoleInput(hInput, &InputRecord, 1, &Events);
+	bKeyDown = InputRecord.Event.KeyEvent.bKeyDown;
+	if (InputRecord.EventType == KEY_EVENT && bKeyDown)	{
+		switch (InputRecord.Event.KeyEvent.wVirtualKeyCode) {
+		case VK_RIGHT:
+			if (playerPos->X < SCREEN_WIDTH - 1) {
+				playerPos->X++;
+				bPlayerMoved = TRUE;
+			}
+			break;
+		case VK_LEFT:
+			if (playerPos->X > 0) {
+				playerPos->X--;
+				bPlayerMoved = TRUE;
+			}
+			break;
+		case VK_UP:
+			if (playerPos->Y > 0) {
+				playerPos->Y--;
+				bPlayerMoved = TRUE;
+			}
+			break;
+		case VK_DOWN:
+			if (playerPos->Y < SCREEN_HEIGHT - 1) {
+				playerPos->Y++;
+				bPlayerMoved = TRUE;
+			}
+			break;
+		case VK_ESCAPE: exit(0);
+		}
+	}
+	FlushConsoleInputBuffer(hInput);
+	if (bPlayerMoved) {
+		if (screenBuffer[playerPos->X + playerPos->Y * SCREEN_WIDTH].Char.AsciiChar != WALL)
+		{
+			screenBuffer[oldPosition.X + oldPosition.Y * SCREEN_WIDTH].Char.AsciiChar = ' ';
+			screenBuffer[oldPosition.X + oldPosition.Y * SCREEN_WIDTH].Attributes = 0;
+		}
+		else {
+			*playerPos = oldPosition;
+		}
+		return TRUE;
+	}
+	return TRUE;
+}
+int main() {
+	CHAR_INFO screenBuffer[SCREEN_WIDTH * SCREEN_HEIGHT] = { 0 };
+	COORD bufferSize = { SCREEN_WIDTH, SCREEN_HEIGHT };
+	COORD playerPos = { START_X, START_Y };
+	int x = 0, y = 0;
+	srand(GetTickCount());
+	for (y = 0; y < bufferSize.Y; y++) {
+		for (x = 2; x < bufferSize.X; x++) {
+			if (!(rand() % 3)) {
+				screenBuffer[x + y * SCREEN_WIDTH].Char.AsciiChar = WALL;
+				screenBuffer[x + y * SCREEN_WIDTH].Attributes = FOREGROUND_GREEN;
+			}
+		}
+	}
+	DrawMaze(screenBuffer, playerPos.X, playerPos.Y);
+	while (true){
+		if (MovePlayer(screenBuffer, &playerPos))
+			DrawMaze(screenBuffer, playerPos.X, playerPos.Y);
+	}
+    return 0;
+}
+
+#include <windows.h>
+#include <stdio.h>
+#include <stdlib.h>
+#define NORTH 0
+#define SOUTH 1
+#define EAST  2
+#define WEST  3
+#define SCREEN_WIDTH  79
+#define SCREEN_HEIGHT 24
+#define ERASE 0
+#define DRAW  1
+typedef struct _PLAYER {
+	COORD	Position;
+	int		Direction;
+} PLAYER;
+void DrawPlayer(PLAYER Player, int Draw);
+void MovePlayer(PLAYER *Player);
+HANDLE hInput, hOutput;
+CONSOLE_SCREEN_BUFFER_INFO ScrInfo;
+void DrawPlayer(PLAYER Player, int Draw) {
+	if (Draw) {
+		SetConsoleCursorPosition(hOutput, Player.Position);
+		printf("@");
+	}
+	else {
+		SetConsoleCursorPosition(hOutput, Player.Position);
+		printf(" ");
+	}
+}
+void MovePlayer(PLAYER *Player) {
+	INPUT_RECORD InputRecord;
+	DWORD Events = 0;
+	ReadConsoleInput(hInput, &InputRecord, 1, &Events);
+	if (InputRecord.EventType == MOUSE_EVENT)
+	{
+		if (InputRecord.Event.MouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED)
+		{
+			DrawPlayer(*Player, ERASE);
+			Player->Position.X = InputRecord.Event.MouseEvent.dwMousePosition.X;
+			Player->Position.Y = InputRecord.Event.MouseEvent.dwMousePosition.Y;
+			DrawPlayer(*Player, DRAW);
+		}
+	}
+	if (InputRecord.EventType == KEY_EVENT && InputRecord.Event.KeyEvent.bKeyDown)
+	{
+		if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_RIGHT)
+		{
+			DrawPlayer(*Player, ERASE);
+			Player->Position.X++;
+			if (Player->Position.X > ScrInfo.srWindow.Right)
+			{
+				Player->Position.X = ScrInfo.srWindow.Right;
+			}
+			DrawPlayer(*Player, DRAW);
+		}
+		else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_LEFT)
+		{
+			DrawPlayer(*Player, ERASE);
+			Player->Position.X--;
+			if (Player->Position.X < ScrInfo.srWindow.Left)
+			{
+				Player->Position.X = ScrInfo.srWindow.Left;
+			}
+			DrawPlayer(*Player, DRAW);
+		}
+		else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_UP)
+		{
+			DrawPlayer(*Player, ERASE);
+			Player->Position.Y--;
+			if (Player->Position.Y < ScrInfo.srWindow.Top)
+			{
+				Player->Position.Y = ScrInfo.srWindow.Top;
+			}
+			DrawPlayer(*Player, DRAW);
+		}
+		else if (InputRecord.Event.KeyEvent.wVirtualKeyCode == VK_DOWN) {
+			DrawPlayer(*Player, ERASE);
+			Player->Position.Y++;
+			if (Player->Position.Y > ScrInfo.srWindow.Bottom) {
+				Player->Position.Y = ScrInfo.srWindow.Bottom;
+			}
+			DrawPlayer(*Player, DRAW);
+		}
+	}
+	FlushConsoleInputBuffer(hInput);
+}
+int main() {
+	PLAYER Player;
+	hInput = GetStdHandle(STD_INPUT_HANDLE);
+	hOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleMode(hInput, ENABLE_PROCESSED_INPUT | ENABLE_MOUSE_INPUT);
+	GetConsoleScreenBufferInfo(hOutput, &ScrInfo);
+	Player.Position.X = SCREEN_WIDTH / 2;
+	Player.Position.Y = SCREEN_HEIGHT / 2;
+	SetConsoleCursorPosition(hOutput, Player.Position);
+	while (true) MovePlayer(&Player);
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+bool Asal(int sayi, int bolen=2){
+    if(sayi == bolen || sayi == 1) return true;
+    if(sayi % bolen == 0) return false;
+    return Asal(sayi,bolen+1);
+}
+int main() {
+    int x;
+    cout<<"x:";
+    cin>>x;
+    cout<<"Asal(x)="<<(Asal(x) == true ? " Asaldir" : " Asal degildir.");
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int Fakt(unsigned int sayi){
+	if(sayi == 0) return 1;
+	return sayi * Fakt(sayi-1);
+}
+int main() {
+	unsigned int x;
+	cout<<"x:";
+	cin>>x;
+	cout<<"x!="<<Fakt(x);
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+int Fib(unsigned int sayi){
+	if(sayi == 1 || sayi == 2) return 1;
+	return Fib(sayi-1) + Fib(sayi-2);
+}
+int main() {
+	unsigned int x;
+	cout<<"x:";
+	cin>>x;
+	cout<<"Fib(x)="<<Fib(x);
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+int Toplam(unsigned int sayi){
+	if(sayi == 0) return 0;
+	return sayi + Toplam(sayi-1);
+}
+int main() {
+	unsigned int x;
+	cout<<"x:";
+	cin>>x;
+	cout<<Toplam(x);
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+int Us(int sayi,int us)
+{
+   if(us==0)return 1;
+   return sayi*Us(sayi,us-1);
+}
+int main() {
+	int x,y;
+	cout<<"x:";
+	cin>>x;
+	cout<<"y:";
+	cin>>y;
+	cout<<"x^y="<<Us(x,y);
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+void Yaz(int sayi){
+	if(sayi==0)return;
+	Yaz(sayi-1);
+	cout<<sayi<<" ";
+}
+int main() {
+	int x;
+	cout<<"x:";
+	cin>>x;
+	Yaz(x);
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+struct MyClass {
+    MyClass() { cout << "MyClass Constructed\n"; }
+    ~MyClass() { cout << "MyClass Destroyed\n"; }
+};
+int main () {
+    MyClass *pt = new MyClass[5];
+    cout << endl;
+    delete[] pt;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    double a, b, c, x1, x2, delta;
+    cout << "2.Denklem Köklerinin Hesabi\n";
+    cout << "\ta = ";
+    cin >> a;
+    cout << "\tb = ";
+    cin >> b;
+    cout << "\tc = ";
+    cin >> c;
+    delta = b*b - 4 * a*c;
+    if (delta < 0)
+        cout << "Kökler Sanal\n";
+    else if (delta > 0) {
+        cout << "Kökler Reel\n";
+        x1 = (-b - sqrt(delta)) / 2 * a;
+        x2 = (-b + sqrt(delta)) / 2 * a;
+        cout << " x1 = " << x1 << endl;
+        cout << " x2 = " << x2 << endl;
+    }
+    else {
+        cout << "Kökler Katlı\n";
+        x1 = -b / (2 * a);
+        cout << "x1 = x2 = " << x1 << endl;
+    }
+    return 0;
+}
+
+#include <iomanip>
+#include <iostream>
+using namespace std;
+int main() {
+    srand(time(NULL));
+    cout << "RAND_MAX = " << RAND_MAX << endl;
+    int n, N = 20;
+    for (n = 0; n < N; n++)
+        cout << setw(3) << n << ".Sayi = " << setw(5) << rand() << endl;
+    return 0;
+}
+
+#include <iomanip>
+#include <iostream>
+using namespace std;
+int main() {
+	srand(time(NULL));
+	cout << "RAND_MAX = " << RAND_MAX << endl;
+	const int N = 20;
+	int n, dizi[N];
+	for (n = 0; n < N; n++) {
+		dizi[n] = rand() % 101 - 50;
+		cout << " dizi[" << setw(2) << n << "] = " << setw(3) << dizi[n] << endl;
+	}
+	int min = dizi[0];
+	for (n = 1; n < N; n++) if (dizi[n] < min) min = dizi[n];
+	cout << " Min Sayi = " << setw(3) << min << endl;
+    return 0;
+}
+
+#include <iomanip>
+#include <iostream>
+using namespace std;
+int main() {
+	srand((unsigned int)time(NULL));
+	const int n = 10;
+	int i, j, k, a[n];
+	for (i = 0; i < n; i++) {
+		a[i] = rand() % 1000;
+		cout << setw(5) << a[i];
+	}
+	cout << endl << endl;
+	for (i = 0; i < n; i++)
+	for (j = 0; j < n; j++)
+	if (a[j] > a[i]) {
+		k = a[j];
+		a[j] = a[i];
+		a[i] = k;
+	}
+	for (i = 0; i < n; i++) cout << setw(5) << a[i];
+	cout << endl << endl;
+    return 0;
+}
+
+#include <iomanip>
+#include <iostream>
+using namespace std;
+int m, n, M, N;
+double **a;
+int main() {
+	srand(time(NULL));
+	M = 4 + rand() % 4;
+	N = 4 + rand() % 4;
+	a = new double*[M];
+	for (m = 0; m < M; m++) a[m] = new double[N];
+	for (m = 0; m < M; m++)
+	for (n = 0; n < N; n++)
+		a[m][n] = 5 - 10 * ((double)rand() / RAND_MAX);
+	cout << fixed << showpoint << setprecision(4);
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++)
+			cout << setw(10) << a[m][n];
+		cout << endl;
+	}
+	cout << endl;
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++)
+			cout << setw(10) << &a[m][n];
+		cout << endl;
+	}
+	cout << endl;
+    return 0;
+}
+
+#include <iomanip>
+#include <iostream>
+using namespace std;
+int m, n;
+const int M = 5, N = 7;
+double a[M][N];
+double *p;
+int main() {
+	srand(time(NULL));
+	for (m = 0; m < M; m++)
+	for (n = 0; n < N; n++)
+		a[m][n] = 5 - 10 * ((double)rand() / RAND_MAX);
+	cout << fixed << showpoint << setprecision(4);
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++)
+			cout << setw(10) << a[m][n];
+		cout << endl;
+	}
+	cout << endl;
+	p = &a[0][0];
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++)
+			cout << setw(10) << *(p++);
+		cout << endl;
+	}
+	cout << endl;
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++)
+			cout << setw(10) << &a[m][n];
+		cout << endl;
+	}
+	cout << endl;
+	int row = sizeof(a) / sizeof(a[0]);
+	int col = sizeof(a[0]) / sizeof(double);
+	cout << "Row Number : " << row << endl;
+	cout << "Col Number : " << col << endl << endl;
+    return 0;
+}
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+const int m = 5, n = 7;
+float a[m][n];
+void matrisOlustur(float a[m][n])
+{
+	int i, j;
+	for (i = 0; i < m; i++)
+	for (j = 0; j < n; j++)
+		a[i][j] = 5 - 10 * ((float)rand() / RAND_MAX);
+}
+void matrisGoster(float a[m][n])
+{
+	int i, j;
+	for (i = 0; i < m; i++) {
+		for (j = 0; j < n; j++)
+			cout << setw(10) << a[i][j];
+		cout << endl;
+	}
+	cout << endl;
+}
+int main() {
+	srand(time(NULL));
+	cout << fixed << showpoint << setprecision(4);
+	matrisOlustur(a);
+	matrisGoster(a);
+	system("PAUSE");
+}
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+int main() {
+	srand(time(0));
+	const int M = 18, N = 15;
+	int m, n;
+	int a[M][N];
+	ofstream fw;
+	fw.open("File.txt");
+	fw << setw(5) << M << setw(5) << N << endl;
+	cout << setw(5) << M << setw(5) << N << endl;
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++) {
+			a[m][n] = 1 + rand() % 100;
+			fw << setw(5) << a[m][n];
+			cout << setw(5) << a[m][n];
+		}
+		fw << endl;
+		cout << endl;
+	}
+	fw.close();
+	cout << "A Matrisi Dosyaya Kaydedildi\n\n";
+    return 0;
+}
+
+#include <iostream>
+#include <fstream>
+#include<iomanip>
+using namespace std;
+int main() {
+	ifstream fr;
+	fr.open("File.txt");
+	if (fr.fail()) {
+		cout << "Dosya Okunamadi\n";
+		goto SON;
+	}
+	srand(time(0));
+	int m, n, M, N;
+	fr >> M >> N;
+	double **a;
+	a = new double*[M];
+	for (m = 0; m < M; m++) a[m] = new double[N];
+	cout << setw(5) << M << setw(5) << N << endl;
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++) {
+			fr >> a[m][n];
+			cout << setw(5) << a[m][n];
+		}
+		cout << endl;
+	}
+	fr.close();
+	cout << "A Matrisi Dosyadan Okundu\n\n";
+SON: return 0;
+}
+
+#include <conio.h>
+#include <iostream>
+using namespace std;
+int n;
+int main() {
+    while (!_kbhit()) {
+        n++;
+        if (n % 10000 == 0) cout << n << endl;
+    }
+    return 0;
+}
+
+string s1 = "Cpp Programlama Dersi";
+string s2("Cpp Programlama Dersi");
+string s3{ "Cpp Programlama Dersi" };
+cout << s1 << endl;
+cout << s2 << endl;
+cout << s3 << endl << endl;
+s1 = "Hasan Temurtaю";
+cout << s1 << endl;
+cout << s2 << endl;
+cout << s3 << endl << endl;
+s3 = s2 = s1;
+cout << s1 << endl;
+cout << s2 << endl;
+cout << s3 << endl << endl;
+
+string s1 = "Hasan";
+//s1.clear();
+s1 = "";
+//if (s1.empty()) s1 = "Tamam";
+//if (s1.size() == 0) s1 = "Tamam";
+if (s1 == "") s1 = "Tamam";
+
+cout << s1 << endl;
+cout << s1.size() << endl;
+cout << s1.max_size() << endl;
+//auto s2 = "Hello" + " World";
+
+//char myString[25];
+//memset(myString, 0x00, 25);
+//{2, 72, 105}
+
+double *a;
+a = new double(15);
+cout << "dizi ----> " << sizeof(*a) << endl;
+delete a;
+
+cout << "10 > 20 : " << (10 > 20) << endl;
+cout << false << true << endl;
+cout << sizeof(int) << endl;
+system("PAUSE");
+
+srand(time(NULL));
+srand(GetTickCount());
+int x = rand() % 255;
+
+system("cls");
+system("pause");

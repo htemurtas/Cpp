@@ -1,0 +1,392 @@
+#include <iostream>
+using namespace std;
+int main(){
+   int num1 = 11;  /* 11 = 00001011 */
+   int num2 = 22;  /* 22 = 00010110 */ 
+   int result = 0;
+   result = num1 & num2;
+   cout<<"num1 & num2: "<<result<<endl;
+   result = num1 | num2;
+   cout<<"num1 | num2: "<<result<<endl;
+   result = num1 ^ num2;
+   cout<<"num1 ^ num2: "<<result<<endl;
+   result = ~num1;
+   cout<<"~num1: "<<result<<endl;
+   result = num1 << 2;
+   cout<<"num1 << 2: "<<result<<endl;
+   result = num1 >> 2;
+   cout<<"num1 >> 2: "<<result;
+   return 0;
+}
+
+There are six bitwise Operators: &, |, ^, ~, <<, >>
+Logical operators in C++ are: &&, ||, !
+
+Ternary Operator
+num2 = (num1 == 10) ? 100: 200;
+
+#include <iostream>
+using namespace std;
+int main(){
+   int i=2;
+   switch(i) {
+      case 1:
+        cout<<"Case1 "<<endl;
+        break;
+      case 2:
+        cout<<"Case2 "<<endl;
+        break;
+      case 3:
+        cout<<"Case3 "<<endl;
+        break;
+      case 4:
+        cout<<"Case4 "<<endl;
+        break;
+      default:
+        cout<<"Default "<<endl;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main(){
+   int arr[]={21,9,56,99, 202};
+   for(int i=0; i<5; i++){
+      cout<<arr[i]<<endl;
+   }
+   return 0;
+}
+
+int arr[] = {10, 20, 30, 40, 50};
+int arr[5] = {10, 20, 30, 40, 50};
+int arr[2][3] = {{10, 11 ,12} , {20 ,21 , 22}};
+
+#include <iostream>
+using namespace std;
+int main(){
+   //Pointer declaration
+   int *p, var=101;
+ 
+   //Assignment
+   p = &var;
+
+   cout<<"Address of var: "<<&var<<endl;
+   cout<<"Address of var: "<<p<<endl;
+   cout<<"Address of p: "<<&p<<endl;
+   cout<<"Value of var: "<<*p;
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main(){
+   //Pointer declaration
+   int *p;
+   //Array declaration
+   int arr[]={1, 2, 3, 4, 5, 6};
+   //Assignment
+   p = arr;
+   for(int i=0; i<6;i++){
+     cout<<*p<<endl;
+     //++ moves the pointer to next int position
+     p++;
+   }
+   return 0;
+}
+
+// Pointer moves to the next int position (as if it was an array)
+p++; 
+// Pointer moves to the next int position (as if it was an array)   
+++p;   
+
+/* All the following three cases are same they increment the value 
+ * of variable that the pointer p points.
+ */
+++*p;   
+++(*p); 
+++*(p); 
+
+#include <iostream>
+using namespace std;
+class Demo {
+private:
+  int num;
+  char ch;
+public:
+  void setMyValues(int num, char ch){
+    this->num =num;
+    this->ch=ch;
+  }
+  void displayMyValues(){
+    cout<<num<<endl;
+    cout<<ch;
+  }
+};
+int main(){
+  Demo obj;
+  obj.setMyValues(100, 'A');
+  obj.displayMyValues();
+  return 0;
+}
+
+#include <iostream>
+using namespace std;
+class Sum {
+  public:
+    int add(int num1,int num2){
+      return num1 + num2;
+    }
+    int add(int num1, int num2, int num3){
+      return num1 + num2 + num3;
+    }
+};
+int main(void) {
+   //Object of class Sum
+   Sum obj;
+
+   //This will call the second add function
+   cout<<obj.add(10, 20, 30)<<endl;
+
+   //This will call the first add function
+   cout<<obj.add(11, 22);
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+class HelloWorld{
+public:
+  //Constructor
+  HelloWorld(){
+    cout<<"Constructor is called"<<endl;
+  }
+  //Destructor
+  ~HelloWorld(){
+    cout<<"Destructor is called"<<endl;
+   }
+   //Member function
+   void display(){
+     cout<<"Hello World!"<<endl;
+   }
+};
+int main(){
+   //Object created
+   HelloWorld obj;
+   //Member function called
+   obj.display();
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+enum direction {East, West, North, South};
+int main(){
+   direction dir;
+   dir = South; 
+   cout<<dir;   
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+enum direction {East=11, West=22, North=33, South=44};
+int main(){
+   direction dir;
+   dir = South;
+   cout<<dir; 
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+class Teacher {
+public:
+  Teacher(){
+    cout<<"Hey Guys, I am a teacher"<<endl;
+  }
+  string collegeName = "Beginnersbook";
+};
+//This class inherits Teacher class
+class MathTeacher: public Teacher {
+public:
+  MathTeacher(){
+    cout<<"I am a Math Teacher"<<endl;
+  }
+  string mainSub = "Math";
+  string name = "Negan";
+};
+int main() {
+  MathTeacher obj;
+  cout<<"Name: "<<obj.name<<endl;
+  cout<<"College Name: "<<obj.collegeName<<endl;
+  cout<<"Main Subject: "<<obj.mainSub<<endl;
+  return 0;
+}
+
+#include <iostream>
+using namespace std;
+class A {
+public:
+  A(){
+     cout<<"Constructor of A class"<<endl;
+  }
+};
+class B: public A {
+public:
+  B(){
+     cout<<"Constructor of B class"<<endl;
+  }
+};
+class C: public B {
+public:
+  C(){
+     cout<<"Constructor of C class"<<endl;
+  }
+};
+int main() {
+  //Creating object of class C
+  C obj;
+  return 0;
+}
+
+#include <iostream>
+using namespace std;
+class A {
+public:
+  A(){
+     cout<<"Constructor of A class"<<endl;
+  }
+};
+class B {
+public:
+  B(){
+     cout<<"Constructor of B class"<<endl;
+  }
+};
+class C: public A, public B {
+public:
+  C(){
+     cout<<"Constructor of C class"<<endl;
+  }
+};
+int main() {
+   //Creating object of class C
+   C obj;
+   return 0;
+}
+
+
+#include <iostream>
+using namespace std;
+class Add {
+public:
+  int sum(int num1, int num2){
+     return num1+num2;
+  }
+  int sum(int num1, int num2, int num3){
+     return num1+num2+num3;
+  }
+};
+int main() {
+  Add obj;
+  //This will call the first function
+  cout<<"Output: "<<obj.sum(10, 20)<<endl;
+  //This will call the second function
+  cout<<"Output: "<<obj.sum(11, 22, 33);
+  return 0;
+}
+
+#include <iostream>
+using namespace std;
+class A {
+public:
+  void disp(){
+     cout<<"Super Class Function"<<endl;
+  }
+};
+class B: public A{
+public:
+  void disp(){
+     cout<<"Sub Class Function";
+  }
+};
+int main() {
+  //Parent class object
+  A obj;
+  obj.disp();
+  //Child class object
+  B obj2;
+  obj2.disp();
+  return 0;
+}
+
+#include <iostream>
+using namespace std;
+// overloaded functions
+float sum(int, int);
+float sum(float, float);
+float sum(int, float);
+float sum(float, int);
+int main(){
+   //This will call the second function
+   cout<<sum(15.7f, 12.7f)<<endl;
+
+   //This will call the first function
+   cout<<sum(200, 100)<<endl;
+
+   //This will call the third function
+   cout<<sum(100, 20.7f)<<endl;
+
+   //This will call the fourth function
+   cout<<sum(90.8f, 30)<<endl;
+
+   return 0;
+}
+float sum(int a, int b){
+   return a+b;
+}
+float sum(float a, float b){
+   return a+b;
+}
+float sum(int a, float b){
+   return a+b;
+}
+float sum(float a, int b){
+   return a+b;
+}
+
+#include <iostream>
+using namespace std;
+class AbstractionExample{
+private:
+   /* By making these data members private, I have
+    * hidden them from outside world.
+    * These data members are not accessible outside
+    * the class. The only way to set and get their
+    * values is through the public functions.
+    */
+   int num;
+   char ch;
+
+public:
+   void setMyValues(int n, char c) {
+      num = n; ch = c;
+   }
+   void getMyValues() {
+      cout<<"Numbers is: "<<num<< endl;
+      cout<<"Char is: "<<ch<<endl;
+   }
+};
+int main(){
+   AbstractionExample obj;
+   obj.setMyValues(100, 'X');
+   obj.getMyValues();
+   return 0;
+}
+
+
+
+
+
+

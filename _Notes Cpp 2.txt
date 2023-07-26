@@ -1,0 +1,6386 @@
+void main() {
+	bool a, b;
+	printf("   a     b     a&&b\n");
+	for (int i = 0; i < 4; i++) {
+		switch (i) {
+		case 0: a = false; b = false; break;
+		case 1: a = false; b = true; break;
+		case 2: a = true; b = false; break;
+		default: a = true; b = true;
+		}
+		if (a) printf(" true "); else printf(" false");
+		if (b) printf(" true "); else printf(" false");
+		if (a && b) printf("   true\n"); else printf("   false\n");
+	}
+	/*
+	for (int i = 0; i < 4; i++) { // Ternary Operator
+		a = i < 2 ? false : true;
+		b = i % 2 == 0 ? false : true;
+		a ? printf(" true ") : printf(" false");
+		b ? printf(" true ") : printf(" false");
+		a && b ? printf("   true\n") : printf("   false\n");
+	}
+	*/
+	printf("\n");
+	system("Pause");
+}
+
+void main() {
+	srand(time(NULL));
+	int x = 1000 + rand() % 9000;
+	int y = 10 + rand() % 90;
+	printf("Bolunen = %d\n", x);
+	printf("  Bolen = %d\n\n", y);
+	printf("  Bolum = %d\n", x / y);
+	printf("  Kalan = %d\n\n", x % y);
+	system("Pause");
+}
+
+void main() {
+	printf("Fibonachi Serisi\n");
+	const int n = 25;
+	int a[n] = { 0, 1 };
+	for (int i = 2; i < n; i++)
+		a[i] = a[i - 1] + a[i - 2];
+	for (int i = 0; i < n; i++)
+		printf("%d\n", a[i]);
+	system("Pause");
+}
+
+bool AsalMi(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i <= n / 2; i++)
+        if (n % i == 0) return false;
+    return true;
+}
+void main() {
+    const int n = 100;
+    printf("Asal Sayilar\n");
+    for (int i = 0; i <= n; i++)
+        if (AsalMi(i))
+            printf("%d\n", i);
+    system("Pause");
+}
+
+int Fakt(int n) {
+    if (n == 0 || n == 1) return 1;
+    return n * Fakt(n - 1);
+}
+void main() {
+    int m, n = 10;
+    for (int i = 0; i <= n; i++) {
+        m = Fakt(i);
+        printf("%d! = %d\n", i, m);
+    }
+    system("Pause");
+}
+
+void ArtikYil(int Sene) {
+    if (Sene % 400 == 0)
+        printf("%d : Artik Yil\n", Sene);
+    else if (Sene % 100 == 0)
+        printf("%d : Artik Yil Degil\n", Sene);
+    else if (Sene % 4 == 0)
+        printf("%d : Artik Yil\n", Sene);
+    else printf("%d : Artik Yil Degil\n", Sene);
+}
+void main() {
+    int a[] = { 2000, 2004, 2100, 2104, 2200, 2300, 2400, 2404, 2500 };
+    int n = sizeof(a) / sizeof(int);
+    for (int i = 0; i < n; i++) ArtikYil(a[i]);
+    system("Pause");
+}
+
+#define PI 3.141593
+void main() {
+	double r, yalan, hacim;
+	printf("Kurenin Yuzey Alani ve Hacmi\n");
+	printf("Pi Sayisi %f alinacak\n\n", PI);
+	printf("\tKurenin Yaricapi = ");
+	scanf("%lf", &r);
+	yalan = 4 * PI * r * r;
+	hacim = yalan * r / 3;
+	printf("\tYaricap %g Olarak Alindi\n", r);
+	printf("\nKurenin Yuzey Alani : %.9f", yalan);
+	printf("\n      Kurenin Hacmi : %.9f\n\n", hacim);
+	system("Pause");
+}
+
+void main() {
+    double a, b, c, x1, x2, delta;
+    printf("Kok Hesabi\n");
+    printf("a = ");
+    scanf("%lf", &a);
+    printf("b = ");
+    scanf("%lf", &b);
+    printf("c = ");
+    scanf("%lf", &c);
+    delta = b * b - 4 * a * c;
+    if (delta < 0) printf("Kokler Sanal\n");
+    else if (delta > 0) {
+        x1 = (-b - sqrt(delta)) / 2 * a;
+        x2 = (-b + sqrt(delta)) / 2 * a;
+        printf("Kokler Reel\n");
+        printf("x1 = %lf\n", x1);
+        printf("x2 = %lf\n", x2);
+    }
+    else {
+        x1 = -b / (2 * a);
+        printf("Kokler Katli\n");
+        printf("x1 = x2 = %lf\n", x1);
+    }
+    system("Pause");
+}
+
+void swapPointers(int* num1, int* num2) {
+	int temp = *num1;
+	*num1 = *num2;
+	*num2 = temp;
+}
+void swapReferences(int& num1, int& num2) {
+	int temp = num1;
+	num1 = num2;
+	num2 = temp;
+}
+void swapValues(int num1, int num2) {
+	int temp = num1;
+	num1 = num2;
+	num2 = temp;
+}
+void main() {
+	int x = 25, y = 300;
+	printf("x : %d, y : %d\n\n", x, y);
+	swapPointers(&x, &y);
+	printf("x : %d, y : %d\n", x, y);
+	printf("Correct\n\n");
+	swapReferences(x, y);
+	printf("x : %d, y : %d\n", x, y);
+	printf("Correct\n\n");
+	swapValues(x, y);
+	printf("x : %d, y : %d\n", x, y);
+	printf("Wrong\n\n");
+	system("Pause");
+}
+
+void main() {
+	srand(time(NULL));
+	//printf("  RAND_MAX : %d\n\n", RAND_MAX);
+	const int n = 20;
+	int a[n] = {};
+	for (int i = 0; i < n; i++) {
+		a[i] = rand() % 2001 - 1000;
+		printf("%3d.Eleman : %5d\n", i + 1, a[i]);
+	}
+	int aMin = a[0], aMax = a[0];
+	for (int i = 1; i < n; i++) {
+		if (a[i] < aMin) aMin = a[i];
+		if (a[i] > aMax) aMax = a[i];
+	}
+	printf("\nMin Eleman : %5d\n", aMin);
+	printf("Max Eleman : %5d\n\n", aMax);
+	system("Pause");
+}
+
+void FncRand(double a[], int n) {
+    for (int i = 0; i < n; i++)
+        a[i] = 100.0 * rand() / RAND_MAX;
+}
+void FncPrint(double a[], int n) {
+    printf("Dizi Elemanlari\n");
+    for (int i = 0; i < n; i++)
+        printf("%7d.Eleman : %.9lf\n", i + 1, a[i]);
+    printf("\n");
+}
+double FncMean(double a[], int n) {
+    double t = 0;
+    for (int i = 0; i < n; i++)
+        t += a[i];
+    return t / n;
+}
+double FncStd(double a[], int n) {
+    double Mean = FncMean(a, n);
+    double Std = 0;
+    for (int i = 0; i < n; i++)
+        Std += pow(a[i] - Mean, 2);
+    Std = sqrt(Std / n);
+    return Std;
+}
+void main() {
+    const int n = 24;
+    double a[n] = {};
+    srand(time(NULL));
+    FncRand(a, n);
+    FncPrint(a, n);
+    printf("      Ortalama : %.9f\n", FncMean(a, n));
+    printf("Standard Sapma : %.9f\n\n", FncStd(a, n));
+    system("Pause");
+}
+
+void main() {
+    srand(time(NULL));
+    int i, j, n = 2 + rand() % 24;
+    int m = 1000 * n;
+    int* a = (int*)calloc(n, sizeof(int));
+    //int* a = (int*)malloc(n * sizeof(int));
+    for (i = 0; i < n; i++) a[i] = 0;
+    for (i = 0; i < m; i++) {
+        j = rand() % n;
+        a[j]++;
+    }
+    printf("Cekilis Sayisi : %d\n", m);
+    printf("%7s%14s\n", "Gelen", "Frekans");
+    for (i = 0; i < n; i++)
+        printf("%7d%14d\n", i + 1, a[i]);
+    free(a);
+    system("Pause");
+}
+
+int main() {
+    FILE* f1 = fopen("Hasan.txt", "r");
+    if (f1 == NULL) return 1;
+    FILE* f2 = fopen("Ahmet.txt", "w");
+    if (f2 == NULL) {
+        fclose(f1);
+        return 1;
+    }
+    char ch;
+    while ((ch = fgetc(f1)) != EOF) {
+        fputc(ch, f2);
+        fputc(ch, stdout);
+    }
+    fclose(f1);
+    fclose(f2);
+    system("Pause");
+    return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <math.h>
+#include <time.h>
+#include <ctype.h>
+#include <string.h>
+#include <windows.h>
+
+void FncRand(int a[], int n) {
+	for (int i = 0; i < n; i++)
+		a[i] = rand() % 1000;
+}
+void FncPrint(int a[], int n) {
+	printf("Dizi Elemanlari\n");
+	for (int i = 0; i < n; i++) printf(" %d", a[i]);
+	printf("\n\n");
+}
+void FncSort(int a[], int n) {
+	int i, j, k;
+	for (i = 0; i < n; i++)
+		for (j = i+1; j < n; j++)
+			if (a[i] > a[j]) {
+				k = a[j];
+				a[j] = a[i];
+				a[i] = k;
+			}
+}
+void main() {
+	const int n = 15;
+	int i, a[n] = {};
+	srand(time(NULL));
+	FncRand(a, n);
+	FncPrint(a, n);
+	FncSort(a, n);
+	FncPrint(a, n);
+	system("Pause");
+}
+
+void main() {
+    double x, y;
+    printf("Enter two numbers : ");
+    scanf("%lf %lf", &x, &y);
+    if (x == y) printf("%lf == %lf\n", x, y);
+    if (x != y) printf("%lf != %lf\n", x, y);
+    if (x < y) printf("%lf < %lf\n", x, y);
+    if (x > y) printf("%lf > %lf\n", x, y);
+    if (x <= y) printf("%lf <= %lf\n", x, y);
+    if (x >= y) printf("%lf >= %lf\n", x, y);
+	system("Pause");
+}
+
+void main() {
+	bool a = true, b = false;
+	printf("Logical Operators\n");
+	printf("     a = %i\n", a);
+	printf("     b = %i\n", b);
+	printf("    !a = %d\n", !a);
+	printf("    !b = %d\n", !b);
+	printf("a && b = %d\n", a && b);
+	printf("a || b = %d\n", a || b);
+	system("Pause");
+}
+
+void main() {
+	int x = 0b1010110101;
+	int y = -0b0110100110;
+	printf("Bitwise Operators\n");
+	printf("     x : %5d\n", x);
+	printf("     y : %5d\n", y);
+	printf("    ~x : %5d\n", ~x);
+	printf("    ~y : %5d\n", ~y);
+	printf(" x & y : %5d\n", x & y);
+	printf(" x | y : %5d\n", x | y);
+	printf(" x ^ y : %5d\n", x ^ y);
+	printf(" x ^ y : %5d\n", (x & ~y) | (~x & y));
+	printf("x << 2 : %5d\n", x << 2);
+	printf("y >> 2 : %5d\n", y >> 2);
+	system("Pause");
+}
+
+void main() {
+	const int n = 101;
+	char s[n] = "";
+	printf("Enter an integer : ");
+	scanf("%s", s);
+	int k = atoi(s);
+	printf("     The integer : %d\n", k);
+	if (k % 2 == 0)
+		printf("Even\n");
+	else printf("Odd\n");
+	k % 2 == 0 ? printf("Even\n") : printf("Odd\n");
+	system("Pause");
+}
+
+void main() {
+    const int n = 101;
+    char s[n];
+    strcpy(s, "    45");
+    int x = atoi(s);
+    printf("s = %s, x = %d\n", s, x);
+    strcpy(s, "43.783");
+    x = atoi(s);
+    printf("s = %s, x = %d\n", s, x);
+    strcpy(s, "43Hasan7");
+    x = atoi(s);
+    printf("s = %s, x = %d\n", s, x);
+    strcpy(s, "Hasan");
+    x = atoi(s);
+    printf("s = %s, x = %d\n", s, x);
+    system("Pause");
+}
+
+void main() {
+    printf("Input a character : ");
+    char ch = _getch();
+    printf("%c\n", ch);
+    ch = tolower(ch);
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+        printf("%c : Sesli Harf\n", ch);
+    else printf("%c : Sesli Harf Degil\n", ch);
+    switch (ch) {
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+        printf("%c : Sesli Harf\n", ch);
+        break;
+    default:
+        printf("%c : Sesli Harf Degil\n", ch);
+    }
+    system("Pause");
+}
+
+void main() {
+	int x = 15, y = 0;
+	printf("x = %d, y = %d\n", x, y);
+	y = x++;
+	printf("x = %d, y = %d\n", x, y);
+	y = ++x;
+	printf("x = %d, y = %d\n", x, y);
+	y = x--;
+	printf("x = %d, y = %d\n", x, y);
+	y = --x;
+	printf("x = %d, y = %d\n", x, y);
+	system("Pause");
+}
+
+void main() {
+	int x;
+	//x = -1;
+	//x = 0b11111111111111111111111111111111;
+	x = 0xffffffff;
+	printf("Size of x : %zu Bytes\n", sizeof(x));
+	printf("%12d, Decimal\n", x);
+	printf("%12x, Hexadecimal\n", x);
+	printf("%12o, Octal\n", x);
+	system("Pause");
+}
+
+void main() {
+    printf("              char : %zu bytes\n", sizeof(char));
+    printf("             short : %zu bytes\n", sizeof(short));
+    printf("               int : %zu bytes\n", sizeof(int));
+    printf("              long : %zu bytes\n", sizeof(long));
+    printf("         long long : %zu bytes\n\n", sizeof(long long));
+    printf("     unsigned char : %zu bytes\n", sizeof(unsigned char));
+    printf("    unsigned short : %zu bytes\n", sizeof(unsigned short));
+    printf("      unsigned int : %zu bytes\n", sizeof(unsigned int));
+    printf("     unsigned long : %zu bytes\n", sizeof(unsigned long));
+    printf("unsigned long long : %zu bytes\n\n", sizeof(unsigned long long));
+    printf("             float : %zu bytes\n", sizeof(float));
+    printf("            double : %zu bytes\n", sizeof(double));
+    printf("            double : %zu bytes\n\n", sizeof(long double));
+    system("Pause");
+}
+
+void main() {
+    printf(" CHAR_MIN : %d\n", CHAR_MIN);
+    printf(" CHAR_MAX : %d\n", CHAR_MAX);
+    printf("UCHAR_MAX : %u\n\n", UCHAR_MAX);
+    printf(" SHRT_MIN : %d\n", SHRT_MIN);
+    printf(" SHRT_MAX : %d\n", SHRT_MAX);
+    printf("USHRT_MAX : %u\n\n", SHRT_MAX);
+    printf("  INT_MIN : %d\n", INT_MIN);
+    printf("  INT_MAX : %d\n", INT_MAX);
+    printf(" UINT_MAX : %u\n\n", INT_MAX);
+    printf(" LONG_MIN : %ld\n", LONG_MIN);
+    printf(" LONG_MAX : %ld\n", LONG_MAX);
+    printf("ULONG_MAX : %lu\n\n", ULONG_MAX);
+    system("Pause");
+}
+
+void main() {
+	printf("File : %s\n", __FILE__);
+	printf("Time : %s\n", __TIME__);
+	printf("Date : %s\n", __DATE__);
+	printf("Line : %d\n", __LINE__);
+	system("Pause");
+}
+
+void main() {
+    int x = 1000;
+    int* p1;
+    int** p2;
+    p1 = &x;
+    p2 = &p1;
+    printf("   x : %d\n", x);
+    printf("  &x : %p\n\n", &x);
+    printf(" *p1 : %d\n", *p1);
+    printf("  p1 : %p\n\n", p1);
+    printf("**p2 : %d\n", **p2);
+    printf(" *p2 : %p\n", *p2);
+    printf("  p2 : %p\n\n", p2);
+    system("Pause");
+}
+
+void main() {
+    int x1, x2, * p1, * p2;
+    p1 = &x1;
+    p2 = &x2;
+    x1 = 43;
+    *p2 = 19;
+    printf(" x1 : %d\n", x1);
+    printf(" x2 : %d\n", x2);
+    printf("&x1 : %p\n", &x1);
+    printf("&x2 : %p\n\n", &x2);
+    printf("*p1 : %d\n", *p1);
+    printf("*p2 : %d\n", *p2);
+    printf(" p1 : %p\n", p1);
+    printf(" p2 : %p\n", p2);
+    printf("&p1 : %p\n", &p1);
+    printf("&p2 : %p\n\n", &p2);
+    system("Pause");
+}
+
+int strLength(char s[]) {
+    int k = 0;
+    while (s[k] != '\0') k++;
+    return k;
+}
+void main() {
+    const int n = 101;
+    char str[n];
+    printf("String : ");
+    //scanf("%s", str);
+    //scanf("%s", &str[0]);
+    //fscanf(stdin, "%s", str, n);
+    fgets(str, n, stdin);
+    str[strlen(str)-1] = '\0';
+    printf("String : %s\n", str);
+    printf("Length : %zu\n", strlen(str));
+    printf("Length : %d\n", strLength(str));
+    system("Pause");
+}
+
+void main() {
+	int x, y, z;
+	printf("3 tane tamsayi gir : ");
+	scanf("%d %d %d", &x, &y, &z);
+	double Ort = (x + y + z) / 3.0;
+	printf("       x : %d\n", x);
+	printf("       y : %d\n", y);
+	printf("       z : %d\n", z);
+	printf("Ortalama : %lf\n", Ort);
+	system("Pause");
+}
+
+void main() {
+	int ch = 0;
+	printf("ESC tusu ile cikilir\n");
+	printf("Herhangi bir tusa bas\n");
+	while (ch != 27) {
+		if (_kbhit()) {
+			ch = _getch();
+			printf("Key = %c, Ascii Code = %3d\n", ch, ch);
+		}
+	}
+	system("Pause");
+}
+
+void main() {
+	int Value = 25;
+	int* Pointer = NULL;
+	printf(" Pointer : %p\n\n", Pointer);
+	Pointer = &Value;
+	printf(" Pointer : %p\n", Pointer);
+	printf("*Pointer : %d\n", *Pointer);
+	printf("  &Value : %p\n", &Value);
+	printf("   Value : %d\n\n", Value);
+	*Pointer = 50;
+	printf(" Pointer : %p\n", Pointer);
+	printf("*Pointer : %d\n", *Pointer);
+	printf("  &Value : %p\n", &Value);
+	printf("   Value : %d\n\n", Value);
+	system("Pause");
+}
+
+int x = 15;
+void main() {
+	int y = 35;
+	printf("x : %d, y : %d\n", x, y);
+	int x = 25;
+	printf("x : %d, y : %d\n", x, y);
+	{
+		x = 50;
+		int y = 95;
+		printf("x : %d, y : %d\n", x, y);
+	}
+	printf("x : %d, y : %d\n", x, y);
+	printf("x : %d, y : %d\n", ::x, y);
+	system("Pause");
+}
+
+int x = 100;
+void useGlobal() {
+	printf("x : %3d\tGlobal\n", ++x);
+}
+void useLocal() {
+	int x = 200;
+	printf("x : %3d\tLocal\n", ++x);
+}
+void useStaticLocal() {
+	static int x = 300;
+	printf("x : %3d\tLocal Static\n", ++x);
+}
+void main() {
+	for (int i = 0; i < 5; i++) {
+		useGlobal();
+		useLocal();
+		useStaticLocal();
+		printf("\n");
+	}
+	system("Pause");
+}
+
+void main() {
+	int i = 0;
+	while (true) {
+		i++;
+		if (i == 15) {
+			printf("\nbreak\n");
+			break;
+		}
+		if (i == 7 || i == 10) {
+			printf("\ncontinue\n");
+			continue;
+		}
+		printf("%d, ", i);
+	}
+	system("Pause");
+}
+
+void main() {
+	int i = 100, n = 15;
+	printf("i : %d\n", i);
+	for (int i = 1; i <= n; i++) {
+		printf("%d", i);
+		if (i < n) printf(", ");
+	}
+	printf("\ni : %d\n\n", i);
+	for (i = 1; i <= n; i++) {
+		printf("%d", i);
+		if (i < n) printf(", ");
+	}
+	printf("\ni : %d\n\n", i);
+	system("Pause");
+}
+
+void main() {
+	const int n = 10;
+	srand(15);
+	//srand(time(NULL));
+	for (int i = 0; i < n; i++) printf("%12d\n", rand());
+	printf("Herhangi bir tusa bas\n");
+	int ch = _getch();
+	srand(15);
+	//srand(time(NULL));
+	for (int i = 0; i < n; i++) printf("%12d\n", rand());
+	system("Pause");
+}
+
+void main() {
+    int Zar1, Zar2, n = 25;
+    srand(time(NULL));
+    for (int i = 0; i < n; i++) {
+        Zar1 = 1 + rand() % 6;
+        Zar2 = 1 + rand() % 6;
+        printf(" %d, %d ---> ", Zar1, Zar2);
+        if (Zar1 == Zar2) printf("Equal"); else printf("Not Equal");
+        printf(", ");
+        Zar1 == Zar2 ? printf("Equal") : printf("Not Equal"); // Ternary Operator
+        printf("\n");
+    }
+    system("Pause");
+}
+
+void main() {
+	int x, y, n = 25;
+	srand(time(NULL));
+	for (int i = 1; i <= n; i++) {
+		x = rand() % 6 + 1;
+		y = rand() % 6 + 1;
+		printf("%d %d\n", x, y);
+	}
+	system("Pause");
+}
+
+_CRT_SECURE_NO_WARNINGS
+
+int main() {
+	time_t t1, t2;
+	int ch = 0;
+	printf("ESC tusu ile cikilir\n");
+	printf("Herhangi bir tusa bas\n");
+	time(&t1);
+	while (ch != 27) {
+		if (_kbhit()) {
+			ch = _getch();
+			time(&t2);
+			printf("%lf Saniye\n", difftime(t2, t1));
+			printf("Key = %c, Ascii Code = %3d\n", ch, ch);
+			t1 = t2;
+		}
+	}
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	clock_t t1, t2;
+	int ch = 0;
+	printf("ESC tusu ile cikilir\n");
+	printf("Herhangi bir tusa bas\n");
+	t1 = clock();
+	while (ch != 27) {
+		if (_kbhit()) {
+			ch = _getch();
+			t2 = clock();
+			printf("%ld MiliSaniye\n", t2 - t1);
+			printf("Key = %c, Ascii Code = %3d\n", ch, ch);
+			t1 = t2;
+		}
+	}
+    system("Pause");
+    return 0;
+}
+
+void myDelay(int dt) {
+	clock_t t = clock();
+	while (clock() < t + dt);
+}
+int main() {
+	printf("Bekle\n");
+	myDelay(5000);
+	printf("Tamam\n");
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	int i = 0, n = 15;
+	printf("Say :");
+loop: printf(" %d", ++i);
+	if (i < n) goto loop;
+	printf("\nSay :");
+	for (i = 1; i <= n; i++) printf(" %d", i);
+	i = 0;
+	printf("\nSay :");
+	while (i < n) printf(" %d", ++i);
+	i = 0;
+	printf("\nSay :");
+	do printf(" %d", ++i); while (i < n);
+	printf("\n\n");
+	system("Pause");
+	return 0;
+}
+
+void Bekle(clock_t sure) {
+	clock_t t;
+	t = sure + clock();
+	while (t > clock());
+}
+int main() {
+	const int n = 15;
+	int i;
+	printf("İleri Say\n");
+	for (i = 1; i <= n; i++) {
+		printf(" %2d", i);
+		if (i <= n) printf(",");
+		Bekle(100);
+	}
+	printf("\n\nGeri Say\n");
+	i = n;
+	while (i > 0) {
+		printf(" %2d", i--);
+		if (i <= n) printf(",");
+		Bekle(100);
+	}
+	printf("\n\nİleri Say\n");
+	i = 0;
+	while (i < n) {
+		printf(" %2d", ++i);
+		if (i <= n) printf(",");
+		Bekle(100);
+	}
+	printf("\n\nGeri Say\n");
+	for (i = n; i > 0; i--) {
+		printf(" %2d", i);
+		if (i <= n) printf(",");
+		Bekle(100);
+	}
+	printf("\n\n");
+	system("Pause");
+	return 0;
+}
+
+const int m = 10, n = 8;
+double a[m][n];
+void matrisOlustur(double a[m][n]) {
+	for (int i = 0; i < m; i++)
+		for (int j = 0; j < n; j++)
+			a[i][j] = 5 - 10 * ((double)rand() / RAND_MAX);
+}
+void matrisGoster(double a[m][n]) {
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++)
+			printf(" %10lf", a[i][j]);
+		printf("\n");
+	}
+	printf("\n");
+}
+int main() {
+	srand(time(NULL));
+	matrisOlustur(a);
+	matrisGoster(a);
+	system("Pause");
+	return 0;
+}
+
+const int n = 4;
+double a[n][n], b[n][n], c[n][n], d[n][n];
+void matrisOlustur(double a[n][n]) {
+	int i, j;
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++)
+			a[i][j] = 5 - 10 * ((double)rand() / RAND_MAX);
+	}
+}
+void matrisGoster(double a[n][n]) {
+	int i, j;
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++)
+			printf(" %10lf", a[i][j]);
+		printf("\n");
+	}
+	/*
+	double* p;
+	p = &a[0][0];
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++)
+			printf(" %10lf", *(p++));
+		printf("\n");
+	}
+	*/
+}
+void matrisCarp(double a[n][n], double b[n][n], double c[n][n]) {
+	int i, j, k;
+	for (i = 0; i < n; i++)
+		for (j = 0; j < n; j++)
+		{
+			c[i][j] = 0;
+			for (k = 0; k < n; k++)
+				c[i][j] += a[i][k] * b[k][j];
+		}
+}
+void matrisTrans(double a[n][n], double b[n][n]) {
+	int i, j;
+	for (i = 0; i < n; i++)
+		for (j = 0; j < n; j++)
+			b[j][i] = a[i][j];
+}
+int main() {
+	srand(time(NULL));
+	matrisOlustur(a);
+	printf("a matrisi\n");
+	matrisGoster(a);
+	matrisOlustur(b);
+	printf("b matrisi\n");
+	matrisGoster(b);
+	matrisCarp(a, b, c);
+	printf("c = a*b matrisi\n");
+	matrisGoster(c);
+	matrisTrans(c, d);
+	printf("d matrisi = c matrisinin transposesi\n");
+	matrisGoster(d);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	double* p = new double[5];
+	p[0] = 0.3;
+	p[1] = 0.5;
+	p[2] = 0.8;
+	for (int i = 0; i < 3; i++) printf("p[%d] : %lf\n", i, p[i]);
+	printf("\n");
+	p += 2;
+	printf("%lf\n\n", *p);
+	p -= 2;
+	printf("%lf\n\n", *p);
+	delete[] p;
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	char s[15] = { 'H','a','s','a','n','\0' };
+	printf("%s\n", s);
+	printf("%d\n", (int)sizeof(s));
+	char* p;
+	p = &s[0];
+	for (int i = 0; i < 15; i++) {
+		printf("%c : %d\n", *p, *p);
+		p++;
+	}
+	system("Pause");
+	return 0;
+}
+
+void IncreaseWrong(int x, int y) {
+	x += y;
+}
+void IncreaseCorrect(int* x, int y) {
+	*x += y;
+}
+int main() {
+	int x = 15, y = 35;
+	printf("    x : %d\n", x);
+	printf("    y : %d\n\n", y);
+	IncreaseWrong(x, y);
+	printf("x + y : %d\tWrong\n", x);
+	IncreaseCorrect(&x, y);
+	printf("x + y : %d\tCorrect\n", x);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	int a[] = { 15, 18, 24, 19, 12, 45, 27 };
+	printf("%d\n", *(a + 3));
+	printf("%d\n", a[3]);
+	int* p = a;
+	printf("%d\n", *(p + 5));
+	printf("%d\n", p[5]);
+	int x = a[4];
+	printf("%d\n", x);
+	p = &x;
+	printf("%d\n", *p);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	int i, j, m = 10, n = 10;
+	int** a = NULL;
+	a = (int**)malloc(m * sizeof(int*));
+	for (i = 0; i < m; i++)
+		a[i] = (int*)malloc(n * sizeof(int));
+	for (i = 0; i < m; i++)
+		for (j = 0; j < n; j++)
+			a[i][j] = (i+1)*(j+1);
+	for (i = 0; i < m; i++) {
+		for (j = 0; j < n; j++)
+			printf(" %3d", a[i][j]);
+		printf("\n");
+	}
+	for (i = 0; i < m; i++) free(a[i]);
+	free(a);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	const int n = 10;
+	int* a;
+	a = new int(n);
+	for (int i = 0; i < n; i++)
+		printf("%d %d\n", a[i], *(a + i));
+	delete a;
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	srand(time(NULL));
+	int n = 10 + rand() % 11;
+	double* p = NULL;
+	double* a = (double*)malloc(n * sizeof(double));
+	if (a == NULL) return EXIT_FAILURE;
+	for (int i = 0; i < n; i++)
+		*(a + i) = (double)rand() / RAND_MAX;
+	printf("    n : %d\n", n);
+	printf("Adres a : %p\n", a);
+	for (int i = 0; i < n; i++) {
+		p = a + i;
+		printf("%p : %lf\n", p, *p);
+	}
+	free(a);
+	printf("Adres a : %p\n", a);
+	printf("Adres p : %p\n", p);
+	system("Pause");
+	return EXIT_SUCCESS;
+}
+
+int main() {
+	int sayac = 1, n;
+	printf("kaca kadar sayalim: ");
+	scanf_s("%d", &n);
+	while (sayac <= n) {
+		system("CLS");
+		printf("  %d", sayac);
+		Sleep(100);
+		sayac++;
+	}
+	system("PAUSE");
+	return 0;
+}
+
+int main() {
+	int sayi, kare;
+	system("CLS");
+	do {
+		printf("bir sayi giriniz: ");
+		scanf("%d", &sayi);
+		kare = sayi*sayi;
+		printf("sayinin karesi= %d\n", kare);
+	} while (sayi>0);
+	printf("cevrim sonlandirildi");
+	system("PAUSE");
+	return 0;
+}
+
+bool isEven1(int n) {
+    if (n % 2 == 0) return true; else return false;
+}
+bool isEven2(int n) { // Ternary Operator
+    return n % 2 == 0 ? true : false;
+}
+bool isEven3(int n) {
+    return n % 2 == 0;
+}
+int main() {
+    srand(time(NULL));
+    int n = rand();
+    printf("%d : ", n);
+    if (isEven1(n)) printf("Even"); else printf("Odd");
+    n = rand();
+    printf("\n\n%d : ", n);
+    if (isEven2(n)) printf("Even"); else printf("Odd");
+    n = rand();
+    printf("\n\n%d : ", n);
+    if (isEven3(n)) printf("Even"); else printf("Odd");
+    printf("\n\n");
+    system("Pause");
+    return 0;
+}
+double Topla1(double a[], int n) {
+	double Toplam = 0;
+	for (int i = 0; i < n; i++) Toplam += a[i];
+	return Toplam;
+}
+double Topla2(double* a, int n) {
+	double Toplam = 0;
+	for (int i = 0; i < n; i++) Toplam += *a++;
+	return Toplam;
+}
+int main() {
+	const int n = 10;
+	double a[n] = {};
+	for (int i = 0; i < n; i++) {
+		a[i] = (double)rand() / RAND_MAX;
+		printf("%3d.sayı: %.9f\n", i + 1, a[i]);
+	}
+	double Toplam1 = Topla1(a, n);
+	double Toplam2 = Topla2(a, n);
+	printf("\nToplam : %.9f\n", Toplam1);
+	printf("Toplam : %.9f\n\n", Toplam2);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    const int m = 4, n = 5;
+    int i, j, k, a[m][n] = {}, b[m * n] = {};
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++) {
+            k = (i + 1) * (j + 1);
+            a[i][j] = k;
+            b[n * i + j] = k;
+        }
+    for (i = 0; i < m; i++) {
+        for (j = 0; j < n; j++) printf("%3d", a[i][j]);
+        printf("\n");
+    }
+    printf("\n");
+    for (i = 0; i < m * n; i++) {
+        printf("%3d", b[i]);
+        if (i % n == 4) printf("\n");
+    }
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	double x = sqrt(7);
+	printf("%.40f\n%.40lf\n", x, x);
+	float y = (float)x;
+	printf("%.40f\n%.40lf\n", y, y);
+	double z = y;
+	printf("%.40f\n%.40lf\n", z, z);
+	printf("%d\n", (int)x);
+    system("Pause");
+    return 0;
+}
+
+void HorzPrint(char* s) {
+	printf("%s\n", s);
+}
+void VertPrint(char* s) {
+	int n = strlen(s);
+	for (int i = 0; i < n; i++)
+		printf("%c\n", s[i]);
+}
+int main() {
+    char s[] = "Programlama";
+    HorzPrint(s);
+    VertPrint(s);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char s[] = "31298 87.375";
+    int x = 0;
+    double y = 0;
+    sscanf_s(s, "%d%lf", &x, &y);
+    printf("   String : %s\n", s);
+    printf(" Tam Sayı : %d\n", x);
+    printf("Reel Sayı : %lf\n", y);
+    system("Pause");
+    return 0;
+}
+
+int Ters(int num) {
+	int digit, reverse = 0;
+	while (num != 0) {
+		digit = num % 10;
+		reverse = 10 * reverse + digit;
+		num = num / 10;
+	}
+	return reverse;
+}
+int main() {
+	srand(time(NULL));
+	int n = rand();
+	int m = Ters(n);
+	printf("%d\n", n);
+	printf("%d\n", m);
+	if (n == m)
+		printf("The number is a palindrome\n");
+	else printf("The number is not a palindrome\n");
+	system("Pause");
+	return 0;
+}
+
+int main() {
+    int i, j, n = 5;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j <= i; j++) printf(" *");
+        printf("\n");
+    }
+    for (i = 0; i < n; i++) {
+        for (j = i; j < n; j++) printf(" *");
+        printf("\n");
+    }
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	int a[5] = { 10, 20, 30 };
+	int b[5] = { };
+	int c[] = { 10, 20, 30 };
+	int d[]{ 10, 20, 30 };
+	int i, n = sizeof(a) / sizeof(int);
+	for (i = 0; i < n; i++) printf(" %d", a[i]);
+	printf("\nSize : %d\n", n);
+	n = sizeof(b) / sizeof(int);
+	for (i = 0; i < n; i++) printf(" %d", b[i]);
+	printf("\nSize : %d\n", n);
+	n = sizeof(c) / sizeof(int);
+	for (i = 0; i < n; i++) printf(" %d", c[i]);
+	printf("\nSize : %d\n", n);
+	n = sizeof(d) / sizeof(int);
+	for (i = 0; i < n; i++) printf(" %d", d[i]);
+	printf("\nSize : %d\n", n);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	printf("%d\n", 455);
+	printf("%i\n", 455); // i same as d in printf
+	printf("%d\n", +455); // plus sign does not print
+	printf("%d\n", -455); // minus sign prints
+	printf("%hd\n", 32000); // print as type short
+	printf("%ld\n", 2000000000L); // print as type long 
+	printf("%o\n", 455); // octal
+	printf("%u\n", 455);
+	printf("%u\n", -455);
+	printf("%x\n", 455); // hexadecimal with lowercase letters
+	printf("%X\n", 455); // hexadecimal with uppercase letters
+	printf("%e\n", 1234567.89);
+	printf("%e\n", +1234567.89); // plus does not print
+	printf("%e\n", -1234567.89); // minus prints
+	printf("%E\n", 1234567.89);
+	printf("%f\n", 1234567.89); // six digits to right of decimal point
+	printf("%g\n", 1234567.89); // prints with lowercase e
+	printf("%G\n", 1234567.89); // prints with uppercase E
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	printf("%9d\n", 1);
+	printf("%9d\n", 12);
+	printf("%9d\n", 123);
+	printf("%9d\n", 1234);
+	printf("%9d\n", 12345);
+	printf("%9d\n", -1);
+	printf("%9d\n", -12);
+	printf("%9d\n", -123);
+	printf("%9d\n", -1234);
+	printf("%9d\n\n", -12345);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	puts("Using precision for integers");
+	int i = 873; // initialize int i
+	printf("\t%.4d\n\t%.9d\n\n", i, i);
+	puts("Using precision for floating-point numbers");
+	double f = 123.94536; // initialize double f
+	printf("\t%.3f\n\t%.3e\n\t%.3g\n\n", f, f, f);
+	puts("Using precision for strings");
+	char s[] = "Happy Birthday"; // initialize char array s
+	printf("\t%.11s\n\n", s);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	puts("1234567890123456789012345678901234567890");
+	printf("%10s%10d%10c%10f\n\n", "hello", 7, 'a', 1.23);
+	puts("1234567890123456789012345678901234567890");
+	printf("%-10s%-10d%-10c%-10f\n\n", "hello", 7, 'a', 1.23);
+	printf("%d\n%d\n", 786, -786);
+	printf("%+d\n%+d\n\n", 786, -786);
+	printf("%+09d\n", 452);
+	printf("%09d\n\n", 452);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	printf("     floor(9.2) : %lf\n", floor(9.2));
+	printf("     floor(9.8) : %lf\n", floor(9.8));
+	printf("    floor(-9.2) : %lf\n", floor(-9.2));
+	printf("    floor(-9.8) : %lf\n", floor(-9.8));
+	printf("      ceil(9.2) : %lf\n", ceil(9.2));
+	printf("      ceil(9.8) : %lf\n", ceil(9.8));
+	printf("     ceil(-9.2) : %lf\n", ceil(-9.2));
+	printf("     ceil(-9.8) : %lf\n", ceil(-9.8));
+	printf("     pow(2, 15) : %lf\n", pow(2, 15));
+	printf("    pow(2, 0.5) : %lf\n", pow(2, 0.5));
+	printf("  pow(2, 1.0/3) : %lf\n", pow(2, 1.0/3));
+	printf("        sqrt(2) : %lf\n", sqrt(2));
+	printf("        cbrt(2) : %lf\n", cbrt(2));
+	printf("       cbrt(-2) : %lf\n", cbrt(-2));
+	printf("         exp(1) : %lf\n", exp(1));
+	printf("         exp(5) : %lf\n", exp(5));
+	printf("      log(1000) : %lf\n", log(1000));
+	printf("    log10(1000) : %lf\n", log10(1000));
+	printf("      fabs(-15) : %lf\n", fabs(-15));
+	printf("fmod(27.9, 2.5) : %lf\n", fmod(27.9, 2.5));
+	printf("         sin(1) : %lf\n", sin(1));
+	printf("         cos(1) : %lf\n", cos(1));
+	printf("         tan(1) : %lf\n", tan(1));
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	const int n = 256;
+	char s1[n] = {};
+	char s2[n] = {};
+	char* buffy = NULL;
+	printf("Karakter Dizisi 1 : ");
+	scanf_s("%s", s1, n);
+	printf("Karakter Dizisi 2 : ");
+	scanf_s("%s", s2, n);
+	int n1 = strlen(s1);
+	int n2 = strlen(s2);
+	printf("%s\n%s\n", s1, s2);
+	printf("%d\n%d\n", n1, n2);
+	buffy = (char*)malloc((n1 + n2 + 1) * sizeof(char));
+	if (!buffy)	return;
+	sprintf(buffy, "%s", s1);
+	strcat(buffy, s2);
+	printf("%s\n", buffy);
+	if (strcmp(s1, s2) == 0)
+		printf("%s is equal to %s\n", s1, s2);
+	else printf("%s is not equal to %s\n", s1, s2);
+	if (strstr(s2, s1))
+		printf("%s is contained within %s is TRUE!\n", s1, s2);
+	else printf("%s is contained within %s is FALSE!\n", s1, s2);
+	free(buffy);
+	system("Pause");
+	return EXIT_SUCCESS;
+}
+
+double row_total(int table[][COLUMNS], int row){
+int total = 0;
+for (int j = 0; j < COLUMNS; j++) {
+total = total + table[row][j];
+}
+return total;
+}
+
+#define _USE_MATH_DEFINES // for C
+#include <math.h>
+M_PI
+
+int main() {
+	int x = 36;
+	double y = 121.45;
+	char a[] = "C Programlama Dili";
+	char buffer[100];
+
+	sprintf_s(buffer, "%d %lf %s", x, y, a);
+
+	printf("Oluşturulan karakter dizisi\n%s\n", buffer);
+
+	system("Pause");
+	return 0;
+}
+
+const int n = 41;
+char a[n];
+printf("Karakter Dizisi Gir\n");
+fgets(a, n, stdin);
+printf("%s\n", a);
+
+    const int n = 41;
+    char a[n];
+    strcpy_s(a, "Bilgisayar");
+    printf("%s\n", a);
+
+int main(){
+   int n, t, sum = 0, remainder;
+
+   printf("Enter an integer\n");
+   scanf("%d", &n);
+
+   t = n;
+
+   while (t != 0)
+   {
+      remainder = t % 10;
+      sum       = sum + remainder;
+      t         = t / 10;
+   }
+
+   printf("Sum of digits of %d = %d\n", n, sum);
+
+   return 0;
+}
+
+int main()
+{
+   int c, sum, t;
+   char n[1000];
+   
+   printf("Input an integer\n");
+   scanf("%s", n);
+ 
+   sum = c = 0;
+   
+   while (n[c] != '\0') {
+      t   = n[c] - '0'; // Converting character to integer
+      sum = sum + t;
+      c++;
+   }
+ 
+   printf("Sum of digits of %s = %d\n", n, sum);
+ 
+   return 0;
+}
+
+long factorial(int n)
+{
+  if (n == 0) // Base case
+    return 1;
+  else
+    return (n*factorial(n-1));
+}
+
+int main() {
+  int a, b, x, y, t, gcd, lcm;
+
+  printf("Enter two integers\n");
+  scanf("%d%d", &x, &y);
+
+  a = x;
+  b = y;
+
+  while (b != 0) {
+    t = b;
+    b = a % b;
+    a = t;
+  }
+
+  gcd = a;
+  lcm = (x*y)/gcd;
+
+  printf("Greatest common divisor of %d and %d = %d\n", x, y, gcd);
+  printf("Least common multiple of %d and %d = %d\n", x, y, lcm);
+
+  return 0;
+}
+
+long gcd(long, long);
+
+int main() {
+  long x, y, hcf, lcm;
+
+  printf("Enter two integers\n");
+  scanf("%ld%ld", &x, &y);
+
+  hcf = gcd(x, y);
+  lcm = (x*y)/hcf;
+
+  printf("Greatest common divisor of %ld and %ld = %ld\n", x, y, hcf);
+  printf("Least common multiple of %ld and %ld = %ld\n", x, y, lcm);
+
+  return 0;
+}
+
+long gcd(long a, long b) {
+  if (b == 0)
+    return a;
+  else
+    return gcd(b, a % b);
+}
+
+long gcd(long, long);
+
+int main() {
+  long x, y, hcf, lcm;
+
+  printf("Enter two integers\n");
+  scanf("%ld%ld", &x, &y);
+
+  hcf = gcd(x, y);
+  lcm = (x*y)/hcf;
+
+  printf("Greatest common divisor of %ld and %ld = %ld\n", x, y, hcf);
+  printf("Least common multiple of %ld and %ld = %ld\n", x, y, lcm);
+
+  return 0;
+}
+
+long gcd(long x, long y) {
+  if (x == 0) {
+    return y;
+  }
+
+  while (y != 0) {
+    if (x > y)
+      x = x - y;
+    else
+      y = y - x;
+  }
+
+  return x;
+}
+
+int main()
+{
+  int n, c, k;
+
+  printf("Enter an integer in decimal number system\n");
+  scanf("%d", &n);
+
+  printf("%d in binary number system is:\n", n);
+
+  for (c = 31; c >= 0; c--)
+  {
+    k = n >> c;
+
+    if (k & 1)
+      printf("1");
+    else
+      printf("0");
+  }
+
+  printf("\n");
+
+  return 0;
+}
+
+int main()
+{
+  int x, y, t;
+
+  printf("Enter two integers\n");
+  scanf("%d%d", &x, &y);
+
+  printf("Before Swapping\nFirst integer = %d\nSecond integer = %d\n", x, y);
+
+  t = x;
+  x = y;
+  y = t;
+
+  printf("After Swapping\nFirst integer = %d\nSecond integer = %d\n", x, y);
+
+  return 0;
+}
+
+int main()
+{
+   int a, b;
+   
+   printf("Input two integers (a & b) to swap\n");
+   scanf("%d%d", &a, &b);
+   
+   a = a + b;
+   b = a - b;
+   a = a - b;
+
+   printf("a = %d\nb = %d\n",a,b);
+   return 0;
+}
+
+int main()
+{
+  int x, y;
+
+  scanf("%d%d", &x, &y);
+
+  printf("x = %d\ny = %d\n", x, y);
+
+  x = x ^ y;
+  y = x ^ y;
+  x = x ^ y;
+
+  printf("x = %d\ny = %d\n", x, y);
+
+  return 0;
+}
+
+long reverse(long);
+ 
+int main()
+{
+   long n, r;
+   
+   scanf("%ld", &n);
+ 
+   r = reverse(n);
+ 
+   printf("%ld\n", r);
+ 
+   return 0;
+}
+
+long reverse(long n) {
+   static long r = 0;
+   
+   if (n == 0)
+      return 0;
+   
+   r = r * 10;
+   r = r + n % 10;
+   reverse(n/10);
+   return r;
+}
+
+int main()
+{
+  int n, r = 0, t;
+
+  printf("Enter a number to check if it's a palindrome or not\n");
+  scanf("%d", &n);
+
+  t = n;
+
+  while (t != 0)
+  {
+    r = r * 10;
+    r = r + t%10;
+    t = t/10;
+  }
+
+  if (n == r)
+    printf("%d is a palindrome number.\n", n);
+  else
+    printf("%d isn't a palindrome number.\n", n);
+
+  return 0;
+}
+
+int check_palindrome(int n) {
+  int t, r = 0;
+  t = n;
+
+  while (t != 0) {
+    r = r * 10;
+    r = r + t%10;
+    t = t/10;
+  }
+
+  if (n == r)
+    return 1;
+  else
+    return 0;
+}
+
+int main()
+{
+  int row, c, n;
+
+  printf("Enter the number of rows in pyramid of stars to print\n");
+  scanf("%d", &n);
+
+  for (row = 1; row <= n; row++)  // Loop to print rows
+  {
+    for (c = 1; c <= n-row; c++)  // Loop to print spaces in a row
+      printf(" ");
+
+    for (c = 1; c <= 2*row - 1; c++) // Loop to print stars in a row
+      printf("*");
+
+    printf("\n");
+  }
+
+  return 0;
+}
+
+int main()
+{
+  int n, c, k;
+
+  printf("Enter number of rows\n");
+  scanf("%d", &n);
+
+  for (k = 1; k <= n; k++)
+  {
+    for (c = 1; c <= n-k; c++)
+      printf(" ");
+
+    for (c = 1; c <= 2*k-1; c++)
+      printf("*");
+
+    printf("\n");
+  }
+
+  for (k = 1; k <= n - 1; k++)
+  {
+    for (c = 1; c <= k; c++)
+      printf(" ");
+
+    for (c = 1 ; c <= 2*(n-k)-1; c++)
+      printf("*");
+
+    printf("\n");
+  }
+
+  return 0;
+}
+
+long factorial(int);
+ 
+int main()
+{
+  int i, n, c;
+ 
+  printf("Enter the number of rows you wish to see in pascal triangle\n");
+  scanf("%d",&n);
+ 
+  for (i = 0; i < n; i++)
+  {
+    for (c = 0; c <= (n - i - 2); c++)
+      printf(" ");
+ 
+    for (c = 0 ; c <= i; c++)
+      printf("%ld ",factorial(i)/(factorial(c)*factorial(i-c)));
+ 
+    printf("\n");
+  }
+ 
+  return 0;
+}
+ 
+long factorial(int n)
+{
+  int c;
+  long result = 1;
+ 
+  for (c = 1; c <= n; c++)
+    result = result*c;
+ 
+  return result;
+}
+
+int find_maximum(int a[], int n) {
+  int c, index = 0;
+
+  for (c = 1; c < n; c++)
+    if (a[c] > a[index])
+      index = c;
+
+  return index;
+}
+
+void reverse_array(int a[], int n)
+{
+  int c, t;
+
+  for (c = 0; c < n/2; c++) {
+    t = a[c];                  // Swapping
+    a[c] = a[n-c-1];
+    a[n-c-1] = t;
+  }
+}
+
+void bubble_sort(long list[], long n)
+{
+  long c, d, t;
+
+  for (c = 0 ; c < n - 1; c++) {
+    for (d = 0 ; d < n - c - 1; d++) {
+      if (list[d] > list[d+1]) {
+        /* Swapping */
+        t         = list[d];
+        list[d]   = list[d+1];
+        list[d+1] = t;
+      }
+    }
+  }
+}
+
+int main()
+{
+  int m, n, c, d, matrix[10][10], transpose[10][10];
+ 
+  printf("Enter the number of rows and columns of a matrix\n");
+  scanf("%d%d", &m, &n);
+  printf("Enter elements of the matrix\n");
+ 
+  for (c = 0; c < m; c++)
+    for (d = 0; d < n; d++)
+      scanf("%d", &matrix[c][d]);
+ 
+  for (c = 0; c < m; c++)
+    for (d = 0; d < n; d++)
+      transpose[d][c] = matrix[c][d];
+ 
+  printf("Transpose of the matrix:\n");
+ 
+  for (c = 0; c < n; c++) {
+    for (d = 0; d < m; d++)
+      printf("%d\t", transpose[c][d]);
+    printf("\n");
+  }
+
+  return 0;
+}
+
+int main()
+{
+  int m, n, p, q, c, d, k, sum = 0;
+  int first[10][10], second[10][10], multiply[10][10];
+ 
+  printf("Enter number of rows and columns of first matrix\n");
+  scanf("%d%d", &m, &n);
+  printf("Enter elements of first matrix\n");
+ 
+  for (c = 0; c < m; c++)
+    for (d = 0; d < n; d++)
+      scanf("%d", &first[c][d]);
+ 
+  printf("Enter number of rows and columns of second matrix\n");
+  scanf("%d%d", &p, &q);
+ 
+  if (n != p)
+    printf("The multiplication isn't possible.\n");
+  else
+  {
+    printf("Enter elements of second matrix\n");
+ 
+    for (c = 0; c < p; c++)
+      for (d = 0; d < q; d++)
+        scanf("%d", &second[c][d]);
+ 
+    for (c = 0; c < m; c++) {
+      for (d = 0; d < q; d++) {
+        for (k = 0; k < p; k++) {
+          sum = sum + first[c][k]*second[k][d];
+        }
+ 
+        multiply[c][d] = sum;
+        sum = 0;
+      }
+    }
+ 
+    printf("Product of the matrices:\n");
+ 
+    for (c = 0; c < m; c++) {
+      for (d = 0; d < q; d++)
+        printf("%d\t", multiply[c][d]);
+ 
+      printf("\n");
+    }
+  }
+ 
+  return 0;
+}
+
+int main()
+{
+   char a[100], b[100];
+
+   printf("Enter a string\n");
+   gets(a);
+
+   printf("Enter a string\n");
+   gets(b);
+
+   if (strcmp(a,b) == 0)
+      printf("The strings are equal.\n");
+   else
+      printf("The strings are not equal.\n");
+
+   return 0;
+}
+
+int compare_strings(char [], char []);
+ 
+int main()
+{
+   char a[1000], b[1000];
+ 
+   printf("Input a string\n");
+   gets(a);
+ 
+   printf("Input a string\n");
+   gets(b);
+ 
+   if (compare_strings(a, b) == 0)
+      printf("Equal strings.\n");
+   else
+      printf("Unequal strings.\n");
+ 
+   return 0;
+}
+
+int compare_strings(char a[], char b[])
+{
+   int c = 0;
+ 
+   while (a[c] == b[c]) {
+      if (a[c] == '\0' || b[c] == '\0')
+         break;
+      c++;
+   }
+   
+   if (a[c] == '\0' && b[c] == '\0')
+      return 0;
+   else
+      return -1;
+}
+
+int compare_string(char*, char*);
+
+int main()
+{
+    char first[1000], second[1000]:
+    int result;
+   
+    printf("Input a string\n");
+    gets(first);
+   
+    printf("Input a string\n");
+    gets(second);
+   
+    result = compare_string(first, second);
+   
+    if (result == 0)
+       printf("The strings are same.\n");
+    else
+       printf("The strings are different.\n");
+       
+    return 0;
+}
+
+int compare_string(char *first, char *second) {
+   while (*first == *second) {
+      if (*first == '\0' || *second == '\0')
+         break;
+         
+      first++;
+      second++;
+   }
+
+   if (*first == '\0' && *second == '\0')
+      return 0;
+   else
+      return -1;
+}
+
+int main()
+{
+  char source[1000], destination[1000];
+
+  printf("Input a string\n");
+  gets(source);
+
+  strcpy(destination, source);
+
+  printf("Source string: %s\n", source);
+  printf("Destination string: %s\n", destination);
+
+  return 0;
+}
+
+int main()
+{
+  int c = 0;
+  char s[1000], d[1000] = "What can I say about my programming skills?";
+
+  printf("Before copying, the string: %s\n", d);
+
+  printf("Input a string to copy\n");
+  gets(s);
+
+  while (s[c] != '\0') {
+    d[c] = s[c];
+    c++;
+  }
+
+  d[c] = '\0';
+
+  printf("After copying, the string: %s\n", d);
+
+  return 0;
+}
+
+void copy_string(char [], char []);
+
+int main() {
+  char s[1000], d[1000];
+   
+  printf("Input a string\n");
+  gets(s);
+
+  copy_string(d, s);
+  printf("The string: %s\n", d);
+
+  return 0;
+}
+
+void copy_string(char d[], char s[]) {
+  int c = 0;
+   
+  while (s[c] != '\0') {
+    d[c] = s[c];
+    c++;
+  }
+  d[c] = '\0';
+}
+
+void copy_string(char *target, char *source) {
+   while (*source) {
+      *target = *source;
+      source++;
+      target++;
+   }
+   *target = '\0';
+}
+
+void upper_string(char []);
+
+int main()
+{
+   char string[100];
+   
+   printf("Enter a string to convert it into upper case\n");
+   gets(string);
+   
+   upper_string(string);
+   
+   printf("The string in upper case: %s\n", string);
+     
+   return 0;
+}
+
+void upper_string(char s[]) {
+   int c = 0;
+   
+   while (s[c] != '\0') {
+      if (s[c] >= 'a' && s[c] <= 'z') {
+         s[c] = s[c] - 32;
+      }
+      c++;
+   }
+}
+
+void lower_string(char []);
+
+int main()
+{
+   char string[100];
+   
+   printf("Enter a string to convert it into lower case\n");
+   gets(string);
+   
+   lower_string(string);
+   
+   printf("The string in lower case: %s\n", string);
+     
+   return 0;
+}
+
+void lower_string(char s[]) {
+   int c = 0;
+   
+   while (s[c] != '\0') {
+      if (s[c] >= 'A' && s[c] <= 'Z') {
+         s[c] = s[c] + 32;
+      }
+      c++;
+   }
+}
+
+int main ()
+{
+   int c = 0;
+   char ch, s[1000];
+
+   printf("Input a string\n");
+   gets(s);
+   
+   while (s[c] != '\0') {
+      ch = s[c];
+      if (ch >= 'A' && ch <= 'Z')
+         s[c] = s[c] + 32;
+      else if (ch >= 'a' && ch <= 'z')
+         s[c] = s[c] - 32;  
+      c++;  
+   }
+   
+   printf("%s\n", s);
+
+   return 0;
+}
+
+#include <stdio.h>
+#include <conio.h>
+#include <dir.h>
+int main()
+{
+   int done;
+   struct ffblk a;
+
+   printf("Press any key to view the files in the current directory\n");
+
+   getch();
+
+   done = findfirst("*.*", &a, 0); // The first '*' is for all file names and the second one is for all file extensions
+
+   while(!done)
+   {
+      printf("%s\n", a.ff_name);
+      done = findnext(&a);
+   }
+
+   getch();
+   return 0;
+}
+
+int main()
+{
+  int status;
+  char file_name[25];
+
+  printf("Enter name of a file you wish to delete\n");
+  gets(file_name);
+
+  status = remove(file_name);
+
+  if (status == 0)
+    printf("%s file deleted successfully.\n", file_name);
+  else
+  {
+    printf("Unable to delete the file\n");
+    perror("Following error occurred");
+  }
+
+  return 0;
+}
+
+int main() {
+  int c, n;
+
+  printf("Ten random numbers in [1,100]\n");
+
+  for (c = 1; c <= 10; c++) {
+    n = rand() % 100 + 1;
+    printf("%d\n", n);
+  }
+
+  return 0;
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+int main()
+{
+   int n, max, num, c;
+
+   printf("Enter the number of random numbers you want\n");
+   scanf("%d", &n);
+
+   printf("Enter the maximum value of random number\n");
+   scanf("%d", &max);
+
+   printf("%d random numbers from 0 to %d are:\n", n, max);
+   
+   randomize();
+
+   for (c = 1; c <= n; c++)
+   {
+      num = random(max);
+      printf("%d\n",num);        
+   }
+
+   getch();
+   return 0;
+}
+
+#include <stdio.h>
+#include <conio.h>
+#include <dos.h>
+int main()
+{
+   struct date d;
+
+   getdate(&d);
+
+   printf("Current system date: %d/%d/%d", d.da_day, d.da_mon, d.da_year);
+   getch();
+   return 0;
+}
+
+#include<stdlib.h>
+int main()
+{
+   system("C:\\Windows\\System32\\ipconfig");
+   
+   return 0;
+}
+
+x <<= 3
+
+printf("%lu\n", sizeof(myInt));
+printf("%lu\n", sizeof(myFloat));
+printf("%lu\n", sizeof(myDouble));
+printf("%lu\n", sizeof(myChar));
+
+int myNum = 10; // Is this a positive or negative number?
+
+if (myNum > 0)
+  printf("The value is a positive number.");
+else if (myNum < 0)
+  printf("The value is a negative number.");
+else
+  printf("The value is 0.");
+
+int time = 22;
+if (time < 10) {
+  printf("Good morning.");
+} else if (time < 20) {
+  printf("Good day.");
+} else {
+  printf("Good evening.");
+}
+
+int day = 4;
+
+switch (day) {
+  case 1:
+    printf("Monday");
+    break;
+  case 2:
+    printf("Tuesday");
+    break;
+  case 3:
+    printf("Wednesday");
+    break;
+  case 4:
+    printf("Thursday");
+    break;
+  case 5:
+    printf("Friday");
+    break;
+  case 6:
+    printf("Saturday");
+    break;
+  case 7:
+    printf("Sunday");
+    break;
+}
+
+int myNumbers[] = {25, 50, 75, 100};
+int i;
+for (i = 0; i < 4; i++) {
+  printf("%d\n", myNumbers[i]);
+}
+
+int myNumbers[4];
+
+// Add elements
+myNumbers[0] = 25;
+myNumbers[1] = 50;
+myNumbers[2] = 75;
+myNumbers[3] = 100;
+
+char greetings[] = "Hello World!";
+printf("%s", greetings);
+
+char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0'};
+printf("%s", greetings);
+
+printf("%lu\n", sizeof(greetings));
+
+int myAge = 43; // an int variable
+printf("%d", myAge);  // Outputs the value of myAge (43)
+printf("%p", &myAge); // Outputs the memory address of myAge (0x7ffe5367e044)
+
+int myAge = 43;     // An int variable
+int* ptr = &myAge;  // A pointer variable, with the name ptr, that stores the address of myAge
+
+// Output the value of myAge (43)
+printf("%d\n", myAge);
+
+// Output the memory address of myAge (0x7ffe5367e044)
+printf("%p\n", &myAge);
+
+// Output the memory address of myAge with the pointer (0x7ffe5367e044)
+printf("%p\n", ptr);
+
+int* myNum; // Most used
+int *myNum;
+int * myNum;
+
+void myFunction(char name[], int age) {
+  printf("Hello %s. You are %d years old.\n", name, age);
+}
+int main() {
+  myFunction("Liam", 3);
+  myFunction("Jenny", 14);
+  myFunction("Anja", 30);
+  return 0;
+}
+
+int myFunction(int x, int y) {
+  return x + y;
+}
+int main() {
+  int result = myFunction(5, 3);
+  printf("Result is = %d", result);
+
+  return 0;
+}
+
+// Create a function
+void myFunction() {
+  printf("I just got executed!");
+}
+int main() {
+  myFunction(); // call the function
+  return 0;
+}
+
+printf("%f", sqrt(16));
+printf("%f", ceil(1.4));
+printf("%f", floor(1.4));
+printf("%f", pow(4, 3));
+
+// Create a structure called myStructure
+struct myStructure {
+  int myNum;
+  char myLetter;
+};
+
+int main() {
+  // Create a structure variable of myStructure called s1
+  struct myStructure s1;
+
+  // Assign values to members of s1
+  s1.myNum = 13;
+  s1.myLetter = 'B';
+
+  // Print values
+  printf("My number: %d\n", s1.myNum);
+  printf("My letter: %c\n", s1.myLetter);
+
+  return 0;
+}
+
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];  // String
+};
+
+int main() {
+  struct myStructure s1;
+
+  // Trying to assign a value to the string
+  s1.myString = "Some text";
+
+  // Trying to print the value
+  printf("My string: %s", s1.myString);
+
+  return 0;
+}
+
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30]; // String
+};
+
+int main() {
+  struct myStructure s1;
+
+  // Assign a value to the string using the strcpy function
+  strcpy(s1.myString, "Some text");
+
+  // Print the value
+  printf("My string: %s", s1.myString);
+
+  return 0;
+}
+
+// Create a structure
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];
+};
+int main() {
+  // Create a structure variable and assign values to it
+  struct myStructure s1 = {13, 'B', "Some text"};
+
+  // Print values
+  printf("%d %c %s", s1.myNum, s1.myLetter, s1.myString);
+
+  return 0;
+}
+
+// Create a structure variable and assign values to it
+struct myStructure s1 = {13, 'B', "Some text"};
+
+// Create another structure variable
+struct myStructure s2;
+
+// Copy s1 values to s2
+s2 = s1;
+
+// Change s2 values
+s2.myNum = 30;
+s2.myLetter = 'C';
+strcpy(s2.myString, "Something else");
+
+// Print values
+printf("%d %c %s\n", s1.myNum, s1.myLetter, s1.myString);
+printf("%d %c %s\n", s2.myNum, s2.myLetter, s2.myString);
+
+
+int main() {
+    int i = 0;
+    printf("Herhangi bir tus ile cikilir\n");
+    while (!_kbhit()) {
+        if (++i % 1000 == 0) {
+            printf(" %d\n", i);
+        }
+    }
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    for (int i = 0; i < 256; i++)
+        printf("%5d ---> %c\n", i, i);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	char a[] = "C Programlama Dersi";
+	printf("%s\n", a);
+	printf("Uzunluk : %zu, %zu\n\n", strlen(a), sizeof(a));
+	char b[] = { 'C', ' ', 'P', 'r', 'o', 'g', 'r', 'a', 'm',
+		'l', 'a', 'm', 'a', ' ', 'D', 'e', 'r', 's', 'i', '\0' };
+	printf("%s\n", b);
+	printf("Uzunluk : %zu, %zu\n\n", strlen(b), sizeof(b));
+	const int n = 101;
+	char c[n] = "C Programlama Dersi";
+	printf("%s\n", c);
+	printf("Uzunluk : %zu, %zu\n\n", strlen(c), sizeof(c));
+	system("Pause");
+	return 0;
+}
+
+int main() {
+    const int n = 21;
+    char s[n];
+    //char s[n] = "";
+    //char s[n] = {};
+    strcpy_s(s, "C Programlama");
+    printf("Karakter Dizisi\n");
+    printf("Adres : %p\n", s);
+    //printf("Adres : %p\n", &s);
+    //printf("Adres : %p\n", &s[0]);
+    for (int i = 0; i < n; i++) printf(" %3c", s[i]);
+    printf("\n");
+    for (int i = 0; i < n; i++) printf(" %3d", s[i]);
+    printf("\n\n");
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    const int n = 21;
+    char s1[n] = {}, s2[n] = {};
+    int durum;
+    strcpy_s(s1, "Programlama");
+    strcpy_s(s2, "pRoGramlaMA");
+    for (int i = 0; i < n; i++) {
+        s1[i] = tolower(s1[i]);
+        s2[i] = tolower(s2[i]);
+    }
+    printf("s1 : %s\n", s1);
+    printf("s2 : %s\n", s2);
+    printf("%zu, %zu\n", sizeof(s1), sizeof(s2));
+    for (int i = 0; i < n; i++)
+        printf("%c : %d\n", s1[i], s1[i]);
+    durum = strcmp(s1, s2);
+    if (durum > 0) printf("s1 > s2");
+    else if (durum < 0) printf("s1 < s2");
+    else printf("s1 = s2");
+    printf("\n\n");
+    system("Pause");
+    return 0;
+}
+
+void MakeStrUpper(char* s) {
+    while (*s != '\0') {
+        *s = toupper(*s);
+        ++s;
+    }
+}
+int main() {
+    char s[] = "C Programlama Dersi";
+    printf("%s\n", s);
+    MakeStrUpper(s);
+    printf("%s\n", s);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	const int n = 101;
+	char ch, a[n];
+	printf("Karakter Dizisi : ");
+	ch = getchar();
+	printf("%c : %d\n", ch, ch);
+	rewind(stdin);
+	printf("Karakter Dizisi : ");
+	scanf_s("%s", a, n);
+	for (int i = 0; i < n; i++) {
+		if (a[i] == '\0') break;
+		a[i] = toupper(a[i]);
+	}
+	printf("Karakter Dizisi : %s\n", a);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+    const int n = 41;
+    char ad[n] = "", syd[n] = "";
+    printf("   Adiniz : ");
+    scanf_s("%s", ad, n);
+    //fgets(ad, n, stdin);
+    printf("Soyadiniz : ");
+    scanf_s("%s", syd, n);
+    //fgets(syd, n, stdin);
+    printf("\n");
+    printf("       Ad : %s\n", ad);
+    printf("  Uzunluk : %zu, %zu\n", strlen(ad), sizeof(ad));
+    printf("    Soyad : %s\n", syd);
+    printf("  Uzunluk : %zu, %zu\n\n", strlen(syd), sizeof(syd));
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	const int n = 41;
+	char ch, s1[n] = "", s2[n] = "";
+	printf("Text 1 : ");
+	scanf_s("%s", s1, n);
+	int k = (int)strlen(s1);
+	printf("Uzunluk : %d\n", k);
+	for (int i = 0; i < k; i++) s2[i] = s1[k - 1 - i];
+	printf("Text 2 : %s\n", s2);
+
+	/*
+		int k = 0;
+	while (true) {
+		ch = s1[k++];
+		if (ch == '\0') break;
+		printf("%c : %d\n", ch, ch);
+	}
+	printf("Uzunluk : %d\n", k);
+	printf("Uzunluk : %zu\n\n", strlen(s1));
+	*/
+
+	system("Pause");
+	return 0;
+}
+
+	int c[] = { 15, 13, 7, 45, 19, 9, 23 };
+	printf("Uzunluk : %zu\n\n", sizeof(c));
+
+
+char* Reverse(const char* const s) {
+    /*
+    if (s[0] == '\0') return;
+    reverse(&s[1]);
+    putchar(s[0]);
+    
+    */
+    char ch;
+    int n = (int)strlen(s);
+    for (int i = 0; i < n/2; i++) {
+        ch = s[i];
+        s[i] = s[n-i-1];
+        s[n - i - 1] = ch;
+    }
+    return s;
+}
+int main() {
+    const int n = 100;
+    char s[n];
+    printf("Text : ");
+    fgets(s, n, stdin);
+    Reverse(s);
+    printf("\n\n");
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	const int n = 11;
+	char ch, str[n] = {};
+	printf("Karakter Dizisi : ");
+	int m = 0;
+	while (m < n - 1) {
+		ch = getchar();
+		if (ch == '\n') break;
+		str[m++] = ch;
+	}
+	str[m] = '\0';
+	rewind(stdin);
+	printf("Karakter Dizisi : %s\n", str);
+	printf("Uzunluk : %d\n", m);
+	int k = 0;
+	while (str[k] != '\0') k++;
+	printf("Uzunluk : %d\n", k);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+    const char* s1 = "Ankara Kütahya";
+    const char* s2 = "Ankara Kütahya";
+    const char* s3 = "Ankara Afyon";
+    printf("s1 : %s\n", s1);
+    printf("s2 : %s\n", s2);
+    printf("s3 : %s\n\n", s3);
+    printf("strcmp(s1, s2) : %2d\n", strcmp(s1, s2));
+    printf("strcmp(s1, s3) : %2d\n", strcmp(s1, s3));
+    printf("strcmp(s3, s1) : %2d\n\n", strcmp(s3, s1));
+    printf("strncmp(s1, s3, 6) : %2d\n", strncmp(s1, s3, 6));
+    printf("strncmp(s1, s3, 7) : %2d\n", strncmp(s1, s3, 8));
+    printf("strncmp(s3, s1, 7) : %2d\n\n", strncmp(s3, s1, 8));
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char s1[] = "ABCDEFG";
+    char s2[] = "ABCDXYZ";
+    printf("s1 : %s\ns2 : %s\n\n", s1, s2);
+    printf("memcmp(s1, s2, 4) : %2d\n", memcmp(s1, s2, 4));
+    printf("memcmp(s1, s2, 7) : %2d\n", memcmp(s1, s2, 7));
+    printf("memcmp(s2, s1, 7) : %2d\n\n", memcmp(s2, s1, 7));
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    const char* s1 = "abcdefghijklmnopqrstuvwxyz";
+    const char* s2 = "Hasan";
+    const char* s3 = "Temurtas";
+    printf("%s\n%zu\n\n", s1, strlen(s1));
+    printf("%s\n%zu\n\n", s2, strlen(s2));
+    printf("%s\n%zu\n\n", s3, strlen(s3));
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	printf("1 ile 5 arası bir rakam gir : ");
+	char ch = _getch();
+	printf("%c\n", ch);
+	printf("Not : ");
+	switch (ch) {
+	case '1': printf("Başarısız"); break;
+	case '2': printf("Geçer"); break;
+	case '3': printf("Orta"); break;
+	case '4': printf("İyi"); break;
+	case '5': printf("Pekiyi"); break;
+	default: printf("Yanlış Girdi");
+	}
+	printf("\n\n");
+	system("Pause");
+	return 0;
+}
+
+int main() {
+    printf("0 ile 9 arası bir rakam gir : ");
+    char ch = _getch();
+    printf("%c\n", ch);
+    int x = (int)ch - 48;
+    printf("Okunuşu : ");
+    switch (x) {
+    case 0: printf("Sıfır"); break;
+    case 1: printf("Bir"); break;
+    case 2: printf("İki"); break;
+    case 3: printf("Üç"); break;
+    case 4: printf("Dört"); break;
+    case 5: printf("Beş"); break;
+    case 6: printf("Altı"); break;
+    case 7: printf("Yedi"); break;
+    case 8: printf("Sekiz"); break;
+    case 9: printf("Dokuz"); break;
+    default: printf("Yanlış Girdi");
+    }
+    printf("\n\n");
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char s[11][13] = { "Sıfır","Bir","İki","Üç","Dört","Beş","Altı",
+        "Yedi","Sekiz","Dokuz","Yanlış Girdi" };
+    printf("0 ile 9 arası bir rakam gir : ");
+    char ch = _getch();
+    printf("%c\n", ch);
+    int x = (int)ch - 48;
+    if (x < 0 || x > 9) x = 10;
+    printf("Okunuşu : %s\n\n", s[x]);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    double x, y, z;
+    int ch;
+    printf("İşlem ( +, -, *, / ) : ");
+    while (true) {
+        ch = _getch();
+        if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+            printf("%c\n", ch);
+            printf("    x = ");
+            scanf_s("%lf", &x);
+            printf("    y = ");
+            scanf_s("%lf", &y);
+            break;
+        }
+    }
+    switch (ch) {
+    case '+': z = x + y; break;
+    case '-': z = x - y; break;
+    case '*': z = x * y; break;
+    default: z = x / y;
+    }
+    printf("x %c y : %lf\n", ch, z);
+    system("Pause");
+    return 0;
+}
+
+enum Week { Mon = 1, Tue, Wed, Thur, Fri, Sat, Sun };
+enum Year { Jan = 1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
+int main() {
+    for (int i = Mon; i <= Sun; i++)
+        printf("%d\n", i);
+    printf("\n\n");
+    for (int i = Jan; i <= Dec; i++)
+        printf("%d\n", i);
+    printf("\n\n");
+    printf("%d\n", Sun);
+    printf("%d\n", Dec);
+    printf("%d\n", Week::Sun);
+    printf("%d\n", Year::Dec);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char s1[6] = { 'H', 'a', 's', 'a', 'n', '\0' };
+    char s2[9] = "Temurtaş";
+    printf("%s %s\n", s1, s2);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char a[] = { 'H', 'a', 's', 'a', 'n' };
+    char* p;
+    p = a; // p = &a[0];
+    int n = sizeof(a) / sizeof(char);
+    for (int i = 0; i < n; i++) printf("%c ", *p++);
+    printf("\nUzunluk : %d\n\n", n);
+    system("Pause");
+    return 0;
+}
+
+void main() {
+    int a[5] = { 5, 17, 21, 34, 46 };
+    int *p;
+    p = a;
+    for (int i = 0; i < 5; i++, p++) {
+        printf("Adres : %p %p\n", p, &a[i]);
+        printf("Değer : %d %d\n\n", *p, a[i]);
+    }
+    system("Pause");
+}
+
+int main() {
+    int a[5] = { 15, 72, 154, 298, 345 };
+    int *p;
+    printf("İşaretçi bellek adresi: %p\n\n", &p);
+    p = &a[4];
+    printf("Adres : %p\n", p);
+    printf("Değer : %d\n\n", *p);
+    p -= 2;
+    printf("Adres : %p\n", p);
+    printf("Değer : %d\n\n", *p);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    int *a;
+    a = (int*)calloc(5, sizeof(int));
+    //a = (int*)malloc(5 * sizeof(int));
+    for (int i = 0; i < 5; i++) {
+        *(a + i) = (i + 1) * 10;
+        printf("%p adresindeki değer: %d\n", (a + i), *(a + i));
+    }
+    free(a);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char* a[5];
+    for (int i = 0; i < 5; i++) {
+        a[i] = (char*)malloc(20 * sizeof(char));
+        strcpy(a[i], "Karakter dizisi");
+        printf("%s\n", a[i]);
+    }
+    for (int i = 0; i < 5; i++) free(a[i]);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    int i = 0;
+    while(true) {
+        printf("%d\n",i++);
+        if (_kbhit()) break;
+    }
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    float fd1, fd2;
+    fd1 = fd2 = 726.548317;
+    printf("%e\n%E\n", fd1, fd2);
+    system("Pause");
+    return 0;
+}
+
+void main() {
+    double x, y;
+    printf("Enter two numbers : ");
+    scanf("%lf %lf", &x, &y);
+    if (x == y) printf("%lf == %lf\n", x, y);
+    if (x != y) printf("%lf != %lf\n", x, y);
+    if (x < y) printf("%lf < %lf\n", x, y);
+    if (x > y) printf("%lf > %lf\n", x, y);
+    if (x <= y) printf("%lf <= %lf\n", x, y);
+    if (x >= y) printf("%lf >= %lf\n", x, y);
+	system("Pause");
+}
+
+void main() {
+	bool a = true, b = false;
+	printf("Logical Operators\n");
+	printf("     a = %i\n", a);
+	printf("     b = %i\n", b);
+	printf("    !a = %d\n", !a);
+	printf("    !b = %d\n", !b);
+	printf("a && b = %d\n", a && b);
+	printf("a || b = %d\n", a || b);
+	system("Pause");
+}
+
+void main() {
+	bool a, b;
+	printf("   a     b     a&&b\n");
+	for (int i = 0; i < 4; i++) {
+		/*
+		switch (i) {
+		case 0: a = false; b = false; break;
+		case 1: a = false; b = true; break;
+		case 2: a = true; b = false; break;
+		default: a = true; b = true;
+		}
+		*/
+		if (i < 2) a = false; else a = true;
+		if (i % 2 == 0) b = false; else b = true;
+		if (a) printf(" true "); else printf(" false");
+		if (b) printf(" true "); else printf(" false");
+		if (a && b) printf("   true \n"); else printf("   false\n");
+	}
+	system("Pause");
+}
+
+void main() {
+	int x = 0b1010110101;
+	int y = -0b0110100110;
+	printf("Bitwise Operators\n");
+	printf("     x : %5d\n", x);
+	printf("     y : %5d\n", y);
+	printf("    ~x : %5d\n", ~x);
+	printf("    ~y : %5d\n", ~y);
+	printf(" x & y : %5d\n", x & y);
+	printf(" x | y : %5d\n", x | y);
+	printf(" x ^ y : %5d\n", x ^ y);
+	printf(" x ^ y : %5d\n", (x & ~y) | (~x & y));
+	printf("x << 2 : %5d\n", x << 2);
+	printf("y >> 2 : %5d\n", y >> 2);
+	system("Pause");
+}
+
+void main() {
+	const int n = 101;
+	char s[n] = "";
+	printf("Enter an integer : ");
+	scanf("%s", s);
+	int k = atoi(s);
+	printf("     The integer : %d\n", k);
+	if (k % 2 == 0)
+		printf("Even\n");
+	else printf("Odd\n");
+	k % 2 == 0 ? printf("Even\n") : printf("Odd\n");
+	system("Pause");
+}
+
+void main() {
+    const int n = 101;
+    char s[n];
+    strcpy(s, "    45");
+    int x = atoi(s);
+    printf("s = %s, x = %d\n", s, x);
+    strcpy(s, "43.783");
+    x = atoi(s);
+    printf("s = %s, x = %d\n", s, x);
+    strcpy(s, "43Hasan7");
+    x = atoi(s);
+    printf("s = %s, x = %d\n", s, x);
+    strcpy(s, "Hasan");
+    x = atoi(s);
+    printf("s = %s, x = %d\n", s, x);
+    system("Pause");
+}
+
+void main() {
+    printf("Input a character : ");
+    char ch = _getch();
+    printf("%c\n", ch);
+    ch = tolower(ch);
+    if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+        printf("%c : Sesli Harf\n", ch);
+    else printf("%c : Sesli Harf Degil\n", ch);
+    switch (ch) {
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+        printf("%c : Sesli Harf\n", ch);
+        break;
+    default:
+        printf("%c : Sesli Harf Degil\n", ch);
+    }
+    system("Pause");
+}
+
+void main() {
+	int x = 15, y = 0;
+	printf("x = %d, y = %d\n", x, y);
+	y = x++;
+	printf("x = %d, y = %d\n", x, y);
+	y = ++x;
+	printf("x = %d, y = %d\n", x, y);
+	y = x--;
+	printf("x = %d, y = %d\n", x, y);
+	y = --x;
+	printf("x = %d, y = %d\n", x, y);
+	system("Pause");
+}
+
+void main() {
+	int x;
+	//x = -1;
+	//x = 0b11111111111111111111111111111111;
+	x = 0xffffffff;
+	printf("Size of x : %zu Bytes\n", sizeof(x));
+	printf("%12d, Decimal\n", x);
+	printf("%12x, Hexadecimal\n", x);
+	printf("%12o, Octal\n", x);
+	system("Pause");
+}
+
+void main() {
+	srand(time(NULL));
+	int x = 1000 + rand() % 9001;
+	int y = 10 + rand() % 91;
+	printf("Bölünen = %d\n", x);
+	printf("  Bölen = %d\n", y);
+	printf("  Bölüm = %d\n", x / y);
+	printf("  Kalan = %d\n", x % y);
+	system("Pause");
+}
+
+void main() {
+    printf("              char : %zu bytes\n", sizeof(char));
+    printf("             short : %zu bytes\n", sizeof(short));
+    printf("               int : %zu bytes\n", sizeof(int));
+    printf("              long : %zu bytes\n", sizeof(long));
+    printf("         long long : %zu bytes\n\n", sizeof(long long));
+    printf("     unsigned char : %zu bytes\n", sizeof(unsigned char));
+    printf("    unsigned short : %zu bytes\n", sizeof(unsigned short));
+    printf("      unsigned int : %zu bytes\n", sizeof(unsigned int));
+    printf("     unsigned long : %zu bytes\n", sizeof(unsigned long));
+    printf("unsigned long long : %zu bytes\n\n", sizeof(unsigned long long));
+    printf("             float : %zu bytes\n", sizeof(float));
+    printf("            double : %zu bytes\n", sizeof(double));
+    printf("            double : %zu bytes\n\n", sizeof(long double));
+    system("Pause");
+}
+
+void main() {
+    printf(" CHAR_MIN : %d\n", CHAR_MIN);
+    printf(" CHAR_MAX : %d\n", CHAR_MAX);
+    printf("UCHAR_MAX : %u\n\n", UCHAR_MAX);
+    printf(" SHRT_MIN : %d\n", SHRT_MIN);
+    printf(" SHRT_MAX : %d\n", SHRT_MAX);
+    printf("USHRT_MAX : %u\n\n", SHRT_MAX);
+    printf("  INT_MIN : %d\n", INT_MIN);
+    printf("  INT_MAX : %d\n", INT_MAX);
+    printf(" UINT_MAX : %u\n\n", INT_MAX);
+    printf(" LONG_MIN : %ld\n", LONG_MIN);
+    printf(" LONG_MAX : %ld\n", LONG_MAX);
+    printf("ULONG_MAX : %lu\n\n", ULONG_MAX);
+    system("Pause");
+}
+
+void main() {
+	printf("File : %s\n", __FILE__);
+	printf("Time : %s\n", __TIME__);
+	printf("Date : %s\n", __DATE__);
+	printf("Line : %d\n", __LINE__);
+	system("Pause");
+}
+
+void main() {
+    int x = 1000;
+    int* p1;
+    int** p2;
+    p1 = &x;
+    p2 = &p1;
+    printf("   x : %d\n", x);
+    printf("  &x : %p\n\n", &x);
+    printf(" *p1 : %d\n", *p1);
+    printf("  p1 : %p\n\n", p1);
+    printf("**p2 : %d\n", **p2);
+    printf(" *p2 : %p\n", *p2);
+    printf("  p2 : %p\n\n", p2);
+    system("Pause");
+}
+
+void main() {
+    int x1, x2, *p1, *p2;
+    p1 = &x1;
+    p2 = &x2;
+    x1 = 43;
+    *p2 = 19;
+    printf(" x1 : %d\n", x1);
+    printf(" x2 : %d\n", x2);
+    printf("&x1 : %p\n", &x1);
+    printf("&x2 : %p\n\n", &x2);
+    printf("*p1 : %d\n", *p1);
+    printf("*p2 : %d\n", *p2);
+    printf(" p1 : %p\n", p1);
+    printf(" p2 : %p\n", p2);
+    printf("&p1 : %p\n", &p1);
+    printf("&p2 : %p\n\n", &p2);
+    system("Pause");
+}
+
+int strLength(char s[]) {
+    int k = 0;
+    while (s[k] != '\0') k++;
+    return k;
+}
+void main() {
+    const int n = 101;
+    char str[n];
+    printf("String : ");
+    //scanf("%s", str);
+    //scanf("%s", &str[0]);
+    //fscanf(stdin, "%s", str, n);
+    fgets(str, n, stdin);
+    str[strlen(str)-1] = '\0';
+    printf("String : %s\n", str);
+    printf("Length : %zu\n", strlen(str));
+    printf("Length : %d\n", strLength(str));
+    system("Pause");
+}
+
+void main() {
+	int x, y, z;
+	printf("3 tane tamsayi gir : ");
+	scanf("%d %d %d", &x, &y, &z);
+	double Ort = (x + y + z) / 3.0;
+	printf("       x : %d\n", x);
+	printf("       y : %d\n", y);
+	printf("       z : %d\n", z);
+	printf("Ortalama : %lf\n", Ort);
+	system("Pause");
+}
+
+void main() {
+	int ch = 0;
+	printf("ESC tusu ile cikilir\n");
+	printf("Herhangi bir tusa bas\n");
+	while (ch != 27) {
+		if (_kbhit()) {
+			ch = _getch();
+			printf("Key = %c, Ascii Code = %3d\n", ch, ch);
+		}
+	}
+	system("Pause");
+}
+
+void main() {
+	int Value = 25;
+	int* Pointer = NULL;
+	printf(" Pointer : %p\n\n", Pointer);
+	Pointer = &Value;
+	printf(" Pointer : %p\n", Pointer);
+	printf("*Pointer : %d\n", *Pointer);
+	printf("  &Value : %p\n", &Value);
+	printf("   Value : %d\n\n", Value);
+	*Pointer = 50;
+	printf(" Pointer : %p\n", Pointer);
+	printf("*Pointer : %d\n", *Pointer);
+	printf("  &Value : %p\n", &Value);
+	printf("   Value : %d\n\n", Value);
+	system("Pause");
+}
+
+void main() {
+	const int n = 25;
+	int x, y;
+	srand(time(NULL));
+	for (int i = 1; i <= n; i++) {
+		x = rand() % 6 + 1;
+		y = rand() % 6 + 1;
+		printf("%d %d\n", x, y);
+	}
+	system("Pause");
+}
+
+void main() {
+	printf("Fibonachi Serisi\n");
+	const int n = 20;
+	unsigned int a[n] = { 0, 1 };
+	for (int i = 2; i < n; i++)  a[i] = a[i - 1] + a[i - 2];
+	for (int i = 0; i < n; i++) printf("%u\n", a[i]);
+	system("Pause");
+}
+
+bool Asal(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i <= n / 2; i++)
+        if (n % i == 0) return false;
+    return true;
+}
+void main() {
+    printf("Asal Sayilar\n");
+    for (int i = 0; i <= 1000; i++)
+        if (Asal(i)) printf("%d\n", i);
+    system("Pause");
+}
+
+int Fakt(int n) {
+    if (n == 0 || n == 1) return 1;
+    return n * Fakt(n - 1);
+}
+void main() {
+    int m, n = 10;
+    for (int i = 0; i <= n; i++) {
+        m = Fakt(i);
+        printf("%d! = %d\n", i, m);
+    }
+    system("Pause");
+}
+
+void ArtikYil(int Sene) {
+    if (Sene % 400 == 0)
+        printf("%d : Artik Yil\n", Sene);
+    else if (Sene % 100 == 0)
+        printf("%d : Artik Yil Degil\n", Sene);
+    else if (Sene % 4 == 0)
+        printf("%d : Artik Yil\n", Sene);
+    else printf("%d : Artik Yil Degil\n", Sene);
+}
+void main() {
+    int a[] = { 2000, 2004, 2100, 2104, 2200, 2300, 2400, 2404, 2500 };
+    int n = sizeof(a) / sizeof(int);
+    for (int i = 0; i < n; i++) ArtikYil(a[i]);
+    system("Pause");
+}
+
+int x = 15;
+void main() {
+	int y = 35;
+	printf("x : %d, y : %d\n", x, y);
+	int x = 25;
+	printf("x : %d, y : %d\n", x, y);
+	{
+		x = 50;
+		int y = 95;
+		printf("x : %d, y : %d\n", x, y);
+	}
+	printf("x : %d, y : %d\n", x, y);
+	printf("x : %d, y : %d\n", ::x, y);
+	system("Pause");
+}
+
+int x = 100;
+void useGlobal() {
+	printf("x : %3d\tGlobal\n", ++x);
+}
+void useLocal() {
+	int x = 200;
+	printf("x : %3d\tLocal\n", ++x);
+}
+void useStaticLocal() {
+	static int x = 300;
+	printf("x : %3d\tLocal Static\n", ++x);
+}
+void main() {
+	for (int i = 0; i < 5; i++) {
+		useGlobal();
+		useLocal();
+		useStaticLocal();
+		printf("\n");
+	}
+	system("Pause");
+}
+
+#define PI 3.141593
+void main() {
+	double r, yalan, hacim;
+	printf("Kurenin Yuzey Alani ve Hacmi\n");
+	printf("Pi Sayisi %f alinacak\n\n", PI);
+	printf("\tKurenin Yaricapi = ");
+	scanf("%lf", &r);
+	yalan = 4 * PI * r * r;
+	hacim = yalan * r / 3;
+	printf("\tYaricap %g Olarak Alindi\n", r);
+	printf("\nKurenin Yuzey Alani : %.9f", yalan);
+	printf("\n      Kurenin Hacmi : %.9f\n\n", hacim);
+	system("Pause");
+}
+
+void main() {
+    double a, b, c, x1, x2, delta;
+    printf("2.Denklem Koklerinin Hesabi\n");
+    printf("a = ");
+    scanf("%lf", &a);
+    printf("b = ");
+    scanf("%lf", &b);
+    printf("c = ");
+    scanf("%lf", &c);
+    delta = b * b - 4 * a * c;
+    if (delta < 0) printf("Kokler Sanal\n");
+    else if (delta > 0) {
+        x1 = (-b - sqrt(delta)) / 2 * a;
+        x2 = (-b + sqrt(delta)) / 2 * a;
+        printf("Kokler Reel\n");
+        printf("x1 = %lf\n", x1);
+        printf("x2 = %lf\n", x2);
+    }
+    else {
+        x1 = -b / (2 * a);
+        printf("Kokler Katli\n");
+        printf("x1 = x2 = %lf\n", x1);
+    }
+    system("Pause");
+}
+
+void swapPointers(int* num1, int* num2) {
+	int temp = *num1;
+	*num1 = *num2;
+	*num2 = temp;
+}
+void swapReferences(int& num1, int& num2) {
+	int temp = num1;
+	num1 = num2;
+	num2 = temp;
+}
+void swapValues(int num1, int num2) {
+	int temp = num1;
+	num1 = num2;
+	num2 = temp;
+}
+void main() {
+	int x = 25, y = 300;
+	printf("x : %d, y : %d\n\n", x, y);
+	swapPointers(&x, &y);
+	printf("x : %d, y : %d\n", x, y);
+	printf("Correct\n\n");
+	swapReferences(x, y);
+	printf("x : %d, y : %d\n", x, y);
+	printf("Correct\n\n");
+	swapValues(x, y);
+	printf("x : %d, y : %d\n", x, y);
+	printf("Wrong\n\n");
+	system("Pause");
+}
+
+void FncRand(double a[], int n) {
+    for (int i = 0; i < n; i++)
+        a[i] = (double)rand() / RAND_MAX;
+}
+void FncPrint(double a[], int n) {
+    printf("Dizi Elemanlari\n");
+    for (int i = 0; i < n; i++)
+        printf("%3d.Eleman : %.9f\n", i + 1, a[i]);
+    printf("\n");
+}
+double FncMean(double a[], int n) {
+    double t = 0;
+    for (int i = 0; i < n; i++)
+        t += a[i];
+    return t / n;
+}
+double FncStd(double a[], int n) {
+    double Mean = FncMean(a, n);
+    double Std = 0;
+    for (int i = 0; i < n; i++)
+        Std += pow(a[i] - Mean, 2);
+    return sqrt(Std / n);
+}
+void main() {
+    const int n = 15;
+    double a[n] = {};
+    srand(time(NULL));
+    FncRand(a, n);
+    FncPrint(a, n);
+    printf("      Ortalama : %.9f\n", FncMean(a, n));
+    printf("Standard Sapma : %.9f\n\n", FncStd(a, n));
+    system("Pause");
+}
+
+void main() {
+	srand(time(NULL));
+	printf("RAND_MAX : %d\n\n", RAND_MAX);
+	const int n = 20;
+	int a[n] = {};
+	for (int i = 0; i < n; i++) {
+		a[i] = rand() % 2001 - 1000;
+		printf("dizi[%2d] : %5d\n", i, a[i]);
+	}
+	int aMin = a[0], aMax = a[0];
+	for (int i = 1; i < n; i++) {
+		if (a[i] < aMin) aMin = a[i];
+		if (a[i] > aMax) aMax = a[i];
+	}
+	printf("\nMin Sayi : %5d\n", aMin);
+	printf("Max Sayi : %5d\n\n", aMax);
+	system("Pause");
+}
+
+void FncRand(int a[], int n) {
+	for (int i = 0; i < n; i++)
+		a[i] = rand() % 1000;
+}
+void FncSort(int a[], int n) {
+	int i, j, k;
+	for (i = 0; i < n; i++)
+		for (j = 0; j < n; j++)
+			if (a[j] > a[i]) {
+				k = a[j];
+				a[j] = a[i];
+				a[i] = k;
+			}
+}
+void main() {
+	const int n = 20;
+	int i, a[n] = {};
+	srand(time(NULL));
+	FncRand(a, n);
+	printf("Dizi Elemanlari\n");
+	for (i = 0; i < n; i++) printf(" %d", a[i]);
+	printf("\n\n");
+	FncSort(a, n);
+	printf("Sirali Dizi Elemanlari\n");
+	for (i = 0; i < n; i++) printf(" %d", a[i]);
+	printf("\n\n");
+	system("Pause");
+}
+
+void main() {
+    srand(time(NULL));
+    int i, j, n = 2 + rand() % 24;
+    int m = 100000 * n;
+    int* a = (int*)calloc(n, sizeof(int));
+    //int* a = (int*)malloc(n * sizeof(int));
+    for (i = 0; i < n; i++) a[i] = 0;
+    for (i = 0; i < m; i++) {
+        j = rand() % n;
+        a[j]++;
+    }
+    printf("Cekilis Sayisi : %d\n", m);
+    printf("%7s%14s\n", "Gelen", "Frekans");
+    for (i = 0; i < n; i++)
+        printf("%7d%14d\n", i + 1, a[i]);
+    free(a);
+    system("Pause");
+}
+
+void main() {
+	int i = 0;
+	while (true) {
+		i++;
+		if (i == 15) {
+			printf("\nbreak\n");
+			break;
+		}
+		if (i == 7 || i == 10) {
+			printf("\ncontinue\n");
+			continue;
+		}
+		printf("%d, ", i);
+	}
+	system("Pause");
+}
+
+void main() {
+	const int n = 25;
+	srand(99);
+	for (int i = 0; i < n; i++) printf(" %2d", rand() % 100);
+	printf("\n");
+	srand(time(NULL));
+	for (int i = 0; i < n; i++) printf(" %2d", rand() % 100);
+	printf("\nHerhangi bir tusa bas\n");
+	int ch = _getch();
+	srand(99);
+	for (int i = 0; i < n; i++) printf(" %2d", rand() % 100);
+	printf("\n");
+	srand(time(NULL));
+	for (int i = 0; i < n; i++) printf(" %2d", rand() % 100);
+	printf("\n\n");
+	system("Pause");
+}
+
+void main() {
+	int i = 100, n = 15;
+	printf("Before : %d\n", i);
+	for (int i = 1; i <= n; i++) {
+		printf("%d", i);
+		if (i < n) printf(", ");
+	}
+	printf("\nAfter : %d\n\n", i);
+	system("Pause");
+}
+
+int main() {
+    double a = 32495678e-4;
+    int b = (int)a;
+    int c = 0.467E5;
+    int d = 0XA5;
+    cout << a << endl;
+    cout << b << endl;
+    cout << c << endl;
+    cout << d << endl;
+    return 0;
+}
+
+fprintf( stdout, "%d %s %.2f\n",
+
+string s1 = "Hasan";
+//s1.clear();
+s1 = "";
+//if (s1.empty()) s1 = "Tamam";
+//if (s1.size() == 0) s1 = "Tamam";
+if (s1 == "") s1 = "Tamam";
+
+cout << s1 << endl;
+cout << s1.size() << endl;
+cout << s1.max_size() << endl;
+//auto s2 = "Hello" + " World";
+
+char myntcs[] = "some text";
+string mystring = myntcs;  // convert c-string to string
+cout << mystring;          // printed as a library string
+cout << mystring.c_str();  // printed as a c-string
+
+int m[2][3] = { { 1, 2, 1 }, { 3, 5, 1 } };
+char names[][10] = { "Hasan", ""Ahmet", "Mehmet" };
+
+WinExec('C:\Windows\Calc.exe', sw_ShowNormal);
+
+cin.get(name, ArSize); // read first line
+cin.get(); // read newline
+cin.get(dessert, Arsize); // read second line
+cin.get(name, ArSize).get();
+cin.getline(name1, ArSize).getline(name2, ArSize);
+cin.clear();
+
+cin >> year;
+cin.get(); // or cin.get(ch);
+
+(cin >> year).get(); // or (cin >> year).get(ch);
+
+cin.getline(charr, 20);
+getline(cin,str);
+
+int ch; /// for compatibility with EOF value
+ch = cin.get();
+while (ch != EOF){
+cout.put(ch); // cout.put(char(ch)) for some implementations
+++count;
+ch = cin.get();
+}
+
+char ch;
+cin.get(ch);
+while (cin.fail() == false){
+cout << ch;
+++count;
+cin.get(ch);
+}
+
+while (cin.get(ch)){
+... // do stuff
+}
+ch = cin.get();
+cout.put(ch);
+
+int ch;
+ch = cin.get();
+while (ch != EOF){
+cout.put(ch); // cout.put(char(ch)) for some implementations
+++count;
+ch = cin.get();
+}
+ 
+string text;
+fstream inputStream;
+inputStream.open("player.txt");
+while (inputStream >> text) cout << text << endl;
+inputStream.close();
+
+struct product {
+  int weight;
+  double price;
+} apple, banana, melon;
+
+int i, eb, n;
+int A[100];
+int main() {
+	system("COLOR 71");
+	system("CLS"); // clrscr() yerine
+	printf("dizi eleman sayisini giriniz: ");
+	scanf_s("%d", &n);
+	for (i = 0; i<n; i++)
+	{
+		printf("dizi elemani giriniz: ");
+		scanf_s("%d", &A[i]);
+		printf(" \n");
+	}
+	eb = A[0];
+	for (i = 1; i<n; i++)
+	{
+		if (eb<A[i]) eb = A[i];
+	}
+	printf("en buyuk sayi= %d\n", eb);
+	system("PAUSE"); // ekranэ bekletmek iзin
+	return 0;
+}
+
+struct Hasan {
+	int x;
+	double a;
+};
+void main() {
+	Hasan hasan;
+	hasan.x = 100;
+	hasan.a = 7.5;
+	printf("x = %d, a = %g\n\n", hasan.x, hasan.a);
+	system("PAUSE");
+}
+
+void main() {
+	FILE *fp;
+	fp = fopen("File.txt", "w");
+	if (fp == 0) {
+		printf("File could not create\n");
+		return;
+	}	
+	char Line[50] = { 0 };
+	char Name[] = "Hasan";
+	int i, n, Age = 25;
+	double Score = 73.4952;
+	fprintf(fp, "Player : %s\n", Name);
+	fprintf(fp, "   Age : %d\n", Age);
+	fprintf(fp, " Score : %g\n\n", Score);
+	sprintf(Line, "Player : %s", Name);
+	fputs(Line, fp);
+	fputc('\n', fp);
+	sprintf(Line, "   Age : %d", Age);
+	fputs(Line, fp);
+	fputc('\n', fp);
+	sprintf(Line, " Score : %g", Score);
+	fputs(Line, fp);
+	fprintf(fp, "\n\n");
+	sprintf(Line, "Player : %s", Name);
+	n = strlen(Line);
+	for (i = 0; i < n; i++) fputc(Line[i], fp);
+	fputc('\n', fp);
+	sprintf(Line, "   Age : %d", Age);
+	n = strlen(Line);
+	for (i = 0; i < n; i++) fputc(Line[i], fp);
+	fputc('\n', fp);
+	sprintf(Line, " Score : %g", Score);
+	n = strlen(Line);
+	for (i = 0; i < n; i++) fputc(Line[i], fp);
+	fputc('\n', fp);
+	fputc('\n', fp);	
+	fclose(fp);
+}
+
+void main() {
+	FILE *fp;
+	fp = fopen("File.txt", "r");
+	if (fp == 0) {
+		printf("File could not find\n");
+		return;
+	}
+	char ch;
+	char Line[50] = { 0 };
+	int Age;
+	double Score;	
+	fscanf(fp, "Player : %s", Line);
+	fscanf(fp, "   Age : %d", &Age);
+	fscanf(fp, " Score : %f\n", &Score);
+	printf("Player : %s\n", Line);
+	printf("   Age : %d\n", Age);
+	printf(" Score : %f\n\n", Score);
+	rewind(fp);
+	while ((ch = fgetc(fp)) != EOF) printf("%c", ch);
+	printf("\n");
+	rewind(fp);
+	while (fgets(Line, 50, fp)) printf("%s", Line);
+	rewind(fp);
+	fclose(fp);
+	system("PAUSE");
+}
+
+#include <iostream>
+#include <fstream>
+#include<iomanip>
+#include <ctime>
+using namespace std;
+
+struct MyClass {
+	MyClass() { cout <<"MyClass Constructed\n"; }
+	~MyClass() { cout <<"MyClass Destroyed\n"; }
+};
+void main () {
+	MyClass *pt;
+	pt = new MyClass[5];
+	cout << endl;
+	delete[] pt;
+	cout << endl;
+	system("PAUSE");
+}
+
+namespace variable {
+	int x = 15;
+	double y = 12.3456789;
+}
+void main() {
+	cout << "x : " << variable::x << '\n';
+	cout << "y : " << variable::y << "\n\n";
+	using namespace variable;
+	cout << "x : " << x << '\n';
+	cout << "y : " << y << "\n\n";
+	system("PAUSE");
+}
+
+#include <iostream>
+void main() {
+	std::cout << "Cpp Programlama\n";
+	std::cout << "Cpp Programlama\n\n";
+	using namespace std;
+	cout << "Cpp Programlama\n";
+	cout << "Cpp Programlama\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	char a[] = "Cpp Programlama Dersi";
+	cout << a << "\nLength : " << strlen(a) << endl;
+	string s = a;
+	cout << s << "\nLength : " << s.size() << "\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	string str = "Cpp Programlama Dersi";
+	cout << str << "\n\n";
+	for (int n = 0; n < str.size(); n++)
+		cout << "[" << str[n] << "]";
+	cout << "\n\n";
+	for (char ch : str)
+		cout << "[" << ch << "]";
+	cout << "\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	string str1 = "Cpp";
+	string str2 = str1;
+	str2 += " Programlama";
+	string str3 = str2;
+	str2 += " Dersi";
+	cout << str1 << ", " << str1.size() << ", " << sizeof(str1) << endl;
+	cout << str2 << ", " << str2.size() << ", " << sizeof(str2) << endl;
+	cout << str3 << ", " << str3.size() << ", " << sizeof(str3) << "\n\n";
+	char diz3[50], diz2[50], diz1[50] = "Cpp";
+	strcpy_s(diz2, diz1);
+	strcat_s(diz2, " Programlama");
+	strcpy_s(diz3, diz2);
+	strcat_s(diz3, " Dersi");
+	cout << diz1 << ", " << strlen(diz1) << ", " << sizeof(diz1) << endl;
+	cout << diz2 << ", " << strlen(diz2) << ", " << sizeof(diz2) << endl;
+	cout << diz3 << ", " << strlen(diz3) << ", " << sizeof(diz3) << "\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	char a[] = "Cpp Programlama Dersi";
+	cout << "Length = " << strlen(a) << endl;
+	cout << "  Name = " << a << endl << endl;
+	a[9] = NULL;
+	cout << "Length = " << strlen(a) << endl;
+	cout << "  Name = " << a << endl << endl;
+	system("PAUSE");
+}
+
+void main() {
+	int x, y, z, p;
+	cout << "Enter three integers : ";
+	cin >> x >> y >> z;
+	p = x * y * z;
+	cout << "Product : " << p << "\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	int a = 7, b(8), c{10};
+	int s = a + b + c;
+	cout << "  a = " << a << endl;
+	cout << "  b = " << b << endl;
+	cout << "  c = " << c << endl;
+	cout << "Sum = " << s << "\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	bool b1 = false, b2 = true;
+	cout << b1 << '\t' << b2 << '\n';
+	//cout.setf(ios::boolalpha);
+	cout << boolalpha;
+	cout << b1 << '\t' << b2 << '\n';
+	//cout.unsetf(ios::boolalpha);
+	cout << noboolalpha;
+	cout << b1 << '\t' << b2 << "\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	int n = 378426;
+	cout << "dec\n" << n << endl;
+	cout << "\nhex\n";
+	//cout.setf(ios::hex, ios::basefield);
+	//cout << n << endl;
+	cout << hex << n << endl;
+	//cout.setf(ios::showbase);
+	//cout << n << endl;
+	cout << showbase << n << endl;
+	//cout.unsetf(ios::showbase);
+	//cout << n << "\n\n";
+	cout << noshowbase << n << "\n\n";
+	//cout.setf(ios::dec, ios::basefield);
+	//cout << "dec\n" << n << "\n\n";
+	cout << dec << "dec\n" << n << "\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	double d = sqrt(75000);
+	cout << d << "\n\n";
+	//cout.setf(ios::fixed);
+	//cout << d << endl;
+	cout << fixed << d << endl;
+	//cout.unsetf(ios::fixed);
+	//cout << d << "\n\n";
+	cout << defaultfloat << d << "\n\n";
+	//cout.setf(ios::scientific);
+	//cout << d << endl;
+	cout << scientific << d << endl;
+	//cout.unsetf(ios::scientific);
+	//cout << d << "\n\n";
+	cout << defaultfloat << d << "\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	int i = 80, j = 3;
+	int a = i / j;
+	float b = (float)i / j;
+	double c = (double)i / j;
+	//cout << fixed;
+	//cout.precision(12);
+	cout << fixed << setprecision(12);
+	cout << "a = " << a << endl;
+	cout << "b = " << b << endl;
+	cout << "c = " << c << "\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	int i;
+	double a = 123.456789;
+	cout << fixed;
+	//cout.precision(4);
+	//cout.fill('x');
+	cout << setprecision(4) << setfill('x');
+	for (i = 10; i < 17; i++) {
+		//cout.width(i);
+		//cout << a << endl;
+		cout << setw(i) << a << endl;
+	}
+	cout << left;
+	for (i = 16; i > 9; i--) {
+		//cout.width(i);
+		//cout << a << endl;
+		cout << setw(i) << a << endl;
+	}
+	system("PAUSE");
+}
+
+void main() {
+	int x;
+	for (int n = 0; n < 3; n++) {
+		cout << "x = ";
+		cin >> x;
+		if (cin.good())
+			cout << "x : " << x << "\n\n";
+		else {
+			cin.clear();
+			n--;
+		}
+		fflush(stdin);
+	}
+	system("PAUSE");
+}
+
+void main() {
+	const int MaxChar = 10;
+	char name[MaxChar+1];
+	for (int n = 0; n < 3; n++) {
+		cout << "Name = ";
+		cin.get(name, MaxChar);
+		cout << "Name : " << name << "\n\n";
+		fflush(stdin);
+	}
+	system("PAUSE");
+}
+
+void main() {
+	const int N = 16;
+	char ch, name[N];
+	cout << "  Name : ";
+	cin.getline(name, N);
+	cout << "  Name : " << name << endl;
+	cout << "Length : " << strlen(name) << endl;
+	fflush(stdin);
+	system("PAUSE");
+}
+
+void main() {
+	char chr, next;
+	int sayi;
+	do {
+		cout << "Bir sayi gir : ";
+		cin >> sayi;
+		cout << "Girilen sayi = " << sayi << endl;
+		cout << "Devam mi ? (e/h) : ";
+		cin >> chr;
+		do cin.get(next); while (next != '\n');
+	} while (chr == 'E' || chr == 'e');
+	cout << endl;
+	system("PAUSE");
+}
+
+int main (){
+  string str;
+  do {
+    cout << "Enter text: ";
+    getline (cin,str);
+    cout << "You entered: " << str << '\n';
+  } while (str != "goodbye");
+}
+
+int main (){
+  string str {"Hello!"};
+  for (char c : str)
+  {
+    std::cout << "[" << c << "]";
+  }
+  std::cout << '\n';
+}
+
+struct inflatable {
+	char name[20];
+	float volume;
+	double price;
+};
+int main() {
+	inflatable guests[2] = {
+		{ "Bambi", 0.5, 21.99 },      // first structure in array
+		{ "Godzilla", 2000, 565.99 }  // next structure in array
+	};
+	cout << "The guests " << guests[0].name << " and " << guests[1].name
+		<< "\nhave a combined volume of "
+		<< guests[0].volume + guests[1].volume << " cubic feet.\n";
+	system("PAUSE");
+	return 0;
+}
+
+int main() {
+    const int n = 6;
+    char s[n];
+    cout << "Girdi :";
+    while ( true ) {
+        //cin.get(s,n);
+        cin.getline(s,n);
+        cout << s << ", " << strlen(s) << endl;
+        if(cin.fail()) {
+            cin.clear();
+            cout << "-----Temizlendi\n";
+        } else break;
+    }
+    cout << "-----Bitti\n";
+    return 0;
+}
+
+int main() {
+    char chr, next;
+    int sayi;
+    do {
+        cout << "Bir sayi gir : ";
+        cin >> sayi;
+        cout << "Girilen sayi = " << sayi << endl;
+        cout << "Devam mi ? (e/h) : ";
+        cin >> chr;
+        do cin.get(next); while (next != '\n');
+    } while (chr == 'E' || chr == 'e');
+    return 0;
+}
+
+class HelloWorld{
+public:
+  //Constructor
+  HelloWorld(){
+    cout<<"Constructor is called"<<endl;
+  }
+  //Destructor
+  ~HelloWorld(){
+    cout<<"Destructor is called"<<endl;
+   }
+   //Member function
+   void display(){
+     cout<<"Hello World!"<<endl;
+   }
+};
+int main(){
+   //Object created
+   HelloWorld obj;
+   //Member function called
+   obj.display();
+   return 0;
+}
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+    char s1[50], s2[50];
+    cout << "Enter string s1: ";
+    cin.getline(s1, 50);
+    cout << "Enter string s2: ";
+    cin.getline(s2, 50);
+    strcat(s1, s2);
+    cout << "s1 = " << s1 << endl;
+    cout << "s2 = " << s2;
+    return 0;
+}
+
+int main() {
+    string line;
+    string temp = "";
+    cout << "Enter a string: ";
+    getline(cin, line);
+    for (int i = 0; i < line.size(); ++i) {
+        if ((line[i] >= 'a' && line[i] <= 'z') || (line[i] >= 'A' && line[i] <= 'Z')) {
+            temp = temp + line[i];
+        }
+    }
+    line = temp;
+    cout << "Output String: " << line;
+    return 0;
+}
+
+int main() {
+    char line[100], alphabetString[100];
+    int j = 0;
+    cout << "Enter a string: ";
+    cin.getline(line, 100);
+    for(int i = 0; line[i] != '\0'; ++i){
+        if ((line[i] >= 'a' && line[i]<='z') || (line[i] >= 'A' && line[i]<='Z'))
+        {
+            alphabetString[j++] = line[i];
+
+        }
+    }
+    alphabetString[j] = '\0';
+    cout << "Output String: " << alphabetString;
+    return 0;
+}
+
+int main() {
+    string s1, s2;
+    cout << "Enter string s1: ";
+    getline (cin, s1);
+    s2 = s1;
+    cout << "s1 = "<< s1 << endl;
+    cout << "s2 = "<< s2;
+    return 0;
+}
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main() {
+    char s1[100], s2[100];
+    cout << "Enter string s1: ";
+    cin.getline(s1, 100);
+    strcpy(s2, s1);
+    cout << "s1 = "<< s1 << endl;
+    cout << "s2 = "<< s2;
+    return 0;
+}
+
+int main() {
+    string str[10], temp;
+
+    cout << "Enter 10 words: " << endl;
+    for(int i = 0; i < 10; ++i){
+      getline(cin, str[i]);
+    }
+
+    // Use Bubble Sort to arrange words
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9 - i; ++j) {
+            if (str[j] > str[j + 1]) {
+                temp = str[j];
+                str[j] = str[j + 1];
+                str[j + 1] = temp;
+            }
+        }
+    }
+
+    cout << "In lexicographical order: " << endl;
+
+    for(int i = 0; i < 10; ++i){
+       cout << str[i] << endl;
+    }
+    return 0;
+}
+
+struct student {
+    char name[50];
+    int roll;
+    float marks;
+};
+int main() {
+    student s;
+    cout << "Enter information," << endl;
+    cout << "Enter name: ";
+    cin >> s.name;
+    cout << "Enter roll number: ";
+    cin >> s.roll;
+    cout << "Enter marks: ";
+    cin >> s.marks;
+    cout << "\nDisplaying Information," << endl;
+    cout << "Name: " << s.name << endl;
+    cout << "Roll: " << s.roll << endl;
+    cout << "Marks: " << s.marks << endl;
+    return 0;
+}
+
+struct Distance {
+    int feet;
+    float inch;
+}d 1 , d2, sum;
+int main() {
+    cout << "Enter 1st distance," << endl;
+    cout << "Enter feet: ";
+    cin >> d1.feet;
+    cout << "Enter inch: ";
+    cin >> d1.inch;
+
+    cout << "\nEnter information for 2nd distance" << endl;
+    cout << "Enter feet: ";
+    cin >> d2.feet;
+    cout << "Enter inch: ";
+    cin >> d2.inch;
+
+    sum.feet = d1.feet+d2.feet;
+    sum.inch = d1.inch+d2.inch;
+
+    // changing to feet if inch is greater than 12
+    if(sum.inch > 12) {
+        // extra feet
+        int extra = sum.inch / 12;
+
+        sum.feet += extra;
+        sum.inch -= (extra * 12);
+    }
+
+    cout << endl << "Sum of distances = " << sum.feet << " feet  " << sum.inch << " inches";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+struct student {
+    char name[50];
+    int roll;
+    float marks;
+} s[10];
+int main() {
+    cout << "Enter information of students: " << endl;
+
+    // storing information
+    for(int i = 0; i < 10; ++i){
+        s[i].roll = i+1;
+        cout << "For roll number" << s[i].roll << "," << endl;
+
+        cout << "Enter name: ";
+        cin >> s[i].name;
+
+        cout << "Enter marks: ";
+        cin >> s[i].marks;
+
+        cout << endl;
+    }
+
+    cout << "Displaying Information: " << endl;
+
+    // Displaying information
+    for(int i = 0; i < 10; ++i){
+        cout << "\nRoll number: " << i+1 << endl;
+        cout << "Name: " << s[i].name << endl;
+        cout << "Marks: " << s[i].marks << endl;
+    }
+
+    return 0;
+}
+
+int main() {
+    string mystr;
+    cout << "What's your name? ";
+    getline(cin, mystr);
+    cout << "Hello " << mystr << ".\n";
+    cout << "What is your favorite team? ";
+    getline(cin, mystr);
+    cout << "I like " << mystr << " too!\n";
+    return 0;
+}
+
+int main() {
+  string str;
+  do {
+    cout << "Enter text: ";
+    getline (cin,str);
+    cout << "You entered: " << str << '\n';
+  } while (str != "goodbye");
+    return 0;
+}
+
+int m, n, M, N;
+double **a;
+void main() {
+	srand(time(NULL));
+	M = 4 + rand() % 4;
+	N = 4 + rand() % 4;
+	a = new double*[M];
+	for (m = 0; m < M; m++) a[m] = new double[N];
+	for (m = 0; m < M; m++)
+	for (n = 0; n < N; n++)
+		a[m][n] = 5 - 10 * ((double)rand() / RAND_MAX);
+	cout << fixed << showpoint << setprecision(4);
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++)
+			cout << setw(10) << a[m][n];
+		cout << endl;
+	}
+	cout << endl;
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++)
+			cout << setw(10) << &a[m][n];
+		cout << endl;
+	}
+	cout << endl;
+	system("PAUSE");
+}
+
+void main() {
+	srand(time(0));
+	const int M = 18, N = 15;
+	int m, n;
+	int a[M][N];
+	ofstream fw;
+	fw.open("File.txt");
+	fw << setw(5) << M << setw(5) << N << endl;
+	cout << setw(5) << M << setw(5) << N << endl;
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++) {
+			a[m][n] = 1 + rand() % 100;
+			fw << setw(5) << a[m][n];
+			cout << setw(5) << a[m][n];
+		}
+		fw << endl;
+		cout << endl;
+	}
+	fw.close();
+	cout << "A Matrisi Dosyaya Kaydedildi\n\n";
+	system("PAUSE");
+}
+
+void main() {
+	ifstream fr;
+	fr.open("File.txt");
+	if (fr.fail()) {
+		cout << "Dosya Okunamadi\n";
+		goto SON;
+	}
+	srand(time(0));
+	int m, n, M, N;
+	fr >> M >> N;
+	double **a;
+	a = new double*[M];
+	for (m = 0; m < M; m++) a[m] = new double[N];
+	cout << setw(5) << M << setw(5) << N << endl;
+	for (m = 0; m < M; m++) {
+		for (n = 0; n < N; n++) {
+			fr >> a[m][n];
+			cout << setw(5) << a[m][n];
+		}
+		cout << endl;
+	}
+	fr.close();
+	cout << "A Matrisi Dosyadan Okundu\n\n";
+SON: system("PAUSE");
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <math.h>
+#include <time.h>
+#include <ctype.h>
+#include <string.h>
+#include <windows.h>
+
+_CRT_SECURE_NO_WARNINGS
+
+void main() {
+    FILE* fr = fopen("Proje.cpp", "r");
+    if (fr == NULL) return;
+    FILE* fw = fopen("Hasan.txt", "w");
+    if (fw == NULL) {
+        fclose(fr);
+        return;
+    }
+    char ch;
+    while ((ch = fgetc(fr)) != EOF) {
+        fputc(ch, fw);
+        printf("%c", ch);
+    }
+    fclose(fr);
+    fclose(fw);
+    printf("\n");
+    system("Pause");
+}
+
+int main() {
+	time_t t1, t2;
+	int ch = 0;
+	printf("ESC tusu ile cikilir\n");
+	printf("Herhangi bir tusa bas\n");
+	time(&t1);
+	while (ch != 27) {
+		if (_kbhit()) {
+			ch = _getch();
+			time(&t2);
+			printf("%lf Saniye\n", difftime(t2, t1));
+			printf("Key = %c, Ascii Code = %3d\n", ch, ch);
+			t1 = t2;
+		}
+	}
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	clock_t t1, t2;
+	int ch = 0;
+	printf("ESC tusu ile cikilir\n");
+	printf("Herhangi bir tusa bas\n");
+	t1 = clock();
+	while (ch != 27) {
+		if (_kbhit()) {
+			ch = _getch();
+			t2 = clock();
+			printf("%ld MiliSaniye\n", t2 - t1);
+			printf("Key = %c, Ascii Code = %3d\n", ch, ch);
+			t1 = t2;
+		}
+	}
+    system("Pause");
+    return 0;
+}
+
+void myDelay(int dt) {
+	clock_t t = clock();
+	while (clock() < t + dt);
+}
+int main() {
+	printf("Bekle\n");
+	myDelay(5000);
+	printf("Tamam\n");
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	int i = 0, n = 15;
+	printf("Say :");
+loop: printf(" %d", ++i);
+	if (i < n) goto loop;
+	printf("\nSay :");
+	for (i = 1; i <= n; i++) printf(" %d", i);
+	i = 0;
+	printf("\nSay :");
+	while (i < n) printf(" %d", ++i);
+	i = 0;
+	printf("\nSay :");
+	do printf(" %d", ++i); while (i < n);
+	printf("\n\n");
+	system("Pause");
+	return 0;
+}
+
+void Bekle(clock_t sure) {
+	clock_t t;
+	t = sure + clock();
+	while (t > clock());
+}
+int main() {
+	const int n = 15;
+	int i;
+	printf("İleri Say\n");
+	for (i = 1; i <= n; i++) {
+		printf(" %2d", i);
+		if (i <= n) printf(",");
+		Bekle(100);
+	}
+	printf("\n\nGeri Say\n");
+	i = n;
+	while (i > 0) {
+		printf(" %2d", i--);
+		if (i <= n) printf(",");
+		Bekle(100);
+	}
+	printf("\n\nİleri Say\n");
+	i = 0;
+	while (i < n) {
+		printf(" %2d", ++i);
+		if (i <= n) printf(",");
+		Bekle(100);
+	}
+	printf("\n\nGeri Say\n");
+	for (i = n; i > 0; i--) {
+		printf(" %2d", i);
+		if (i <= n) printf(",");
+		Bekle(100);
+	}
+	printf("\n\n");
+	system("Pause");
+	return 0;
+}
+
+const int m = 10, n = 8;
+double a[m][n];
+void matrisOlustur(double a[m][n]) {
+	for (int i = 0; i < m; i++)
+		for (int j = 0; j < n; j++)
+			a[i][j] = 5 - 10 * ((double)rand() / RAND_MAX);
+}
+void matrisGoster(double a[m][n]) {
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++)
+			printf(" %10lf", a[i][j]);
+		printf("\n");
+	}
+	printf("\n");
+}
+int main() {
+	srand(time(NULL));
+	matrisOlustur(a);
+	matrisGoster(a);
+	system("Pause");
+	return 0;
+}
+
+const int n = 4;
+double a[n][n], b[n][n], c[n][n], d[n][n];
+void matrisOlustur(double a[n][n]) {
+	int i, j;
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++)
+			a[i][j] = 5 - 10 * ((double)rand() / RAND_MAX);
+	}
+}
+void matrisGoster(double a[n][n]) {
+	int i, j;
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++)
+			printf(" %10lf", a[i][j]);
+		printf("\n");
+	}
+	/*
+	double* p;
+	p = &a[0][0];
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++)
+			printf(" %10lf", *(p++));
+		printf("\n");
+	}
+	*/
+}
+void matrisCarp(double a[n][n], double b[n][n], double c[n][n]) {
+	int i, j, k;
+	for (i = 0; i < n; i++)
+		for (j = 0; j < n; j++)
+		{
+			c[i][j] = 0;
+			for (k = 0; k < n; k++)
+				c[i][j] += a[i][k] * b[k][j];
+		}
+}
+void matrisTrans(double a[n][n], double b[n][n]) {
+	int i, j;
+	for (i = 0; i < n; i++)
+		for (j = 0; j < n; j++)
+			b[j][i] = a[i][j];
+}
+int main() {
+	srand(time(NULL));
+	matrisOlustur(a);
+	printf("a matrisi\n");
+	matrisGoster(a);
+	matrisOlustur(b);
+	printf("b matrisi\n");
+	matrisGoster(b);
+	matrisCarp(a, b, c);
+	printf("c = a*b matrisi\n");
+	matrisGoster(c);
+	matrisTrans(c, d);
+	printf("d matrisi = c matrisinin transposesi\n");
+	matrisGoster(d);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	double* p = new double[5];
+	p[0] = 0.3;
+	p[1] = 0.5;
+	p[2] = 0.8;
+	for (int i = 0; i < 3; i++) printf("p[%d] : %lf\n", i, p[i]);
+	printf("\n");
+	p += 2;
+	printf("%lf\n\n", *p);
+	p -= 2;
+	printf("%lf\n\n", *p);
+	delete[] p;
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	char s[15] = { 'H','a','s','a','n','\0' };
+	printf("%s\n", s);
+	printf("%d\n", (int)sizeof(s));
+	char* p;
+	p = &s[0];
+	for (int i = 0; i < 15; i++) {
+		printf("%c : %d\n", *p, *p);
+		p++;
+	}
+	system("Pause");
+	return 0;
+}
+
+void IncreaseWrong(int x, int y) {
+	x += y;
+}
+void IncreaseCorrect(int* x, int y) {
+	*x += y;
+}
+int main() {
+	int x = 15, y = 35;
+	printf("    x : %d\n", x);
+	printf("    y : %d\n\n", y);
+	IncreaseWrong(x, y);
+	printf("x + y : %d\tWrong\n", x);
+	IncreaseCorrect(&x, y);
+	printf("x + y : %d\tCorrect\n", x);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	int a[] = { 15, 18, 24, 19, 12, 45, 27 };
+	printf("%d\n", *(a + 3));
+	printf("%d\n", a[3]);
+	int* p = a;
+	printf("%d\n", *(p + 5));
+	printf("%d\n", p[5]);
+	int x = a[4];
+	printf("%d\n", x);
+	p = &x;
+	printf("%d\n", *p);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	int i, j, m = 10, n = 10;
+	int** a = NULL;
+	a = (int**)malloc(m * sizeof(int*));
+	for (i = 0; i < m; i++)
+		a[i] = (int*)malloc(n * sizeof(int));
+	for (i = 0; i < m; i++)
+		for (j = 0; j < n; j++)
+			a[i][j] = (i+1)*(j+1);
+	for (i = 0; i < m; i++) {
+		for (j = 0; j < n; j++)
+			printf(" %3d", a[i][j]);
+		printf("\n");
+	}
+	for (i = 0; i < m; i++) free(a[i]);
+	free(a);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	const int n = 10;
+	int* a;
+	a = new int(n);
+	for (int i = 0; i < n; i++)
+		printf("%d %d\n", a[i], *(a + i));
+	delete a;
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	srand(time(NULL));
+	int n = 10 + rand() % 11;
+	double* p = NULL;
+	double* a = (double*)malloc(n * sizeof(double));
+	if (a == NULL) return EXIT_FAILURE;
+	for (int i = 0; i < n; i++)
+		*(a + i) = (double)rand() / RAND_MAX;
+	printf("    n : %d\n", n);
+	printf("Adres a : %p\n", a);
+	for (int i = 0; i < n; i++) {
+		p = a + i;
+		printf("%p : %lf\n", p, *p);
+	}
+	free(a);
+	printf("Adres a : %p\n", a);
+	printf("Adres p : %p\n", p);
+	system("Pause");
+	return EXIT_SUCCESS;
+}
+
+int main() {
+	int sayac = 1, n;
+	printf("kaca kadar sayalim: ");
+	scanf_s("%d", &n);
+	while (sayac <= n) {
+		system("CLS");
+		printf("  %d", sayac);
+		Sleep(100);
+		sayac++;
+	}
+	system("PAUSE");
+	return 0;
+}
+
+int main() {
+	int sayi, kare;
+	system("CLS");
+	do {
+		printf("bir sayi giriniz: ");
+		scanf("%d", &sayi);
+		kare = sayi*sayi;
+		printf("sayinin karesi= %d\n", kare);
+	} while (sayi>0);
+	printf("cevrim sonlandirildi");
+	system("PAUSE");
+	return 0;
+}
+
+bool isEven1(int n) {
+    if (n % 2 == 0) return true; else return false;
+}
+bool isEven2(int n) { // Ternary Operator
+    return n % 2 == 0 ? true : false;
+}
+bool isEven3(int n) {
+    return n % 2 == 0;
+}
+int main() {
+    srand(time(NULL));
+    int n = rand();
+    printf("%d : ", n);
+    if (isEven1(n)) printf("Even"); else printf("Odd");
+    n = rand();
+    printf("\n\n%d : ", n);
+    if (isEven2(n)) printf("Even"); else printf("Odd");
+    n = rand();
+    printf("\n\n%d : ", n);
+    if (isEven3(n)) printf("Even"); else printf("Odd");
+    printf("\n\n");
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    srand(time(NULL));
+    int m, n, k;
+    m = 1 + rand() % 6;
+    n = 1 + rand() % 6;
+    if (m == n) k = 100; else k = 0;
+    printf("m = %d, n = %d, k = %d\n\n", m, n, k);
+    m = 1 + rand() % 6;
+    n = 1 + rand() % 6;
+    k = m == n ? 100 : 0; // Ternary Operator
+    printf("m = %d, n = %d, k = %d\n\n", m, n, k);
+    system("Pause");
+    return 0;
+}
+
+double Topla1(double a[], int n) {
+	double Toplam = 0;
+	for (int i = 0; i < n; i++) Toplam += a[i];
+	return Toplam;
+}
+double Topla2(double* a, int n) {
+	double Toplam = 0;
+	for (int i = 0; i < n; i++) Toplam += *a++;
+	return Toplam;
+}
+int main() {
+	const int n = 10;
+	double a[n] = {};
+	for (int i = 0; i < n; i++) {
+		a[i] = (double)rand() / RAND_MAX;
+		printf("%3d.sayı: %.9f\n", i + 1, a[i]);
+	}
+	double Toplam1 = Topla1(a, n);
+	double Toplam2 = Topla2(a, n);
+	printf("\nToplam : %.9f\n", Toplam1);
+	printf("Toplam : %.9f\n\n", Toplam2);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    const int m = 4, n = 5;
+    int i, j, k, a[m][n] = {}, b[m * n] = {};
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++) {
+            k = (i + 1) * (j + 1);
+            a[i][j] = k;
+            b[n * i + j] = k;
+        }
+    for (i = 0; i < m; i++) {
+        for (j = 0; j < n; j++) printf("%3d", a[i][j]);
+        printf("\n");
+    }
+    printf("\n");
+    for (i = 0; i < m * n; i++) {
+        printf("%3d", b[i]);
+        if (i % n == 4) printf("\n");
+    }
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	double x = sqrt(7);
+	printf("%.40f\n%.40lf\n", x, x);
+	float y = (float)x;
+	printf("%.40f\n%.40lf\n", y, y);
+	double z = y;
+	printf("%.40f\n%.40lf\n", z, z);
+	printf("%d\n", (int)x);
+    system("Pause");
+    return 0;
+}
+
+void HorzPrint(char* s) {
+	printf("%s\n", s);
+}
+void VertPrint(char* s) {
+	int n = strlen(s);
+	for (int i = 0; i < n; i++)
+		printf("%c\n", s[i]);
+}
+int main() {
+    char s[] = "Programlama";
+    HorzPrint(s);
+    VertPrint(s);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char s[] = "31298 87.375";
+    int x = 0;
+    double y = 0;
+    sscanf_s(s, "%d%lf", &x, &y);
+    printf("   String : %s\n", s);
+    printf(" Tam Sayı : %d\n", x);
+    printf("Reel Sayı : %lf\n", y);
+    system("Pause");
+    return 0;
+}
+
+int Ters(int num) {
+	int digit, reverse = 0;
+	while (num != 0) {
+		digit = num % 10;
+		reverse = 10 * reverse + digit;
+		num = num / 10;
+	}
+	return reverse;
+}
+int main() {
+	srand(time(NULL));
+	int n = rand();
+	int m = Ters(n);
+	printf("%d\n", n);
+	printf("%d\n", m);
+	if (n == m)
+		printf("The number is a palindrome\n");
+	else printf("The number is not a palindrome\n");
+	system("Pause");
+	return 0;
+}
+
+int main() {
+    int i, j, n = 5;
+    for (i = 0; i < n; i++) {
+        for (j = 0; j <= i; j++) printf(" *");
+        printf("\n");
+    }
+    for (i = 0; i < n; i++) {
+        for (j = i; j < n; j++) printf(" *");
+        printf("\n");
+    }
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	int a[5] = { 10, 20, 30 };
+	int b[5] = { };
+	int c[] = { 10, 20, 30 };
+	int d[]{ 10, 20, 30 };
+	int i, n = sizeof(a) / sizeof(int);
+	for (i = 0; i < n; i++) printf(" %d", a[i]);
+	printf("\nSize : %d\n", n);
+	n = sizeof(b) / sizeof(int);
+	for (i = 0; i < n; i++) printf(" %d", b[i]);
+	printf("\nSize : %d\n", n);
+	n = sizeof(c) / sizeof(int);
+	for (i = 0; i < n; i++) printf(" %d", c[i]);
+	printf("\nSize : %d\n", n);
+	n = sizeof(d) / sizeof(int);
+	for (i = 0; i < n; i++) printf(" %d", d[i]);
+	printf("\nSize : %d\n", n);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	printf("%d\n", 455);
+	printf("%i\n", 455); // i same as d in printf
+	printf("%d\n", +455); // plus sign does not print
+	printf("%d\n", -455); // minus sign prints
+	printf("%hd\n", 32000); // print as type short
+	printf("%ld\n", 2000000000L); // print as type long 
+	printf("%o\n", 455); // octal
+	printf("%u\n", 455);
+	printf("%u\n", -455);
+	printf("%x\n", 455); // hexadecimal with lowercase letters
+	printf("%X\n", 455); // hexadecimal with uppercase letters
+	printf("%e\n", 1234567.89);
+	printf("%e\n", +1234567.89); // plus does not print
+	printf("%e\n", -1234567.89); // minus prints
+	printf("%E\n", 1234567.89);
+	printf("%f\n", 1234567.89); // six digits to right of decimal point
+	printf("%g\n", 1234567.89); // prints with lowercase e
+	printf("%G\n", 1234567.89); // prints with uppercase E
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	printf("%9d\n", 1);
+	printf("%9d\n", 12);
+	printf("%9d\n", 123);
+	printf("%9d\n", 1234);
+	printf("%9d\n", 12345);
+	printf("%9d\n", -1);
+	printf("%9d\n", -12);
+	printf("%9d\n", -123);
+	printf("%9d\n", -1234);
+	printf("%9d\n\n", -12345);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	puts("Using precision for integers");
+	int i = 873; // initialize int i
+	printf("\t%.4d\n\t%.9d\n\n", i, i);
+	puts("Using precision for floating-point numbers");
+	double f = 123.94536; // initialize double f
+	printf("\t%.3f\n\t%.3e\n\t%.3g\n\n", f, f, f);
+	puts("Using precision for strings");
+	char s[] = "Happy Birthday"; // initialize char array s
+	printf("\t%.11s\n\n", s);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	puts("1234567890123456789012345678901234567890");
+	printf("%10s%10d%10c%10f\n\n", "hello", 7, 'a', 1.23);
+	puts("1234567890123456789012345678901234567890");
+	printf("%-10s%-10d%-10c%-10f\n\n", "hello", 7, 'a', 1.23);
+	printf("%d\n%d\n", 786, -786);
+	printf("%+d\n%+d\n\n", 786, -786);
+	printf("%+09d\n", 452);
+	printf("%09d\n\n", 452);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	printf("     floor(9.2) : %lf\n", floor(9.2));
+	printf("     floor(9.8) : %lf\n", floor(9.8));
+	printf("    floor(-9.2) : %lf\n", floor(-9.2));
+	printf("    floor(-9.8) : %lf\n", floor(-9.8));
+	printf("      ceil(9.2) : %lf\n", ceil(9.2));
+	printf("      ceil(9.8) : %lf\n", ceil(9.8));
+	printf("     ceil(-9.2) : %lf\n", ceil(-9.2));
+	printf("     ceil(-9.8) : %lf\n", ceil(-9.8));
+	printf("     pow(2, 15) : %lf\n", pow(2, 15));
+	printf("    pow(2, 0.5) : %lf\n", pow(2, 0.5));
+	printf("  pow(2, 1.0/3) : %lf\n", pow(2, 1.0/3));
+	printf("        sqrt(2) : %lf\n", sqrt(2));
+	printf("        cbrt(2) : %lf\n", cbrt(2));
+	printf("       cbrt(-2) : %lf\n", cbrt(-2));
+	printf("         exp(1) : %lf\n", exp(1));
+	printf("         exp(5) : %lf\n", exp(5));
+	printf("      log(1000) : %lf\n", log(1000));
+	printf("    log10(1000) : %lf\n", log10(1000));
+	printf("      fabs(-15) : %lf\n", fabs(-15));
+	printf("fmod(27.9, 2.5) : %lf\n", fmod(27.9, 2.5));
+	printf("         sin(1) : %lf\n", sin(1));
+	printf("         cos(1) : %lf\n", cos(1));
+	printf("         tan(1) : %lf\n", tan(1));
+	system("Pause");
+	return 0;
+}
+
+int main() {
+	const int n = 256;
+	char s1[n] = {};
+	char s2[n] = {};
+	char* buffy = NULL;
+	printf("Karakter Dizisi 1 : ");
+	scanf_s("%s", s1, n);
+	printf("Karakter Dizisi 2 : ");
+	scanf_s("%s", s2, n);
+	int n1 = strlen(s1);
+	int n2 = strlen(s2);
+	printf("%s\n%s\n", s1, s2);
+	printf("%d\n%d\n", n1, n2);
+	buffy = (char*)malloc((n1 + n2 + 1) * sizeof(char));
+	if (!buffy)	return;
+	sprintf(buffy, "%s", s1);
+	strcat(buffy, s2);
+	printf("%s\n", buffy);
+	if (strcmp(s1, s2) == 0)
+		printf("%s is equal to %s\n", s1, s2);
+	else printf("%s is not equal to %s\n", s1, s2);
+	if (strstr(s2, s1))
+		printf("%s is contained within %s is TRUE!\n", s1, s2);
+	else printf("%s is contained within %s is FALSE!\n", s1, s2);
+	free(buffy);
+	system("Pause");
+	return EXIT_SUCCESS;
+}
+
+double row_total(int table[][COLUMNS], int row){
+int total = 0;
+for (int j = 0; j < COLUMNS; j++) {
+total = total + table[row][j];
+}
+return total;
+}
+
+#define _USE_MATH_DEFINES // for C
+#include <math.h>
+M_PI
+
+int main() {
+	int x = 36;
+	double y = 121.45;
+	char a[] = "C Programlama Dili";
+	char buffer[100];
+
+	sprintf_s(buffer, "%d %lf %s", x, y, a);
+
+	printf("Oluşturulan karakter dizisi\n%s\n", buffer);
+
+	system("Pause");
+	return 0;
+}
+
+const int n = 41;
+char a[n];
+printf("Karakter Dizisi Gir\n");
+fgets(a, n, stdin);
+printf("%s\n", a);
+
+    const int n = 41;
+    char a[n];
+    strcpy_s(a, "Bilgisayar");
+    printf("%s\n", a);
+
+int main(){
+   int n, t, sum = 0, remainder;
+
+   printf("Enter an integer\n");
+   scanf("%d", &n);
+
+   t = n;
+
+   while (t != 0)
+   {
+      remainder = t % 10;
+      sum       = sum + remainder;
+      t         = t / 10;
+   }
+
+   printf("Sum of digits of %d = %d\n", n, sum);
+
+   return 0;
+}
+
+int main()
+{
+   int c, sum, t;
+   char n[1000];
+   
+   printf("Input an integer\n");
+   scanf("%s", n);
+ 
+   sum = c = 0;
+   
+   while (n[c] != '\0') {
+      t   = n[c] - '0'; // Converting character to integer
+      sum = sum + t;
+      c++;
+   }
+ 
+   printf("Sum of digits of %s = %d\n", n, sum);
+ 
+   return 0;
+}
+
+long factorial(int n)
+{
+  if (n == 0) // Base case
+    return 1;
+  else
+    return (n*factorial(n-1));
+}
+
+int main() {
+  int a, b, x, y, t, gcd, lcm;
+
+  printf("Enter two integers\n");
+  scanf("%d%d", &x, &y);
+
+  a = x;
+  b = y;
+
+  while (b != 0) {
+    t = b;
+    b = a % b;
+    a = t;
+  }
+
+  gcd = a;
+  lcm = (x*y)/gcd;
+
+  printf("Greatest common divisor of %d and %d = %d\n", x, y, gcd);
+  printf("Least common multiple of %d and %d = %d\n", x, y, lcm);
+
+  return 0;
+}
+
+long gcd(long, long);
+
+int main() {
+  long x, y, hcf, lcm;
+
+  printf("Enter two integers\n");
+  scanf("%ld%ld", &x, &y);
+
+  hcf = gcd(x, y);
+  lcm = (x*y)/hcf;
+
+  printf("Greatest common divisor of %ld and %ld = %ld\n", x, y, hcf);
+  printf("Least common multiple of %ld and %ld = %ld\n", x, y, lcm);
+
+  return 0;
+}
+
+long gcd(long a, long b) {
+  if (b == 0)
+    return a;
+  else
+    return gcd(b, a % b);
+}
+
+long gcd(long, long);
+
+int main() {
+  long x, y, hcf, lcm;
+
+  printf("Enter two integers\n");
+  scanf("%ld%ld", &x, &y);
+
+  hcf = gcd(x, y);
+  lcm = (x*y)/hcf;
+
+  printf("Greatest common divisor of %ld and %ld = %ld\n", x, y, hcf);
+  printf("Least common multiple of %ld and %ld = %ld\n", x, y, lcm);
+
+  return 0;
+}
+
+long gcd(long x, long y) {
+  if (x == 0) {
+    return y;
+  }
+
+  while (y != 0) {
+    if (x > y)
+      x = x - y;
+    else
+      y = y - x;
+  }
+
+  return x;
+}
+
+int main()
+{
+  int n, c, k;
+
+  printf("Enter an integer in decimal number system\n");
+  scanf("%d", &n);
+
+  printf("%d in binary number system is:\n", n);
+
+  for (c = 31; c >= 0; c--)
+  {
+    k = n >> c;
+
+    if (k & 1)
+      printf("1");
+    else
+      printf("0");
+  }
+
+  printf("\n");
+
+  return 0;
+}
+
+int main()
+{
+  int x, y, t;
+
+  printf("Enter two integers\n");
+  scanf("%d%d", &x, &y);
+
+  printf("Before Swapping\nFirst integer = %d\nSecond integer = %d\n", x, y);
+
+  t = x;
+  x = y;
+  y = t;
+
+  printf("After Swapping\nFirst integer = %d\nSecond integer = %d\n", x, y);
+
+  return 0;
+}
+
+int main()
+{
+   int a, b;
+   
+   printf("Input two integers (a & b) to swap\n");
+   scanf("%d%d", &a, &b);
+   
+   a = a + b;
+   b = a - b;
+   a = a - b;
+
+   printf("a = %d\nb = %d\n",a,b);
+   return 0;
+}
+
+int main()
+{
+  int x, y;
+
+  scanf("%d%d", &x, &y);
+
+  printf("x = %d\ny = %d\n", x, y);
+
+  x = x ^ y;
+  y = x ^ y;
+  x = x ^ y;
+
+  printf("x = %d\ny = %d\n", x, y);
+
+  return 0;
+}
+
+long reverse(long);
+ 
+int main()
+{
+   long n, r;
+   
+   scanf("%ld", &n);
+ 
+   r = reverse(n);
+ 
+   printf("%ld\n", r);
+ 
+   return 0;
+}
+
+long reverse(long n) {
+   static long r = 0;
+   
+   if (n == 0)
+      return 0;
+   
+   r = r * 10;
+   r = r + n % 10;
+   reverse(n/10);
+   return r;
+}
+
+int main()
+{
+  int n, r = 0, t;
+
+  printf("Enter a number to check if it's a palindrome or not\n");
+  scanf("%d", &n);
+
+  t = n;
+
+  while (t != 0)
+  {
+    r = r * 10;
+    r = r + t%10;
+    t = t/10;
+  }
+
+  if (n == r)
+    printf("%d is a palindrome number.\n", n);
+  else
+    printf("%d isn't a palindrome number.\n", n);
+
+  return 0;
+}
+
+int check_palindrome(int n) {
+  int t, r = 0;
+  t = n;
+
+  while (t != 0) {
+    r = r * 10;
+    r = r + t%10;
+    t = t/10;
+  }
+
+  if (n == r)
+    return 1;
+  else
+    return 0;
+}
+
+int main()
+{
+  int row, c, n;
+
+  printf("Enter the number of rows in pyramid of stars to print\n");
+  scanf("%d", &n);
+
+  for (row = 1; row <= n; row++)  // Loop to print rows
+  {
+    for (c = 1; c <= n-row; c++)  // Loop to print spaces in a row
+      printf(" ");
+
+    for (c = 1; c <= 2*row - 1; c++) // Loop to print stars in a row
+      printf("*");
+
+    printf("\n");
+  }
+
+  return 0;
+}
+
+int main()
+{
+  int n, c, k;
+
+  printf("Enter number of rows\n");
+  scanf("%d", &n);
+
+  for (k = 1; k <= n; k++)
+  {
+    for (c = 1; c <= n-k; c++)
+      printf(" ");
+
+    for (c = 1; c <= 2*k-1; c++)
+      printf("*");
+
+    printf("\n");
+  }
+
+  for (k = 1; k <= n - 1; k++)
+  {
+    for (c = 1; c <= k; c++)
+      printf(" ");
+
+    for (c = 1 ; c <= 2*(n-k)-1; c++)
+      printf("*");
+
+    printf("\n");
+  }
+
+  return 0;
+}
+
+long factorial(int);
+ 
+int main()
+{
+  int i, n, c;
+ 
+  printf("Enter the number of rows you wish to see in pascal triangle\n");
+  scanf("%d",&n);
+ 
+  for (i = 0; i < n; i++)
+  {
+    for (c = 0; c <= (n - i - 2); c++)
+      printf(" ");
+ 
+    for (c = 0 ; c <= i; c++)
+      printf("%ld ",factorial(i)/(factorial(c)*factorial(i-c)));
+ 
+    printf("\n");
+  }
+ 
+  return 0;
+}
+ 
+long factorial(int n)
+{
+  int c;
+  long result = 1;
+ 
+  for (c = 1; c <= n; c++)
+    result = result*c;
+ 
+  return result;
+}
+
+int find_maximum(int a[], int n) {
+  int c, index = 0;
+
+  for (c = 1; c < n; c++)
+    if (a[c] > a[index])
+      index = c;
+
+  return index;
+}
+
+void reverse_array(int a[], int n)
+{
+  int c, t;
+
+  for (c = 0; c < n/2; c++) {
+    t = a[c];                  // Swapping
+    a[c] = a[n-c-1];
+    a[n-c-1] = t;
+  }
+}
+
+void bubble_sort(long list[], long n)
+{
+  long c, d, t;
+
+  for (c = 0 ; c < n - 1; c++) {
+    for (d = 0 ; d < n - c - 1; d++) {
+      if (list[d] > list[d+1]) {
+        /* Swapping */
+        t         = list[d];
+        list[d]   = list[d+1];
+        list[d+1] = t;
+      }
+    }
+  }
+}
+
+int main()
+{
+  int m, n, c, d, matrix[10][10], transpose[10][10];
+ 
+  printf("Enter the number of rows and columns of a matrix\n");
+  scanf("%d%d", &m, &n);
+  printf("Enter elements of the matrix\n");
+ 
+  for (c = 0; c < m; c++)
+    for (d = 0; d < n; d++)
+      scanf("%d", &matrix[c][d]);
+ 
+  for (c = 0; c < m; c++)
+    for (d = 0; d < n; d++)
+      transpose[d][c] = matrix[c][d];
+ 
+  printf("Transpose of the matrix:\n");
+ 
+  for (c = 0; c < n; c++) {
+    for (d = 0; d < m; d++)
+      printf("%d\t", transpose[c][d]);
+    printf("\n");
+  }
+
+  return 0;
+}
+
+int main()
+{
+  int m, n, p, q, c, d, k, sum = 0;
+  int first[10][10], second[10][10], multiply[10][10];
+ 
+  printf("Enter number of rows and columns of first matrix\n");
+  scanf("%d%d", &m, &n);
+  printf("Enter elements of first matrix\n");
+ 
+  for (c = 0; c < m; c++)
+    for (d = 0; d < n; d++)
+      scanf("%d", &first[c][d]);
+ 
+  printf("Enter number of rows and columns of second matrix\n");
+  scanf("%d%d", &p, &q);
+ 
+  if (n != p)
+    printf("The multiplication isn't possible.\n");
+  else
+  {
+    printf("Enter elements of second matrix\n");
+ 
+    for (c = 0; c < p; c++)
+      for (d = 0; d < q; d++)
+        scanf("%d", &second[c][d]);
+ 
+    for (c = 0; c < m; c++) {
+      for (d = 0; d < q; d++) {
+        for (k = 0; k < p; k++) {
+          sum = sum + first[c][k]*second[k][d];
+        }
+ 
+        multiply[c][d] = sum;
+        sum = 0;
+      }
+    }
+ 
+    printf("Product of the matrices:\n");
+ 
+    for (c = 0; c < m; c++) {
+      for (d = 0; d < q; d++)
+        printf("%d\t", multiply[c][d]);
+ 
+      printf("\n");
+    }
+  }
+ 
+  return 0;
+}
+
+int main()
+{
+   char a[100], b[100];
+
+   printf("Enter a string\n");
+   gets(a);
+
+   printf("Enter a string\n");
+   gets(b);
+
+   if (strcmp(a,b) == 0)
+      printf("The strings are equal.\n");
+   else
+      printf("The strings are not equal.\n");
+
+   return 0;
+}
+
+int compare_strings(char [], char []);
+ 
+int main()
+{
+   char a[1000], b[1000];
+ 
+   printf("Input a string\n");
+   gets(a);
+ 
+   printf("Input a string\n");
+   gets(b);
+ 
+   if (compare_strings(a, b) == 0)
+      printf("Equal strings.\n");
+   else
+      printf("Unequal strings.\n");
+ 
+   return 0;
+}
+
+int compare_strings(char a[], char b[])
+{
+   int c = 0;
+ 
+   while (a[c] == b[c]) {
+      if (a[c] == '\0' || b[c] == '\0')
+         break;
+      c++;
+   }
+   
+   if (a[c] == '\0' && b[c] == '\0')
+      return 0;
+   else
+      return -1;
+}
+
+int compare_string(char*, char*);
+
+int main()
+{
+    char first[1000], second[1000]:
+    int result;
+   
+    printf("Input a string\n");
+    gets(first);
+   
+    printf("Input a string\n");
+    gets(second);
+   
+    result = compare_string(first, second);
+   
+    if (result == 0)
+       printf("The strings are same.\n");
+    else
+       printf("The strings are different.\n");
+       
+    return 0;
+}
+
+int compare_string(char *first, char *second) {
+   while (*first == *second) {
+      if (*first == '\0' || *second == '\0')
+         break;
+         
+      first++;
+      second++;
+   }
+
+   if (*first == '\0' && *second == '\0')
+      return 0;
+   else
+      return -1;
+}
+
+int main()
+{
+  char source[1000], destination[1000];
+
+  printf("Input a string\n");
+  gets(source);
+
+  strcpy(destination, source);
+
+  printf("Source string: %s\n", source);
+  printf("Destination string: %s\n", destination);
+
+  return 0;
+}
+
+int main()
+{
+  int c = 0;
+  char s[1000], d[1000] = "What can I say about my programming skills?";
+
+  printf("Before copying, the string: %s\n", d);
+
+  printf("Input a string to copy\n");
+  gets(s);
+
+  while (s[c] != '\0') {
+    d[c] = s[c];
+    c++;
+  }
+
+  d[c] = '\0';
+
+  printf("After copying, the string: %s\n", d);
+
+  return 0;
+}
+
+void copy_string(char [], char []);
+
+int main() {
+  char s[1000], d[1000];
+   
+  printf("Input a string\n");
+  gets(s);
+
+  copy_string(d, s);
+  printf("The string: %s\n", d);
+
+  return 0;
+}
+
+void copy_string(char d[], char s[]) {
+  int c = 0;
+   
+  while (s[c] != '\0') {
+    d[c] = s[c];
+    c++;
+  }
+  d[c] = '\0';
+}
+
+void copy_string(char *target, char *source) {
+   while (*source) {
+      *target = *source;
+      source++;
+      target++;
+   }
+   *target = '\0';
+}
+
+void upper_string(char []);
+
+int main()
+{
+   char string[100];
+   
+   printf("Enter a string to convert it into upper case\n");
+   gets(string);
+   
+   upper_string(string);
+   
+   printf("The string in upper case: %s\n", string);
+     
+   return 0;
+}
+
+void upper_string(char s[]) {
+   int c = 0;
+   
+   while (s[c] != '\0') {
+      if (s[c] >= 'a' && s[c] <= 'z') {
+         s[c] = s[c] - 32;
+      }
+      c++;
+   }
+}
+
+void lower_string(char []);
+
+int main()
+{
+   char string[100];
+   
+   printf("Enter a string to convert it into lower case\n");
+   gets(string);
+   
+   lower_string(string);
+   
+   printf("The string in lower case: %s\n", string);
+     
+   return 0;
+}
+
+void lower_string(char s[]) {
+   int c = 0;
+   
+   while (s[c] != '\0') {
+      if (s[c] >= 'A' && s[c] <= 'Z') {
+         s[c] = s[c] + 32;
+      }
+      c++;
+   }
+}
+
+int main ()
+{
+   int c = 0;
+   char ch, s[1000];
+
+   printf("Input a string\n");
+   gets(s);
+   
+   while (s[c] != '\0') {
+      ch = s[c];
+      if (ch >= 'A' && ch <= 'Z')
+         s[c] = s[c] + 32;
+      else if (ch >= 'a' && ch <= 'z')
+         s[c] = s[c] - 32;  
+      c++;  
+   }
+   
+   printf("%s\n", s);
+
+   return 0;
+}
+
+#include <stdio.h>
+#include <conio.h>
+#include <dir.h>
+int main()
+{
+   int done;
+   struct ffblk a;
+
+   printf("Press any key to view the files in the current directory\n");
+
+   getch();
+
+   done = findfirst("*.*", &a, 0); // The first '*' is for all file names and the second one is for all file extensions
+
+   while(!done)
+   {
+      printf("%s\n", a.ff_name);
+      done = findnext(&a);
+   }
+
+   getch();
+   return 0;
+}
+
+int main()
+{
+  int status;
+  char file_name[25];
+
+  printf("Enter name of a file you wish to delete\n");
+  gets(file_name);
+
+  status = remove(file_name);
+
+  if (status == 0)
+    printf("%s file deleted successfully.\n", file_name);
+  else
+  {
+    printf("Unable to delete the file\n");
+    perror("Following error occurred");
+  }
+
+  return 0;
+}
+
+int main() {
+  int c, n;
+
+  printf("Ten random numbers in [1,100]\n");
+
+  for (c = 1; c <= 10; c++) {
+    n = rand() % 100 + 1;
+    printf("%d\n", n);
+  }
+
+  return 0;
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+int main()
+{
+   int n, max, num, c;
+
+   printf("Enter the number of random numbers you want\n");
+   scanf("%d", &n);
+
+   printf("Enter the maximum value of random number\n");
+   scanf("%d", &max);
+
+   printf("%d random numbers from 0 to %d are:\n", n, max);
+   
+   randomize();
+
+   for (c = 1; c <= n; c++)
+   {
+      num = random(max);
+      printf("%d\n",num);        
+   }
+
+   getch();
+   return 0;
+}
+
+#include <stdio.h>
+#include <conio.h>
+#include <dos.h>
+int main()
+{
+   struct date d;
+
+   getdate(&d);
+
+   printf("Current system date: %d/%d/%d", d.da_day, d.da_mon, d.da_year);
+   getch();
+   return 0;
+}
+
+#include<stdlib.h>
+int main()
+{
+   system("C:\\Windows\\System32\\ipconfig");
+   
+   return 0;
+}
+
+x <<= 3
+
+printf("%lu\n", sizeof(myInt));
+printf("%lu\n", sizeof(myFloat));
+printf("%lu\n", sizeof(myDouble));
+printf("%lu\n", sizeof(myChar));
+
+int myNum = 10; // Is this a positive or negative number?
+
+if (myNum > 0)
+  printf("The value is a positive number.");
+else if (myNum < 0)
+  printf("The value is a negative number.");
+else
+  printf("The value is 0.");
+
+int time = 22;
+if (time < 10) {
+  printf("Good morning.");
+} else if (time < 20) {
+  printf("Good day.");
+} else {
+  printf("Good evening.");
+}
+
+int day = 4;
+
+switch (day) {
+  case 1:
+    printf("Monday");
+    break;
+  case 2:
+    printf("Tuesday");
+    break;
+  case 3:
+    printf("Wednesday");
+    break;
+  case 4:
+    printf("Thursday");
+    break;
+  case 5:
+    printf("Friday");
+    break;
+  case 6:
+    printf("Saturday");
+    break;
+  case 7:
+    printf("Sunday");
+    break;
+}
+
+int myNumbers[] = {25, 50, 75, 100};
+int i;
+for (i = 0; i < 4; i++) {
+  printf("%d\n", myNumbers[i]);
+}
+
+int myNumbers[4];
+
+// Add elements
+myNumbers[0] = 25;
+myNumbers[1] = 50;
+myNumbers[2] = 75;
+myNumbers[3] = 100;
+
+char greetings[] = "Hello World!";
+printf("%s", greetings);
+
+char greetings[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0'};
+printf("%s", greetings);
+
+printf("%lu\n", sizeof(greetings));
+
+int myAge = 43; // an int variable
+printf("%d", myAge);  // Outputs the value of myAge (43)
+printf("%p", &myAge); // Outputs the memory address of myAge (0x7ffe5367e044)
+
+int myAge = 43;     // An int variable
+int* ptr = &myAge;  // A pointer variable, with the name ptr, that stores the address of myAge
+
+// Output the value of myAge (43)
+printf("%d\n", myAge);
+
+// Output the memory address of myAge (0x7ffe5367e044)
+printf("%p\n", &myAge);
+
+// Output the memory address of myAge with the pointer (0x7ffe5367e044)
+printf("%p\n", ptr);
+
+int* myNum; // Most used
+int *myNum;
+int * myNum;
+
+void myFunction(char name[], int age) {
+  printf("Hello %s. You are %d years old.\n", name, age);
+}
+int main() {
+  myFunction("Liam", 3);
+  myFunction("Jenny", 14);
+  myFunction("Anja", 30);
+  return 0;
+}
+
+int myFunction(int x, int y) {
+  return x + y;
+}
+int main() {
+  int result = myFunction(5, 3);
+  printf("Result is = %d", result);
+
+  return 0;
+}
+
+// Create a function
+void myFunction() {
+  printf("I just got executed!");
+}
+int main() {
+  myFunction(); // call the function
+  return 0;
+}
+
+printf("%f", sqrt(16));
+printf("%f", ceil(1.4));
+printf("%f", floor(1.4));
+printf("%f", pow(4, 3));
+
+// Create a structure called myStructure
+struct myStructure {
+  int myNum;
+  char myLetter;
+};
+
+int main() {
+  // Create a structure variable of myStructure called s1
+  struct myStructure s1;
+
+  // Assign values to members of s1
+  s1.myNum = 13;
+  s1.myLetter = 'B';
+
+  // Print values
+  printf("My number: %d\n", s1.myNum);
+  printf("My letter: %c\n", s1.myLetter);
+
+  return 0;
+}
+
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];  // String
+};
+
+int main() {
+  struct myStructure s1;
+
+  // Trying to assign a value to the string
+  s1.myString = "Some text";
+
+  // Trying to print the value
+  printf("My string: %s", s1.myString);
+
+  return 0;
+}
+
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30]; // String
+};
+
+int main() {
+  struct myStructure s1;
+
+  // Assign a value to the string using the strcpy function
+  strcpy(s1.myString, "Some text");
+
+  // Print the value
+  printf("My string: %s", s1.myString);
+
+  return 0;
+}
+
+// Create a structure
+struct myStructure {
+  int myNum;
+  char myLetter;
+  char myString[30];
+};
+int main() {
+  // Create a structure variable and assign values to it
+  struct myStructure s1 = {13, 'B', "Some text"};
+
+  // Print values
+  printf("%d %c %s", s1.myNum, s1.myLetter, s1.myString);
+
+  return 0;
+}
+
+// Create a structure variable and assign values to it
+struct myStructure s1 = {13, 'B', "Some text"};
+
+// Create another structure variable
+struct myStructure s2;
+
+// Copy s1 values to s2
+s2 = s1;
+
+// Change s2 values
+s2.myNum = 30;
+s2.myLetter = 'C';
+strcpy(s2.myString, "Something else");
+
+// Print values
+printf("%d %c %s\n", s1.myNum, s1.myLetter, s1.myString);
+printf("%d %c %s\n", s2.myNum, s2.myLetter, s2.myString);
+
+
+int main() {
+    int i = 0;
+    printf("Herhangi bir tus ile cikilir\n");
+    while (!_kbhit()) {
+        if (++i % 1000 == 0) {
+            printf(" %d\n", i);
+        }
+    }
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    for (int i = 0; i < 256; i++)
+        printf("%5d ---> %c\n", i, i);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	char a[] = "C Programlama Dersi";
+	printf("%s\n", a);
+	printf("Uzunluk : %zu, %zu\n\n", strlen(a), sizeof(a));
+	char b[] = { 'C', ' ', 'P', 'r', 'o', 'g', 'r', 'a', 'm',
+		'l', 'a', 'm', 'a', ' ', 'D', 'e', 'r', 's', 'i', '\0' };
+	printf("%s\n", b);
+	printf("Uzunluk : %zu, %zu\n\n", strlen(b), sizeof(b));
+	const int n = 101;
+	char c[n] = "C Programlama Dersi";
+	printf("%s\n", c);
+	printf("Uzunluk : %zu, %zu\n\n", strlen(c), sizeof(c));
+	system("Pause");
+	return 0;
+}
+
+int main() {
+    const int n = 21;
+    char s[n];
+    //char s[n] = "";
+    //char s[n] = {};
+    strcpy_s(s, "C Programlama");
+    printf("Karakter Dizisi\n");
+    printf("Adres : %p\n", s);
+    //printf("Adres : %p\n", &s);
+    //printf("Adres : %p\n", &s[0]);
+    for (int i = 0; i < n; i++) printf(" %3c", s[i]);
+    printf("\n");
+    for (int i = 0; i < n; i++) printf(" %3d", s[i]);
+    printf("\n\n");
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    const int n = 21;
+    char s1[n] = {}, s2[n] = {};
+    int durum;
+    strcpy_s(s1, "Programlama");
+    strcpy_s(s2, "pRoGramlaMA");
+    for (int i = 0; i < n; i++) {
+        s1[i] = tolower(s1[i]);
+        s2[i] = tolower(s2[i]);
+    }
+    printf("s1 : %s\n", s1);
+    printf("s2 : %s\n", s2);
+    printf("%zu, %zu\n", sizeof(s1), sizeof(s2));
+    for (int i = 0; i < n; i++)
+        printf("%c : %d\n", s1[i], s1[i]);
+    durum = strcmp(s1, s2);
+    if (durum > 0) printf("s1 > s2");
+    else if (durum < 0) printf("s1 < s2");
+    else printf("s1 = s2");
+    printf("\n\n");
+    system("Pause");
+    return 0;
+}
+
+void MakeStrUpper(char* s) {
+    while (*s != '\0') {
+        *s = toupper(*s);
+        ++s;
+    }
+}
+int main() {
+    char s[] = "C Programlama Dersi";
+    printf("%s\n", s);
+    MakeStrUpper(s);
+    printf("%s\n", s);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	const int n = 101;
+	char ch, a[n];
+	printf("Karakter Dizisi : ");
+	ch = getchar();
+	printf("%c : %d\n", ch, ch);
+	rewind(stdin);
+	printf("Karakter Dizisi : ");
+	scanf_s("%s", a, n);
+	for (int i = 0; i < n; i++) {
+		if (a[i] == '\0') break;
+		a[i] = toupper(a[i]);
+	}
+	printf("Karakter Dizisi : %s\n", a);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+    const int n = 41;
+    char ad[n] = "", syd[n] = "";
+    printf("   Adiniz : ");
+    scanf_s("%s", ad, n);
+    //fgets(ad, n, stdin);
+    printf("Soyadiniz : ");
+    scanf_s("%s", syd, n);
+    //fgets(syd, n, stdin);
+    printf("\n");
+    printf("       Ad : %s\n", ad);
+    printf("  Uzunluk : %zu, %zu\n", strlen(ad), sizeof(ad));
+    printf("    Soyad : %s\n", syd);
+    printf("  Uzunluk : %zu, %zu\n\n", strlen(syd), sizeof(syd));
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	const int n = 41;
+	char ch, s1[n] = "", s2[n] = "";
+	printf("Text 1 : ");
+	scanf_s("%s", s1, n);
+	int k = (int)strlen(s1);
+	printf("Uzunluk : %d\n", k);
+	for (int i = 0; i < k; i++) s2[i] = s1[k - 1 - i];
+	printf("Text 2 : %s\n", s2);
+
+	/*
+		int k = 0;
+	while (true) {
+		ch = s1[k++];
+		if (ch == '\0') break;
+		printf("%c : %d\n", ch, ch);
+	}
+	printf("Uzunluk : %d\n", k);
+	printf("Uzunluk : %zu\n\n", strlen(s1));
+	*/
+
+	system("Pause");
+	return 0;
+}
+
+	int c[] = { 15, 13, 7, 45, 19, 9, 23 };
+	printf("Uzunluk : %zu\n\n", sizeof(c));
+
+
+char* Reverse(const char* const s) {
+    /*
+    if (s[0] == '\0') return;
+    reverse(&s[1]);
+    putchar(s[0]);
+    
+    */
+    char ch;
+    int n = (int)strlen(s);
+    for (int i = 0; i < n/2; i++) {
+        ch = s[i];
+        s[i] = s[n-i-1];
+        s[n - i - 1] = ch;
+    }
+    return s;
+}
+int main() {
+    const int n = 100;
+    char s[n];
+    printf("Text : ");
+    fgets(s, n, stdin);
+    Reverse(s);
+    printf("\n\n");
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	const int n = 11;
+	char ch, str[n] = {};
+	printf("Karakter Dizisi : ");
+	int m = 0;
+	while (m < n - 1) {
+		ch = getchar();
+		if (ch == '\n') break;
+		str[m++] = ch;
+	}
+	str[m] = '\0';
+	rewind(stdin);
+	printf("Karakter Dizisi : %s\n", str);
+	printf("Uzunluk : %d\n", m);
+	int k = 0;
+	while (str[k] != '\0') k++;
+	printf("Uzunluk : %d\n", k);
+	system("Pause");
+	return 0;
+}
+
+int main() {
+    const char* s1 = "Ankara Kütahya";
+    const char* s2 = "Ankara Kütahya";
+    const char* s3 = "Ankara Afyon";
+    printf("s1 : %s\n", s1);
+    printf("s2 : %s\n", s2);
+    printf("s3 : %s\n\n", s3);
+    printf("strcmp(s1, s2) : %2d\n", strcmp(s1, s2));
+    printf("strcmp(s1, s3) : %2d\n", strcmp(s1, s3));
+    printf("strcmp(s3, s1) : %2d\n\n", strcmp(s3, s1));
+    printf("strncmp(s1, s3, 6) : %2d\n", strncmp(s1, s3, 6));
+    printf("strncmp(s1, s3, 7) : %2d\n", strncmp(s1, s3, 8));
+    printf("strncmp(s3, s1, 7) : %2d\n\n", strncmp(s3, s1, 8));
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char s1[] = "ABCDEFG";
+    char s2[] = "ABCDXYZ";
+    printf("s1 : %s\ns2 : %s\n\n", s1, s2);
+    printf("memcmp(s1, s2, 4) : %2d\n", memcmp(s1, s2, 4));
+    printf("memcmp(s1, s2, 7) : %2d\n", memcmp(s1, s2, 7));
+    printf("memcmp(s2, s1, 7) : %2d\n\n", memcmp(s2, s1, 7));
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    const char* s1 = "abcdefghijklmnopqrstuvwxyz";
+    const char* s2 = "Hasan";
+    const char* s3 = "Temurtas";
+    printf("%s\n%zu\n\n", s1, strlen(s1));
+    printf("%s\n%zu\n\n", s2, strlen(s2));
+    printf("%s\n%zu\n\n", s3, strlen(s3));
+    system("Pause");
+    return 0;
+}
+
+int main() {
+	printf("1 ile 5 arası bir rakam gir : ");
+	char ch = _getch();
+	printf("%c\n", ch);
+	printf("Not : ");
+	switch (ch) {
+	case '1': printf("Başarısız"); break;
+	case '2': printf("Geçer"); break;
+	case '3': printf("Orta"); break;
+	case '4': printf("İyi"); break;
+	case '5': printf("Pekiyi"); break;
+	default: printf("Yanlış Girdi");
+	}
+	printf("\n\n");
+	system("Pause");
+	return 0;
+}
+
+int main() {
+    printf("0 ile 9 arası bir rakam gir : ");
+    char ch = _getch();
+    printf("%c\n", ch);
+    int x = (int)ch - 48;
+    printf("Okunuşu : ");
+    switch (x) {
+    case 0: printf("Sıfır"); break;
+    case 1: printf("Bir"); break;
+    case 2: printf("İki"); break;
+    case 3: printf("Üç"); break;
+    case 4: printf("Dört"); break;
+    case 5: printf("Beş"); break;
+    case 6: printf("Altı"); break;
+    case 7: printf("Yedi"); break;
+    case 8: printf("Sekiz"); break;
+    case 9: printf("Dokuz"); break;
+    default: printf("Yanlış Girdi");
+    }
+    printf("\n\n");
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char s[11][13] = { "Sıfır","Bir","İki","Üç","Dört","Beş","Altı",
+        "Yedi","Sekiz","Dokuz","Yanlış Girdi" };
+    printf("0 ile 9 arası bir rakam gir : ");
+    char ch = _getch();
+    printf("%c\n", ch);
+    int x = (int)ch - 48;
+    if (x < 0 || x > 9) x = 10;
+    printf("Okunuşu : %s\n\n", s[x]);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    double x, y, z;
+    int ch;
+    printf("İşlem ( +, -, *, / ) : ");
+    while (true) {
+        ch = _getch();
+        if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+            printf("%c\n", ch);
+            printf("    x = ");
+            scanf_s("%lf", &x);
+            printf("    y = ");
+            scanf_s("%lf", &y);
+            break;
+        }
+    }
+    switch (ch) {
+    case '+': z = x + y; break;
+    case '-': z = x - y; break;
+    case '*': z = x * y; break;
+    default: z = x / y;
+    }
+    printf("x %c y : %lf\n", ch, z);
+    system("Pause");
+    return 0;
+}
+
+enum Week { Mon = 1, Tue, Wed, Thur, Fri, Sat, Sun };
+enum Year { Jan = 1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
+int main() {
+    for (int i = Mon; i <= Sun; i++)
+        printf("%d\n", i);
+    printf("\n\n");
+    for (int i = Jan; i <= Dec; i++)
+        printf("%d\n", i);
+    printf("\n\n");
+    printf("%d\n", Sun);
+    printf("%d\n", Dec);
+    printf("%d\n", Week::Sun);
+    printf("%d\n", Year::Dec);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char s1[6] = { 'H', 'a', 's', 'a', 'n', '\0' };
+    char s2[9] = "Temurtaş";
+    printf("%s %s\n", s1, s2);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char a[] = { 'H', 'a', 's', 'a', 'n' };
+    char* p;
+    p = a; // p = &a[0];
+    int n = sizeof(a) / sizeof(char);
+    for (int i = 0; i < n; i++) printf("%c ", *p++);
+    printf("\nUzunluk : %d\n\n", n);
+    system("Pause");
+    return 0;
+}
+
+void main() {
+    int a[5] = { 5, 17, 21, 34, 46 };
+    int *p;
+    p = a;
+    for (int i = 0; i < 5; i++, p++) {
+        printf("Adres : %p %p\n", p, &a[i]);
+        printf("Değer : %d %d\n\n", *p, a[i]);
+    }
+    system("Pause");
+}
+
+int main() {
+    int a[5] = { 15, 72, 154, 298, 345 };
+    int *p;
+    printf("İşaretçi bellek adresi: %p\n\n", &p);
+    p = &a[4];
+    printf("Adres : %p\n", p);
+    printf("Değer : %d\n\n", *p);
+    p -= 2;
+    printf("Adres : %p\n", p);
+    printf("Değer : %d\n\n", *p);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    int *a;
+    a = (int*)calloc(5, sizeof(int));
+    //a = (int*)malloc(5 * sizeof(int));
+    for (int i = 0; i < 5; i++) {
+        *(a + i) = (i + 1) * 10;
+        printf("%p adresindeki değer: %d\n", (a + i), *(a + i));
+    }
+    free(a);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    char* a[5];
+    for (int i = 0; i < 5; i++) {
+        a[i] = (char*)malloc(20 * sizeof(char));
+        strcpy(a[i], "Karakter dizisi");
+        printf("%s\n", a[i]);
+    }
+    for (int i = 0; i < 5; i++) free(a[i]);
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    int i = 0;
+    while(true) {
+        printf("%d\n",i++);
+        if (_kbhit()) break;
+    }
+    system("Pause");
+    return 0;
+}
+
+int main() {
+    float fd1, fd2;
+    fd1 = fd2 = 726.548317;
+    printf("%e\n%E\n", fd1, fd2);
+    system("Pause");
+    return 0;
+}
+

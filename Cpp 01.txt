@@ -1,0 +1,530 @@
+#include <iostream>
+int main() {
+    std::cout << "Cpp Programlama" << std::endl;
+    std::cout << "Cpp Programlama" << std::endl;
+    std::cout << "---------------" << std::endl;
+    using namespace std;
+    cout << "Cpp Programlama" << endl;
+    cout << "Cpp Programlama" << endl;
+    cout << "---------------";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+namespace variable {
+    int x = 15;
+    double y = 12.3456789;
+}
+int main() {
+    cout << "x : " << variable::x << endl;
+    cout << "y : " << variable::y << endl;
+    cout << "-----------\n";
+    using namespace variable;
+    cout << "x : " << x << endl;
+    cout << "y : " << y << endl;
+    cout << "-----------";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int x = 75;
+int main() {
+    cout << "x : " << x << "\tGlobal\n";
+    int x = 25;
+    cout << "x : " << x << "\tLocal1\n";
+    {
+        int x = 50;
+        cout << "x : " << x << "\tLocal2\n";
+    }
+    cout << "x : " << x << "\tLocal1\n";
+    cout << "x : " << ::x << "\tGlobal\n";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int x = 25, y = 65;
+    cout << "Outer x : " << x << endl;
+    if (y > 0) {
+        int x = y / 2;
+        cout << "Inner x : " << x << endl;
+    }
+    cout << "Outer x : " << x << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int i = 100, n = 15;
+    cout << "Before : " << i << "\n\n";
+    for (int i = 1; i <= n; i++) {
+        cout << i;
+        if (i < n) cout << ", ";
+    }
+    cout << "\n\nAfter : " << i << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int x = 15, y = 20;
+    cout << "Outside Block\n";
+    cout << "x : " << x << '\n';
+    cout << "y : " << y << "\n\n";
+    {
+        int x = 35;
+        y = 50;
+        cout << "Inside Block\n";
+        cout << "x : " << x << '\n';
+        cout << "y : " << y << "\n\n";
+    }
+    cout << "Outside Block\n";
+    cout << "x : " << x << endl;
+    cout << "y : " << y << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int x = 75;
+void useLocal() {
+    int x = 25;
+    cout << "x : " << ++x << "\tLocal\n";
+}
+void useStaticLocal() {
+    static int x = 50;
+    cout << "x : " << ++x << "\tLocal Static\n";
+}
+void useGlobal() {
+    cout << "x : " << ++x << "\tGlobal\n";
+}
+int main() {
+    for (int i = 0; i < 5; i++) {
+        useLocal();
+        useStaticLocal();
+        useGlobal();
+        cout << "--------------------\n";
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int x, y, z, p;
+    cout << "Enter three integers:";
+    cin >> x >> y >> z;
+    p = x * y * z;
+    cout << "Product : " << p << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int a = 7, b(8), c{10};
+    int s = a + b + c;
+    cout << "  a = " << a << endl;
+    cout << "  b = " << b << endl;
+    cout << "  c = " << c << endl;
+    cout << "Sum = " << s << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int x = 15, y;
+    cout << "x = " << x << endl;
+    y = x++;
+    cout << "y = x++, y = " << y << ", x = " << x << endl;
+    y = ++x;
+    cout << "y = ++x, y = " << y << ", x = " << x << endl;
+    y = x--;
+    cout << "y = x--, y = " << y << ", x = " << x << endl;
+    y = --x;
+    cout << "y = --x, y = " << y << ", x = " << x << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    bool b1 = false, b2 = true;
+    cout << b1 << '\t' << b2 << '\n';
+    //cout.setf(ios::boolalpha);
+    cout << boolalpha;
+    cout << b1 << '\t' << b2 << '\n';
+    //cout.unsetf(ios::boolalpha);
+    cout << noboolalpha;
+    cout << b1 << '\t' << b2 << '\n';
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int n = 378426;
+    cout << "dec\n" << n << endl;
+    cout << "\nhex\n";
+    //cout.setf(ios::hex, ios::basefield);
+    //cout << n << endl;
+    cout << hex << n << endl;
+    //cout.setf(ios::showbase);
+    //cout << n << endl;
+    cout << showbase << n << endl;
+    //cout.unsetf(ios::showbase);
+    //cout << n << "\n\n";
+    cout << noshowbase << n << "\n\n";
+    //cout.setf(ios::dec, ios::basefield);
+    //cout << "dec\n" << n << endl;
+    cout << dec << "dec\n" << n << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    double d = sqrt(75000);
+    cout << d << "\n\n";
+    //cout.setf(ios::fixed);
+    //cout << d << endl;
+    cout << fixed << d << endl;
+    //cout.unsetf(ios::fixed);
+    //cout << d << "\n\n";
+    cout << defaultfloat << d << "\n\n";
+    //cout.setf(ios::scientific);
+    //cout << d << endl;
+    cout << scientific << d << endl;
+    //cout.unsetf(ios::scientific);
+    //cout << d << endl;
+    cout << defaultfloat << d << endl;
+    return 0;
+}
+
+#include <iomanip>
+#include <iostream>
+using namespace std;
+int main() {
+    int i = 80, j = 3;
+    int a = i / j;
+    float b = (float)i / j;
+    double c = (double)i / j;
+    //cout << fixed;
+    //cout.precision(12);
+    cout << fixed << setprecision(12);
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+    cout << "c = " << c << endl;
+    return 0;
+}
+
+#include <iomanip>
+#include <iostream>
+using namespace std;
+int main() {
+    int i;
+    double a = 123.456789;
+    cout << fixed;
+    //cout.precision(4);
+    //cout.fill('x');
+    cout << setprecision(4) << setfill('x');
+    for (i = 10; i < 17; i++) {
+        //cout.width(i);
+        //cout << a << endl;
+        cout << setw(i) << a << endl;
+    }
+    cout << left;
+    for (i = 16; i > 9; i--) {
+        //cout.width(i);
+        //cout << a << endl;
+        cout << setw(i) << a << endl;
+    }
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int factorial(int n) {
+    if (n > 1)
+        return n * factorial(n - 1);
+    else return 1;
+}
+int main() {
+    int n = 7;
+    cout << n << "! = " << factorial(n) << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    char a[] = "Cpp Programlama Dersi";
+    cout << a << "\nUzunluk ---> " << strlen(a) << ", " << sizeof(a) << "\n\n";
+    char b[] = { 'C', 'p', 'p', ' ', 'P', 'r', 'o', 'g', 'r', 'a', 'm',
+                 'l', 'a', 'm', 'a', ' ', 'D', 'e', 'r', 's', 'i', '\0' };
+    cout << b << "\nUzunluk ---> " << strlen(b) << ", " << sizeof(b) << endl;
+    return 0;
+}
+
+#include <string>
+#include <iostream>
+using namespace std;
+int main() {
+    char a[] = "Cpp Programlama Dersi";
+    cout << a << "\nLength : " << strlen(a) << endl;
+    string s = a;
+    cout << s << "\nLength : " << s.size() << endl;
+    return 0;
+}
+
+#include <string>
+#include <iostream>
+using namespace std;
+int main() {
+    string str = "Cpp Programlama Dersi";
+    cout << str << "\n\n";
+    for (int n = 0; n < str.size(); n++)
+        cout << "[" << str[n] << "]";
+    cout << "\n\n";
+    for (char ch : str)
+        cout << "[" << ch << "]";
+    cout << endl;
+    return 0;
+}
+
+#include <string>
+#include <iostream>
+using namespace std;
+int main() {
+    string str1 = "Cpp";
+    string str2 = str1;
+    str2 += " Programlama";
+    string str3 = str2;
+    str3 += " Dersi";
+    cout << str1 << ", " << str1.size() << ", " << sizeof(str1) << endl;
+    cout << str2 << ", " << str2.size() << ", " << sizeof(str2) << endl;
+    cout << str3 << ", " << str3.size() << ", " << sizeof(str3) << "\n\n";
+    char diz3[50], diz2[50], diz1[50] = "Cpp";
+    strcpy_s(diz2, diz1);
+    strcat_s(diz2, " Programlama");
+    strcpy_s(diz3, diz2);
+    strcat_s(diz3, " Dersi");
+    cout << diz1 << ", " << strlen(diz1) << ", " << sizeof(diz1) << endl;
+    cout << diz2 << ", " << strlen(diz2) << ", " << sizeof(diz2) << endl;
+    cout << diz3 << ", " << strlen(diz3) << ", " << sizeof(diz3) << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int dizi[] = { 2, 5, 7, 3, 8, 1, 6, 4 };
+    int n1 = sizeof(dizi);
+    int n2 = sizeof(int);
+    int n = n1 / n2;
+    cout << "n1 : " << n1 << endl;
+    cout << "n2 : " << n2 << endl;
+    cout << "n  : " << n << "\n\n";
+    for (int i = 0; i < n; i++)
+        cout << "Dizi(" << i << ")= " << dizi[i] << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    char a[] = "Cpp Programlama Dersi";
+    cout << "Length = " << strlen(a) << endl;
+    cout << "  Name = " << a << "\n\n";
+    a[9] = NULL;
+    cout << "Length = " << strlen(a) << endl;
+    cout << "  Name = " << a << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int a[] = { 15, 18, 24, 19, 12, 45, 27 };
+    cout << *a << endl;
+    cout << a[0] << endl;
+    cout << *(a + 3) << endl;
+    cout << a[3] << endl;
+    int *p = a;
+    cout << *(p + 5) << endl;
+    cout << p[5] << endl;
+    int x = a[4];
+    cout << x << endl;
+    p = &x;
+    cout << *p << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int intValue = 25;
+    int* intPointer = NULL;
+    cout << " intPointer : " << intPointer << "\n\n";
+    intPointer = &intValue;
+    cout << " intPointer : " << intPointer << endl;
+    cout << "*intPointer : " << *intPointer << endl;
+    cout << "  &intValue : " << &intValue << endl;
+    cout << "   intValue : " << intValue << "\n\n";
+    *intPointer = 50;
+    cout << " intPointer : " << intPointer << endl;
+    cout << "*intPointer : " << *intPointer << endl;
+    cout << "  &intValue : " << &intValue << endl;
+    cout << "   intValue : " << intValue << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int *p, x;
+    p = &x;
+    *p = 100;
+    cout << "x : " << x << endl;
+    (*p)++;
+    cout << "x : " << x << endl;
+    (*p)--;
+    cout << "x : " << x << endl;
+    (*p) += 5;
+    cout << "x : " << x << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    double *p = new double[3];
+    p[0] = 0.3;
+    p[1] = 0.5;
+    p[2] = 0.8;
+    cout << "p[0] : " << p[0] << endl;
+    cout << "p[1] : " << p[1] << endl;
+    cout << "p[2] : " << p[2] << "\n\n";
+    p += 2;
+    cout << "Now p[0] : " << p[0] << endl;
+    p -= 2;
+    cout << "Now p[0] : " << p[0] << endl;
+    delete[] p;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+void swapPoi(int *num1, int *num2) {
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+}
+void swapRef(int &num1, int &num2) {
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+}
+void swapVal(int num1, int num2) {
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+}
+int main() {
+    int x = 10, y = 20;
+    cout << "x = " << x << ", y = " << y << "\n\n";
+    swapPoi(&x, &y);
+    cout << "Using pointers to swap contents\n";
+    cout << "x = " << x << ", y = " << y;
+    cout << "\nCorrect\n\n";
+    swapRef(x, y);
+    cout << "Using references to swap contents\n";
+    cout << "x = " << x << ", y = " << y;
+    cout << "\nCorrect\n\n";
+    swapVal(x, y);
+    cout << "Using values to swap contents\n";
+    cout << "x = " << x << ", y = " << y;
+    cout << "\nWrong\n";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int minVal, maxVal;
+    int nums[] = {15,18,35,87,43,51,65,12,25,47};
+    minVal = maxVal = nums[0];
+    int n = sizeof(nums) / sizeof(int);
+    for (int i = 1; i < n; i++) {
+        cout << nums[i] << endl;
+        if (nums[i] < minVal) minVal = nums[i];
+        if (nums[i] > maxVal) maxVal = nums[i];
+    }
+    cout << "Minimum value: " << minVal << endl;
+    cout << "Maximum value: " << maxVal << "\n\n";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    int x = 5; // 0101
+    int y = 9; // 1001
+    int z = x ^ y; // 1100
+    int w = (x & ~y) | (~x & y);
+    cout << z << endl;
+    cout << w << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    double a = 32495678e-4;
+    int b = (int)a;
+    int c = 0.467E5;
+    int d = 0XA5;
+    cout << a << endl;
+    cout << b << endl;
+    cout << c << endl;
+    cout << d << endl;
+    return 0;
+}
+
+#include <iomanip>
+#include <iostream>
+using namespace std;
+int main() {
+    cout << setw(12) << numeric_limits<short>::min() << endl;
+    cout << setw(12) << numeric_limits<short>::max() << endl;
+    cout << setw(12) << numeric_limits<unsigned short>::min() << endl;
+    cout << setw(12) << numeric_limits<unsigned short>::max() << endl;
+    cout << setw(12) << numeric_limits<int>::min() << endl;
+    cout << setw(12) << numeric_limits<int>::max() << endl;
+    cout << setw(12) << numeric_limits<unsigned int>::min() << endl;
+    cout << setw(12) << numeric_limits<unsigned int>::max() << endl;
+    cout << setw(12) << numeric_limits<long>::min() << endl;
+    cout << setw(12) << numeric_limits<long>::max() << endl;
+    cout << setw(12) << numeric_limits<unsigned long>::min() << endl;
+    cout << setw(12) << numeric_limits<unsigned long>::max() << endl;
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main() {
+    cout << numeric_limits<float> ::min() << endl;
+    cout << numeric_limits<float>::max() << endl;
+    cout << numeric_limits<double>::min() << endl;
+    cout << numeric_limits<double>::max() << endl;
+    cout << numeric_limits<long double>::min() << endl;
+    cout << numeric_limits<long double>::max() << endl;
+    return 0;
+}
+
